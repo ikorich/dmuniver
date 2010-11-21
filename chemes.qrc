@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/var1.jpg</file>
+        <file>resources/var2.jpg</file>
+        <file>resources/var3.jpg</file>
+        <file>resources/var4.jpg</file>
+        <file>resources/var5.jpg</file>
+        <file>resources/var6.jpg</file>
+        <file>resources/var7.jpg</file>
+        <file>resources/var8.jpg</file>
+        <file>resources/var9.jpg</file>
+        <file>resources/var10.jpg</file>
+        <file>resources/var1.txt</file>
+        <file>resources/var2.txt</file>
+        <file>resources/var3.txt</file>
+        <file>resources/var4.txt</file>
+        <file>resources/var5.txt</file>
+        <file>resources/var6.txt</file>
+        <file>resources/var7.txt</file>
+        <file>resources/var8.txt</file>
+        <file>resources/var9.txt</file>
+        <file>resources/var10.txt</file>
+        <file>resources/shkiv.jpg</file>
+    </qresource>
+</RCC>
