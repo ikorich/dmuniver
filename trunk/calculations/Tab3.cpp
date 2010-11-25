@@ -2,7 +2,7 @@
 #include "ui_dmwindow.h"
 #include "defines/table2.h"
 
-void DmWindow::updateLabelTextTab3()
+void DmWindow::updateLabelTextTab3(void)
 {
     QString text1 = ui->comboBox_sechenieRemnya1->currentText() + tr(":");
     QString text2 = ui->comboBox_sechenieRemnya2->currentText() + tr(":");
@@ -50,7 +50,7 @@ void DmWindow::updateLabelTextTab3()
 
 }
 
-void DmWindow::updateDiametrVedushegoShkiva()
+void DmWindow::updateDiametrVedushegoShkiva(void)
 {
     dVald11 = ui->comboBox_diametrRemnya1->currentText().toInt();
     dVald12 = ui->comboBox_diametrRemnya2->currentText().toInt();
@@ -58,7 +58,7 @@ void DmWindow::updateDiametrVedushegoShkiva()
     updateDiametrVedomogoShkiva();
 }
 
-void DmWindow::updateDiametrVedomogoShkiva()
+void DmWindow::updateDiametrVedomogoShkiva(void)
 {
 
     dValU = ROUND2(ui->doubleSpinBox_peredatochnoeOtnoshenie->value());
@@ -73,7 +73,7 @@ void DmWindow::updateDiametrVedomogoShkiva()
 
 }
 
-void DmWindow::updatePeredatochnoeChislo()
+void DmWindow::updatePeredatochnoeChislo(void)
 {
     dValXi = ui->doubleSpinBox_Xi->value();
     dValU1 = ROUND2(dVald21/(dVald11*(1.0 - dValXi)));
@@ -85,7 +85,7 @@ void DmWindow::updatePeredatochnoeChislo()
     updatePredMejosevoeRastoyanie();
 }
 
-void DmWindow::updatePredMejosevoeRastoyanie()
+void DmWindow::updatePredMejosevoeRastoyanie(void)
 {
     uint i;
 
@@ -104,7 +104,7 @@ void DmWindow::updatePredMejosevoeRastoyanie()
     updateDlinaRemnya();
 }
 
-void DmWindow::updateDlinaRemnya()
+void DmWindow::updateDlinaRemnya(void)
 {
     dValll1 = (2 * dValaa1) + (PI * (dVald11 + dVald21) / 2) + (((dVald21 - dVald11) * (dVald21 - dVald11)) / (4 * dValaa1));
     dValll1 = ROUND1(dValll1);
@@ -122,7 +122,7 @@ void DmWindow::updateDlinaRemnya()
     updateStandartDlinaRemnya();
 }
 
-void DmWindow::updateStandartDlinaRemnya()
+void DmWindow::updateStandartDlinaRemnya(void)
 {
     dVall1 = ui->comboBox_L2->currentText().toDouble();
     dVall2 = ui->comboBox_L2_2->currentText().toDouble();
@@ -130,7 +130,7 @@ void DmWindow::updateStandartDlinaRemnya()
     updateMejosevoeRastoyanie();
 }
 
-void DmWindow::updateMejosevoeRastoyanie()
+void DmWindow::updateMejosevoeRastoyanie(void)
 {
     dVala1 = ROUND1(dValaa1 + (abs(dVall1 - dValll1))/2);
     dVala2 = ROUND1(dValaa2 + (abs(dVall2 - dValll2))/2);
@@ -141,7 +141,7 @@ void DmWindow::updateMejosevoeRastoyanie()
     updateSkorostRemney();
 }
 
-void DmWindow::updateSkorostRemney()
+void DmWindow::updateSkorostRemney(void)
 {
     dValV1 = ROUND2(PI * dVald11 * dValN1 / 60000.0);
     dValV2 = ROUND2(PI * dVald12 * dValN1 / 60000.0);
@@ -152,7 +152,7 @@ void DmWindow::updateSkorostRemney()
     updateDolgovechnostiRemney();
 }
 
-void DmWindow::updateDolgovechnostiRemney()
+void DmWindow::updateDolgovechnostiRemney(void)
 {
     dValNpr1 = ROUND2(dValV1 * 1000 / dVall1);
     dValNpr2 = ROUND2(dValV2 * 1000 / dVall2);
@@ -163,7 +163,7 @@ void DmWindow::updateDolgovechnostiRemney()
     updateUgolObhvataMinShkiva();
 }
 
-void DmWindow::updateUgolObhvataMinShkiva()
+void DmWindow::updateUgolObhvataMinShkiva(void)
 {
     dValAlpha1 = ROUND1(180 - (dVald21 - dVald11) * 57 / dVala1);
     dValAlpha2 = ROUND1(180 - (dVald22 - dVald12) * 57 / dVala2);
@@ -176,7 +176,7 @@ void DmWindow::updateUgolObhvataMinShkiva()
     updateMoshnostNaOdnomRemne();
 }
 
-void DmWindow::updateMoshnostNaOdnomRemne()
+void DmWindow::updateMoshnostNaOdnomRemne(void)
 {
     for (int i = LENGTH(koeficientKp)-2 ; i >= 0; i--)
         if (dValU >= koeficientKp[i][0])
@@ -314,7 +314,7 @@ void DmWindow::updateMoshnostNaOdnomRemne()
     updateKolichestvoRemney();
 }
 
-void DmWindow::updateKolichestvoRemney()
+void DmWindow::updateKolichestvoRemney(void)
 {
     dValCp = ui->comboBox_Cp->currentText().toDouble();
     dValCz1 = ROUND2(ui->doubleSpinBox_Cz1->value());
@@ -335,7 +335,7 @@ void DmWindow::updateKolichestvoRemney()
     updateNatyajenieRemnya();
 }
 
-void DmWindow::updateNatyajenieRemnya()
+void DmWindow::updateNatyajenieRemnya(void)
 {
     double Ca = 0;
     double V = 0;
@@ -379,7 +379,7 @@ void DmWindow::updateNatyajenieRemnya()
     updateNagruzkaVala();
 }
 
-void DmWindow::updateNagruzkaVala()
+void DmWindow::updateNagruzkaVala(void)
 {
 
     double z = 0;
@@ -403,7 +403,7 @@ void DmWindow::updateNagruzkaVala()
     updateOsnovnieRazmeriShkivov();
 }
 
-void DmWindow::updateOsnovnieRazmeriShkivov()
+void DmWindow::updateOsnovnieRazmeriShkivov(void)
 {
     dValde1 = ROUND1(dVald11 + 2.0 * jolobStandart[ui->comboBox_sechenieRemnya1->currentIndex()][0]);
     dValde2 = ROUND1(dVald12 + 2.0 * jolobStandart[ui->comboBox_sechenieRemnya2->currentIndex()][0]);
@@ -435,7 +435,7 @@ void DmWindow::updateOsnovnieRazmeriShkivov()
 
 }
 
-bool DmWindow::checkTab3()
+bool DmWindow::checkTab3(void)
 {
     bool noErrors = true;
     double temp1 = ROUND2(ui->doubleSpinBox_moshnistNaVedushijVal->value());

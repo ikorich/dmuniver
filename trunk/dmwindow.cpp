@@ -30,6 +30,7 @@ DmWindow::DmWindow(QWidget *parent) :
     iSt = 140;
     iSigmaT = 650;
     iHBcp1 = iHBcp2 = 250;
+    iC = 1;
     //Tab5
     dT2 = dn2 = du2 = dPsiba = dPsibd = dKHBeta = daw = daw2 = dKa = dmm = dmm1 = dmm2 = dbb = dZsum = dZ1 = dBeta = dUf = dUf2 = 0.0;
     dd1 = dd2 = dda1 = dda2 = ddf1 = ddf2 = dPsibd2 = dV = dEtaAlpha = dZh = dZe = dKHa = dKHV = dSigmaH51 = dSigmaHmax = dSigmaHHmax = 0.0;

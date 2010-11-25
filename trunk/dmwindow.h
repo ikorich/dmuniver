@@ -72,51 +72,53 @@ private:
 
 private slots:
     //Tab 6
-
-    void DopustimieNapryajeniyaIzgiba();
-    void on_comboBox_Sb2_currentIndexChanged(QString value);
-    void on_comboBox_Sb1_currentIndexChanged(QString value);
+    void chisloZubjev2(void);
+    void on_spinBox_C_valueChanged(int );
+    void on_doubleSpinBox_SF_2_valueChanged(double value);
+    void DopustimieNapryajeniyaIzgiba(void);
+    void on_comboBox_St_2_currentIndexChanged(QString value);
+    void on_comboBox_Sb_2_currentIndexChanged(QString value);
     void on_spinBox_HB2_valueChanged(int value);
     void on_spinBox_HB1_valueChanged(int value);
     void on_spinBox_Litje_valueChanged(int value);
-    void viborMaterialaZubchatihKoles();
+    void viborMaterialaZubchatihKoles(void);
     void on_doubleSpinBox_u3_valueChanged(double value);
     void on_doubleSpinBox_n3_valueChanged(double value);
     void on_doubleSpinBox_T3_valueChanged(double value);
-    bool checkTab6();
+    bool checkTab6(void);
 
     //Tab 2
     void on_spinBox_2_valueChanged(int index);
     void on_spinBox_Variant2_valueChanged(int );
-    void on_comboBox_Pnom_currentIndexChanged();
+    void on_comboBox_Pnom_currentIndexChanged(void);
     void on_tabWidget_currentChanged(int index);
-    void updateKPDText();
-    void updatePValues();
-    void updateNValues();
-    void updateIValues();
-    void updatePnomTable();
-    void updateTablePeredatochnoeOtnoshenie();
-    void updateHarakteristiki();
-    bool checkTab2();
+    void updateKPDText(void);
+    void updatePValues(void);
+    void updateNValues(void);
+    void updateIValues(void);
+    void updatePnomTable(void);
+    void updateTablePeredatochnoeOtnoshenie(void);
+    void updateHarakteristiki(void);
+    bool checkTab2(void);
 
     //Tab 3
-    bool checkTab3();
-    void updateLabelTextTab3();
-    void updateDiametrVedushegoShkiva();
-    void updateDiametrVedomogoShkiva();
-    void updatePeredatochnoeChislo();
-    void updatePredMejosevoeRastoyanie();
-    void updateDlinaRemnya();
-    void updateStandartDlinaRemnya();
-    void updateMejosevoeRastoyanie();
-    void updateSkorostRemney();
-    void updateDolgovechnostiRemney();
-    void updateUgolObhvataMinShkiva();
-    void updateMoshnostNaOdnomRemne();
-    void updateKolichestvoRemney();
-    void updateNatyajenieRemnya();
-    void updateNagruzkaVala();
-    void updateOsnovnieRazmeriShkivov();
+    bool checkTab3(void);
+    void updateLabelTextTab3(void);
+    void updateDiametrVedushegoShkiva(void);
+    void updateDiametrVedomogoShkiva(void);
+    void updatePeredatochnoeChislo(void);
+    void updatePredMejosevoeRastoyanie(void);
+    void updateDlinaRemnya(void);
+    void updateStandartDlinaRemnya(void);
+    void updateMejosevoeRastoyanie(void);
+    void updateSkorostRemney(void);
+    void updateDolgovechnostiRemney(void);
+    void updateUgolObhvataMinShkiva(void);
+    void updateMoshnostNaOdnomRemne(void);
+    void updateKolichestvoRemney(void);
+    void updateNatyajenieRemnya(void);
+    void updateNagruzkaVala(void);
+    void updateOsnovnieRazmeriShkivov(void);
     double getValPo(uint start, uint end, double d1, double v);
 
     //Tab 4
@@ -124,33 +126,33 @@ private slots:
     void on_spinBox_HVsr1_valueChanged(int value);
     void on_comboBox_Koleso_currentIndexChanged(int index);
     void on_comboBox_Shesternya_currentIndexChanged(int index);
-    void updateChisloCiclov();
-    void updateFactChisloCiclov();
-    void updateKontaktnieNapryajenia();
-    bool checkTab4();
-    void updateNapryajenieIzgiba();
-    void updateMejOsevoeRastoyanie();
-    void updateViborMateriala();
+    void updateChisloCiclov(void);
+    void updateFactChisloCiclov(void);
+    void updateKontaktnieNapryajenia(void);
+    bool checkTab4(void);
+    void updateNapryajenieIzgiba(void);
+    void updateMejOsevoeRastoyanie(void);
+    void updateViborMateriala(void);
     void on_comboBox_Sb_currentIndexChanged(QString value);
 
     //Tab 5
-    void ProverkaPrigodnostiZagotovki();
+    void ProverkaPrigodnostiZagotovki(void);
     void on_doubleSpinBox_Kfv_valueChanged(double value);
     void on_comboBox_Kfbeta_currentIndexChanged(QString value);
-    void ProverkaNaVinoslivostPoNapryajeniyuIzgiba();
-    void SilaDejstviyaVZaceplenii();
+    void ProverkaNaVinoslivostPoNapryajeniyuIzgiba(void);
+    void SilaDejstviyaVZaceplenii(void);
     void on_doubleSpinBox_Khv_valueChanged(double value);
-    void on_comboBox_Zm_currentIndexChanged(QString );
+    void on_comboBox_Zm_currentIndexChanged(QString value);
     void on_spinBox_StepenPeredachi_valueChanged(int value);
-    void ProverkaNaKontaktnuyuVinoslivost();
-    void OsnovnojGeometricheskijObjom();
-    void FacticheskoePeredatochnoeOtnoshenie();
-    void FacticheskijUgolNaklona();
-    void ChisloZubjev();
-    void UgolNaklonaZubjev();
+    void ProverkaNaKontaktnuyuVinoslivost(void);
+    void OsnovnojGeometricheskijObjom(void);
+    void FacticheskoePeredatochnoeOtnoshenie(void);
+    void FacticheskijUgolNaklona(void);
+    void ChisloZubjev(void);
+    void UgolNaklonaZubjev(void);
     void on_comboBox_m_currentIndexChanged(QString value);
-    void ModulZacepleniya();
-    void ShirinaZubchatogoVenca();
+    void ModulZacepleniya(void);
+    void ShirinaZubchatogoVenca(void);
     void on_comboBox_aw_currentIndexChanged(QString value);
     void on_comboBox_St_currentIndexChanged(QString value );
     void on_comboBox_KHBeta_currentIndexChanged(QString value);
@@ -158,9 +160,9 @@ private slots:
     void on_doubleSpinBox_u2_valueChanged(double value);
     void on_doubleSpinBox_n2_valueChanged(double value);
     void on_doubleSpinBox_T2_valueChanged(double value);
-    bool checkTab5();
-    void KoefficientShirini();
-    double GetVspomogatelniyKoeficient();
+    bool checkTab5(void);
+    void KoefficientShirini(void);
+    double GetVspomogatelniyKoeficient(void);
 
     //Global
     void on_comboBoxPeredacha1Type1_currentIndexChanged(int index);
@@ -232,6 +234,7 @@ private:
     int    iSb, iSt;
     int    iN2fe;
     int    iSigmaT;
+    int    iC;
 
     //Tab 5
     double dT2;
@@ -287,7 +290,12 @@ private:
     double du3;
     int    iLitje;
     int    iHB1, iHB2;
-    int    iSb1, iSb2;
+    int    iSb2, iSt2;
+    double dSf1, dSf2;
+    double dSF;
+    int    iN1FE, iN2FE;
+    double dSff1, dSff2;
+
 };
 
 #endif // DMWINDOW_H

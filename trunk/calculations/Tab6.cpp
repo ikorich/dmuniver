@@ -37,40 +37,59 @@ void DmWindow::on_spinBox_HB2_valueChanged(int value)
     viborMaterialaZubchatihKoles();
 }
 
-void DmWindow::on_comboBox_Sb1_currentIndexChanged(QString value)
-{
-    iSb1 = value.toInt();
-    viborMaterialaZubchatihKoles();
-}
-
-void DmWindow::on_comboBox_Sb2_currentIndexChanged(QString value)
+void DmWindow::on_comboBox_Sb_2_currentIndexChanged(QString value)
 {
     iSb2 = value.toInt();
     viborMaterialaZubchatihKoles();
 }
 
-void DmWindow::viborMaterialaZubchatihKoles()
+void DmWindow::on_comboBox_St_2_currentIndexChanged(QString value)
+{
+    iSt2 = value.toInt();
+    viborMaterialaZubchatihKoles();
+}
+
+void DmWindow::on_doubleSpinBox_SF_2_valueChanged(double value)
+{
+    dSF = value;
+}
+
+void DmWindow::viborMaterialaZubchatihKoles(void)
 {
     DopustimieNapryajeniyaIzgiba();
 }
 
-void DmWindow::DopustimieNapryajeniyaIzgiba()
+void DmWindow::DopustimieNapryajeniyaIzgiba(void)
 {
+    dSf1 = 1.8 * iHB1;
+    dSf1 = ROUND1(dSf1);
 
+    dSf2 = 1.8 * iHB2;
+    dSf2 = ROUND1(dSf2);
 
+    ui->label_sF01->setText(QString::number(dSf1));
+    ui->label_sF02->setText(QString::number(dSf2));
 
+    iN1FE = 60 * dn3 * iValLh;
+    ui->label_N1FE->setText(QString::number(iN1FE));
 
+    iN2FE = iN1FE / du3;
+    ui->label_N2FE->setText(QString::number(iN2FE));
 
+    dSff1 = dSf1 / dSF;
+    dSff1 = ROUND1(dSff1);
 
+    dSff2 = dSf2 / dSF;
+    dSff2 = ROUND1(dSff2);
 
+    ui->label_SFF1->setText(QString::number(dSff1));
+    ui->label_SFF2->setText(QString::number(dSff2));
 
+    chisloZubjev2();
+}
 
-
-
-
-
-
-
+void DmWindow::chisloZubjev2(void)
+{
 
 
 
@@ -100,7 +119,7 @@ void DmWindow::DopustimieNapryajeniyaIzgiba()
 #endif
 }
 
-bool DmWindow::checkTab6()
+bool DmWindow::checkTab6(void)
 {
     bool    noErrors = true;
     int     iTempVal1 = 0;
@@ -161,14 +180,14 @@ bool DmWindow::checkTab6()
         iTempVal2 = 440;
     }
 
-    if (iSb1 != iTempVal1)
+    if (iSb2 != iTempVal1)
     {
         ui->label_checkSb1->setVisible(true);
         noErrors = false;
     }
     else ui->label_checkSb1->setVisible(false);
 
-    if (iSb2 != iTempVal2)
+    if (iSt2 != iTempVal2)
     {
         ui->label_checkSb2->setVisible(true);
         noErrors = false;

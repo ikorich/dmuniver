@@ -2,7 +2,7 @@
 #include "ui_dmwindow.h"
 #include "defines/table1.h"
 
-void DmWindow::updateKPDText()
+void DmWindow::updateKPDText(void)
 {
     dValEta1 = ui->doubleSpinBox_nu1->value();
     dValEta2 = ui->doubleSpinBox_nu2->value();
@@ -13,7 +13,7 @@ void DmWindow::updateKPDText()
     updatePValues();
 }
 
-void DmWindow::updatePValues()
+void DmWindow::updatePValues(void)
 {
     ui->label_P4->setText("");
     if (ui->doubleSpinBox_P->value() == 0)
@@ -34,7 +34,7 @@ void DmWindow::updatePValues()
     on_comboBox_Pnom_currentIndexChanged();
 }
 
-void DmWindow::updatePnomTable()
+void DmWindow::updatePnomTable(void)
 {
     int index = ui->comboBox_Pnom->currentIndex();
     for (int i = 0 ; i < ui->tableWidgetPnom->columnCount() ; i ++)
@@ -45,14 +45,14 @@ void DmWindow::updatePnomTable()
         ui->tableWidgetPnom->setItem(3, i , new QTableWidgetItem(tr(sincOfRotationHertz3000[index][i])));
     }
 }
-void DmWindow::on_comboBox_Pnom_currentIndexChanged()
+void DmWindow::on_comboBox_Pnom_currentIndexChanged(void)
 {
     updatePnomTable();
     updateNValues();
     updateIValues();
 }
 
-void DmWindow::updateTablePeredatochnoeOtnoshenie()
+void DmWindow::updateTablePeredatochnoeOtnoshenie(void)
 {
     ui->tableWidget_4Privoda->setItem(1, 0, new QTableWidgetItem(ui->comboBoxPrivodType->currentText()));
     ui->tableWidget_4Privoda->setItem(2, 0, new QTableWidgetItem(ui->comboBoxPeredacha1Type1->currentText()));
@@ -71,7 +71,7 @@ void DmWindow::updateTablePeredatochnoeOtnoshenie()
     on_spinBox_Variant2_valueChanged(ui->spinBox_Variant2->value());
 }
 
-void DmWindow::updateNValues()
+void DmWindow::updateNValues(void)
 {
     if (iValN > 0)
     {
@@ -104,7 +104,7 @@ void DmWindow::updateNValues()
     }
 }
 
-void DmWindow::updateIValues()
+void DmWindow::updateIValues(void)
 {
     ui->label_i1->setText( QString::number(predelI[0][0])+" .. "+QString::number(predelI[0][1]));
     int shift = CurrentReductor + 1;
@@ -165,7 +165,7 @@ void DmWindow::on_spinBox_Variant2_valueChanged(int val)
     updateHarakteristiki();
 }
 
-void DmWindow::updateHarakteristiki()
+void DmWindow::updateHarakteristiki(void)
 {
     dValN1 = ui->label_nnom_2->text().toDouble();
     ui->label_n1->setText(QString::number(dValN1));
@@ -249,7 +249,7 @@ void DmWindow::updateHarakteristiki()
 #endif
 }
 
-bool DmWindow::checkTab2()
+bool DmWindow::checkTab2(void)
 {
     bool noErrors = true;
 

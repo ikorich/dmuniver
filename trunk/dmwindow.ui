@@ -52,7 +52,7 @@
        <enum>QTabWidget::North</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>5</number>
       </property>
       <property name="usesScrollButtons">
        <bool>true</bool>
@@ -732,7 +732,7 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-859</y>
+             <y>0</y>
              <width>923</width>
              <height>1613</height>
             </rect>
@@ -2766,7 +2766,7 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-1806</y>
+             <y>0</y>
              <width>923</width>
              <height>2585</height>
             </rect>
@@ -6086,7 +6086,7 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-284</y>
+             <y>0</y>
              <width>923</width>
              <height>1038</height>
             </rect>
@@ -11596,7 +11596,7 @@ p, li { white-space: pre-wrap; }
                    </widget>
                   </item>
                   <item row="0" column="2">
-                   <widget class="QComboBox" name="comboBox_Sb1">
+                   <widget class="QComboBox" name="comboBox_Sb_2">
                     <item>
                      <property name="text">
                       <string>500</string>
@@ -11633,7 +11633,7 @@ p, li { white-space: pre-wrap; }
                    </widget>
                   </item>
                   <item row="0" column="5">
-                   <widget class="QComboBox" name="comboBox_Sb2">
+                   <widget class="QComboBox" name="comboBox_St_2">
                     <item>
                      <property name="text">
                       <string>270</string>
