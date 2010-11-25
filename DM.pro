@@ -19,11 +19,11 @@ HEADERS += dmwindow.h \
 FORMS += dmwindow.ui
 RESOURCES += chemes.qrc
 win32 {
-    #RC_FILE = resources/icon.rc
+    RC_FILE = resources/icon.rc
 }
 else:macx {
     RC_FILE = resources/icon.icns
 }
 else {
-    RC_FILE = resources/icon.rc
+    kde-config --resources/icon.png icon
 }

@@ -587,7 +587,7 @@ bool DmWindow::checkTab5()
     }
     else ui->label_checkNaznachenie->setVisible(false);
 
-    if(iNaznachenie >=6 && iNaznachenie <= 9 || CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
+    if((iNaznachenie >=6 && iNaznachenie <= 9) || CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
     {
         if (dV < 1)
         {

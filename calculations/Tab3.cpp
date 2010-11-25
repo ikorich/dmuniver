@@ -632,8 +632,8 @@ bool DmWindow::checkTab3()
     } else ui->label_checkZp2->setVisible(false);
 
     if ((ui->comboBox_sechenieRemnya3->currentIndex() != ui->comboBox_sechenieRemnya1->currentIndex() && ui->comboBox_sechenieRemnya3->currentIndex() != ui->comboBox_sechenieRemnya2->currentIndex())
-        || (ui->comboBox_sechenieRemnya3->currentIndex() == ui->comboBox_sechenieRemnya1->currentIndex() && iValZp1 > 5)
-        || (ui->comboBox_sechenieRemnya3->currentIndex() == ui->comboBox_sechenieRemnya2->currentIndex()) && iValZp2 > 5)
+        || ((ui->comboBox_sechenieRemnya3->currentIndex() == ui->comboBox_sechenieRemnya1->currentIndex() && iValZp1 > 5))
+        || ((ui->comboBox_sechenieRemnya3->currentIndex() == ui->comboBox_sechenieRemnya2->currentIndex()) && iValZp2 > 5))
     {
         ui->label_checkSechebie3->setVisible(true);
         noErrors = false;

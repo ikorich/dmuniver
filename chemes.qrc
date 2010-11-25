@@ -21,5 +21,6 @@
         <file>resources/var9.txt</file>
         <file>resources/var10.txt</file>
         <file>resources/shkiv.jpg</file>
+        <file>resources/icon.png</file>
     </qresource>
 </RCC>

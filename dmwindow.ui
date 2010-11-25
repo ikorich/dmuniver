@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>спроектировать   привод  шнека смесителя минеральных удобрений </string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="chemes.qrc">
+    <normaloff>:/resources/icon.png</normaloff>:/resources/icon.png</iconset>
+  </property>
   <property name="locale">
    <locale language="Ukrainian" country="Ukraine"/>
   </property>
@@ -48,7 +52,7 @@
        <enum>QTabWidget::North</enum>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>0</number>
       </property>
       <property name="usesScrollButtons">
        <bool>true</bool>
@@ -170,7 +174,7 @@ p, li { white-space: pre-wrap; }
               <number>10000</number>
              </property>
              <property name="value">
-              <number>20</number>
+              <number>0</number>
              </property>
             </widget>
            </item>
@@ -244,7 +248,7 @@ p, li { white-space: pre-wrap; }
               <number>999999</number>
              </property>
              <property name="value">
-              <number>8000</number>
+              <number>0</number>
              </property>
             </widget>
            </item>
@@ -333,7 +337,7 @@ p, li { white-space: pre-wrap; }
               <double>0.100000000000000</double>
              </property>
              <property name="value">
-              <double>0.500000000000000</double>
+              <double>0.000000000000000</double>
              </property>
             </widget>
            </item>
@@ -362,7 +366,7 @@ p, li { white-space: pre-wrap; }
            <item row="0" column="5">
             <widget class="QSpinBox" name="spinBox_Ft">
              <property name="value">
-              <number>10</number>
+              <number>0</number>
              </property>
             </widget>
            </item>
@@ -728,9 +732,9 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
-             <width>922</width>
-             <height>1595</height>
+             <y>-859</y>
+             <width>923</width>
+             <height>1613</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_7">
@@ -834,7 +838,7 @@ p, li { white-space: pre-wrap; }
                   <double>0.010000000000000</double>
                  </property>
                  <property name="value">
-                  <double>0.960000000000000</double>
+                  <double>0.000000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -847,7 +851,7 @@ p, li { white-space: pre-wrap; }
                   <double>0.010000000000000</double>
                  </property>
                  <property name="value">
-                  <double>0.960000000000000</double>
+                  <double>0.000000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -860,7 +864,7 @@ p, li { white-space: pre-wrap; }
                   <double>0.010000000000000</double>
                  </property>
                  <property name="value">
-                  <double>0.960000000000000</double>
+                  <double>0.000000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -1698,7 +1702,7 @@ p, li { white-space: pre-wrap; }
                   <item row="0" column="1">
                    <widget class="QComboBox" name="comboBox_Pnom">
                     <property name="currentIndex">
-                     <number>7</number>
+                     <number>0</number>
                     </property>
                     <item>
                      <property name="text">
@@ -2357,7 +2361,7 @@ p, li { white-space: pre-wrap; }
                   <number>4</number>
                  </property>
                  <property name="value">
-                  <number>2</number>
+                  <number>1</number>
                  </property>
                 </widget>
                </item>
@@ -2479,14 +2483,14 @@ p, li { white-space: pre-wrap; }
                   <double>0.200000000000000</double>
                  </property>
                  <property name="value">
-                  <double>2.400000000000000</double>
+                  <double>1.600000000000000</double>
                  </property>
                 </widget>
                </item>
                <item row="3" column="2">
                 <widget class="QComboBox" name="comboBox_i2">
                  <property name="currentIndex">
-                  <number>12</number>
+                  <number>0</number>
                  </property>
                  <item>
                   <property name="text">
@@ -2762,9 +2766,9 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
-             <width>922</width>
-             <height>2551</height>
+             <y>-1806</y>
+             <width>923</width>
+             <height>2585</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_11">
@@ -2968,7 +2972,7 @@ p, li { white-space: pre-wrap; }
                      <double>0.020000000000000</double>
                     </property>
                     <property name="value">
-                     <double>0.020000000000000</double>
+                     <double>0.010000000000000</double>
                     </property>
                    </widget>
                   </item>
@@ -3094,7 +3098,7 @@ p, li { white-space: pre-wrap; }
                <item row="6" column="3">
                 <widget class="QComboBox" name="comboBox_standart2">
                  <property name="currentIndex">
-                  <number>16</number>
+                  <number>0</number>
                  </property>
                  <item>
                   <property name="text">
@@ -3209,7 +3213,7 @@ p, li { white-space: pre-wrap; }
                <item row="4" column="3">
                 <widget class="QComboBox" name="comboBox_standart1">
                  <property name="currentIndex">
-                  <number>12</number>
+                  <number>0</number>
                  </property>
                  <item>
                   <property name="text">
@@ -3325,7 +3329,7 @@ p, li { white-space: pre-wrap; }
                <item row="0" column="1">
                 <widget class="QDoubleSpinBox" name="doubleSpinBox_moshnistNaVedushijVal">
                  <property name="value">
-                  <double>7.500000000000000</double>
+                  <double>0.000000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -3345,7 +3349,7 @@ p, li { white-space: pre-wrap; }
                   <number>10</number>
                  </property>
                  <property name="value">
-                  <number>970</number>
+                  <number>0</number>
                  </property>
                 </widget>
                </item>
@@ -3359,7 +3363,7 @@ p, li { white-space: pre-wrap; }
                <item row="2" column="1">
                 <widget class="QDoubleSpinBox" name="doubleSpinBox_peredatochnoeOtnoshenie">
                  <property name="value">
-                  <double>2.430000000000000</double>
+                  <double>0.000000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -3555,7 +3559,7 @@ p, li { white-space: pre-wrap; }
                <item row="0" column="2">
                 <widget class="QComboBox" name="comboBox_L2">
                  <property name="currentIndex">
-                  <number>23</number>
+                  <number>0</number>
                  </property>
                  <item>
                   <property name="text">
@@ -3770,7 +3774,7 @@ p, li { white-space: pre-wrap; }
                <item row="1" column="2">
                 <widget class="QComboBox" name="comboBox_L2_2">
                  <property name="currentIndex">
-                  <number>31</number>
+                  <number>0</number>
                  </property>
                  <item>
                   <property name="text">
@@ -4629,7 +4633,7 @@ p, li { white-space: pre-wrap; }
                <item row="3" column="2">
                 <widget class="QComboBox" name="comboBox_Ca1">
                  <property name="currentIndex">
-                  <number>3</number>
+                  <number>0</number>
                  </property>
                  <item>
                   <property name="text">
@@ -4671,7 +4675,7 @@ p, li { white-space: pre-wrap; }
                <item row="4" column="2">
                 <widget class="QComboBox" name="comboBox_Ca2">
                  <property name="currentIndex">
-                  <number>3</number>
+                  <number>0</number>
                  </property>
                  <item>
                   <property name="text">
@@ -4713,7 +4717,7 @@ p, li { white-space: pre-wrap; }
                <item row="3" column="6">
                 <widget class="QComboBox" name="comboBox_Cl1">
                  <property name="currentIndex">
-                  <number>3</number>
+                  <number>0</number>
                  </property>
                  <item>
                   <property name="text">
@@ -4765,7 +4769,7 @@ p, li { white-space: pre-wrap; }
                <item row="4" column="6">
                 <widget class="QComboBox" name="comboBox_Cl2">
                  <property name="currentIndex">
-                  <number>3</number>
+                  <number>0</number>
                  </property>
                  <item>
                   <property name="text">
@@ -4931,7 +4935,7 @@ p, li { white-space: pre-wrap; }
                <item row="10" column="4">
                 <widget class="QComboBox" name="comboBox_sechenieRemnya3">
                  <property name="currentIndex">
-                  <number>2</number>
+                  <number>0</number>
                  </property>
                  <item>
                   <property name="text">
@@ -4998,7 +5002,7 @@ p, li { white-space: pre-wrap; }
                   <item row="1" column="1">
                    <widget class="QComboBox" name="comboBox_Cp">
                     <property name="currentIndex">
-                     <number>1</number>
+                     <number>0</number>
                     </property>
                     <item>
                      <property name="text">
@@ -5272,6 +5276,9 @@ p, li { white-space: pre-wrap; }
                     <property name="singleStep">
                      <double>0.050000000000000</double>
                     </property>
+                    <property name="value">
+                     <double>0.900000000000000</double>
+                    </property>
                    </widget>
                   </item>
                   <item row="2" column="2">
@@ -5286,7 +5293,7 @@ p, li { white-space: pre-wrap; }
                      <double>0.050000000000000</double>
                     </property>
                     <property name="value">
-                     <double>1.000000000000000</double>
+                     <double>0.900000000000000</double>
                     </property>
                    </widget>
                   </item>
@@ -5338,7 +5345,7 @@ p, li { white-space: pre-wrap; }
                <item row="0" column="2">
                 <widget class="QComboBox" name="comboBox_diametrRemnya1">
                  <property name="currentIndex">
-                  <number>4</number>
+                  <number>0</number>
                  </property>
                  <item>
                   <property name="text">
@@ -5448,7 +5455,7 @@ p, li { white-space: pre-wrap; }
                <item row="1" column="2">
                 <widget class="QComboBox" name="comboBox_diametrRemnya2">
                  <property name="currentIndex">
-                  <number>8</number>
+                  <number>0</number>
                  </property>
                  <item>
                   <property name="text">
@@ -5615,7 +5622,7 @@ p, li { white-space: pre-wrap; }
                <item row="0" column="1" rowspan="2">
                 <widget class="QComboBox" name="comboBox_sechenieRemnya1">
                  <property name="currentIndex">
-                  <number>2</number>
+                  <number>0</number>
                  </property>
                  <item>
                   <property name="text">
@@ -5649,7 +5656,7 @@ p, li { white-space: pre-wrap; }
                <item row="2" column="1">
                 <widget class="QComboBox" name="comboBox_sechenieRemnya2">
                  <property name="currentIndex">
-                  <number>3</number>
+                  <number>0</number>
                  </property>
                  <item>
                   <property name="text">
@@ -5738,7 +5745,7 @@ p, li { white-space: pre-wrap; }
                <item row="2" column="1">
                 <widget class="QComboBox" name="comboBox_q">
                  <property name="currentIndex">
-                  <number>2</number>
+                  <number>0</number>
                  </property>
                  <item>
                   <property name="text">
@@ -6079,9 +6086,9 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
-             <width>922</width>
-             <height>1022</height>
+             <y>-284</y>
+             <width>923</width>
+             <height>1038</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_44">
@@ -6665,7 +6672,7 @@ p, li { white-space: pre-wrap; }
                      <number>999</number>
                     </property>
                     <property name="value">
-                     <number>250</number>
+                     <number>0</number>
                     </property>
                    </widget>
                   </item>
@@ -6742,7 +6749,7 @@ p, li { white-space: pre-wrap; }
                      <number>999</number>
                     </property>
                     <property name="value">
-                     <number>250</number>
+                     <number>0</number>
                     </property>
                    </widget>
                   </item>
@@ -7298,6 +7305,9 @@ p, li { white-space: pre-wrap; }
                     <property name="singleStep">
                      <double>0.100000000000000</double>
                     </property>
+                    <property name="value">
+                     <double>1.100000000000000</double>
+                    </property>
                    </widget>
                   </item>
                   <item row="3" column="0">
@@ -7425,7 +7435,7 @@ p, li { white-space: pre-wrap; }
                         <double>0.250000000000000</double>
                        </property>
                        <property name="value">
-                        <double>1.750000000000000</double>
+                        <double>1.550000000000000</double>
                        </property>
                       </widget>
                      </item>
@@ -7593,8 +7603,8 @@ p, li { white-space: pre-wrap; }
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>922</width>
-             <height>2626</height>
+             <width>923</width>
+             <height>2654</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_54">
@@ -7617,7 +7627,7 @@ p, li { white-space: pre-wrap; }
                   <double>999.990000000000009</double>
                  </property>
                  <property name="value">
-                  <double>172.240000000000009</double>
+                  <double>0.000000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -7637,7 +7647,7 @@ p, li { white-space: pre-wrap; }
                   <double>1000.000000000000000</double>
                  </property>
                  <property name="value">
-                  <double>399.199999999999989</double>
+                  <double>0.000000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -7681,7 +7691,7 @@ p, li { white-space: pre-wrap; }
                   <number>1</number>
                  </property>
                  <property name="value">
-                  <double>4.000000000000000</double>
+                  <double>0.000000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -11268,8 +11278,8 @@ p, li { white-space: pre-wrap; }
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>904</width>
-             <height>1009</height>
+             <width>905</width>
+             <height>1017</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_91">
@@ -11292,7 +11302,7 @@ p, li { white-space: pre-wrap; }
                   <double>999.990000000000009</double>
                  </property>
                  <property name="value">
-                  <double>660.269999999999982</double>
+                  <double>0.000000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -11329,7 +11339,7 @@ p, li { white-space: pre-wrap; }
                   <number>1</number>
                  </property>
                  <property name="value">
-                  <double>99.799999999999997</double>
+                  <double>0.000000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -11353,7 +11363,7 @@ p, li { white-space: pre-wrap; }
                   <number>1</number>
                  </property>
                  <property name="value">
-                  <double>5.000000000000000</double>
+                  <double>0.000000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -12423,7 +12433,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>965</width>
-     <height>21</height>
+     <height>18</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHkjgjgffgd">
@@ -12522,7 +12532,9 @@ p, li { white-space: pre-wrap; }
   <tabstop>tableWidgetPnom</tabstop>
   <tabstop>tabWidget</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="chemes.qrc"/>
+ </resources>
  <connections/>
  <designerdata>
   <property name="gridDeltaX">
