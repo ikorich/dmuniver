@@ -37,7 +37,12 @@ void DmWindow::on_comboBox_St_currentIndexChanged(QString value)
     iSt = value.toInt();
 }
 
-void DmWindow::updateChisloCiclov()
+void DmWindow::on_spinBox_C_valueChanged(int value)
+{
+    iC = value;
+}
+
+void DmWindow::updateChisloCiclov(void)
 {
     iHBcp1 = ui->spinBox_HVsr1->value();
     iHBcp2 = ui->spinBox_HVsr2->value();
@@ -56,13 +61,13 @@ void DmWindow::updateChisloCiclov()
     updateFactChisloCiclov();
 }
 
-void DmWindow::updateFactChisloCiclov()
+void DmWindow::updateFactChisloCiclov(void)
 {
     ui->label_Nh01_2->setText(ui->label_Nh01->text());
     ui->label_Nh02_2->setText(ui->label_Nh02->text());
 
-    iN1 = ROUND(60*dValN2*ui->spinBox_C->value()*iValLh);
-    iN2 = ROUND(60*dValN3*ui->spinBox_C->value()*iValLh);
+    iN1 = ROUND(60*dValN2*iC*iValLh);
+    iN2 = ROUND(60*dValN3*iC*iValLh);
 
     ui->label_N1->setText(QString::number(iN1));
     ui->label_N2->setText(QString::number(iN2));
@@ -107,7 +112,7 @@ void DmWindow::updateFactChisloCiclov()
 
 }
 
-void DmWindow::updateViborMateriala()
+void DmWindow::updateViborMateriala(void)
 {
     dVs = 4.5*0.0001*dValN3*dValI2*pow(dValT2, (1.0/3));
     dVs = ROUND2(dVs);
@@ -116,7 +121,7 @@ void DmWindow::updateViborMateriala()
     updateKontaktnieNapryajenia();
 }
 
-void DmWindow::updateKontaktnieNapryajenia()
+void DmWindow::updateKontaktnieNapryajenia(void)
 {
     if(CurrentReductor == Reductor::CILINDRICHESKAYA_PRYMOZUBAYA || CurrentReductor == Reductor::CILINDRICHESKAYA_KOSOZUBAYA || CurrentReductor == Reductor::KONICHESKAYA)
     {
@@ -151,7 +156,7 @@ void DmWindow::updateKontaktnieNapryajenia()
     updateNapryajenieIzgiba();
 }
 
-void DmWindow::updateNapryajenieIzgiba()
+void DmWindow::updateNapryajenieIzgiba(void)
 {
     if(CurrentReductor == Reductor::CILINDRICHESKAYA_PRYMOZUBAYA || CurrentReductor == Reductor::CILINDRICHESKAYA_KOSOZUBAYA || CurrentReductor == Reductor::KONICHESKAYA)
     {
@@ -208,7 +213,7 @@ void DmWindow::updateNapryajenieIzgiba()
 #endif
 }
 
-bool DmWindow::checkTab4()
+bool DmWindow::checkTab4(void)
 {
     bool noErrors = true;
 

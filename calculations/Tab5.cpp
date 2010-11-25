@@ -75,7 +75,7 @@ void DmWindow::on_doubleSpinBox_Kfv_valueChanged(double value)
     ProverkaNaVinoslivostPoNapryajeniyuIzgiba();
 }
 
-void DmWindow::KoefficientShirini()
+void DmWindow::KoefficientShirini(void)
 {    
     dPsibd = 0.5 * dPsiba * (du2 + 1);
     dPsibd = ROUND2(dPsibd);
@@ -85,7 +85,7 @@ void DmWindow::KoefficientShirini()
     updateMejOsevoeRastoyanie();
 }
 
-void DmWindow::updateMejOsevoeRastoyanie()
+void DmWindow::updateMejOsevoeRastoyanie(void)
 {
     dKa = GetVspomogatelniyKoeficient();
     ui->label_Ka->setText(QString::number(dKa));
@@ -98,7 +98,7 @@ void DmWindow::updateMejOsevoeRastoyanie()
     ShirinaZubchatogoVenca();
 }
 
-void DmWindow::ShirinaZubchatogoVenca()
+void DmWindow::ShirinaZubchatogoVenca(void)
 {
     ib2 = dPsiba * daw2;
     ui->label_b2->setText(QString::number(dPsiba) + tr("*") + QString::number(daw2) + tr("=") + QString::number(ib2) + tr(" мм") );
@@ -109,7 +109,7 @@ void DmWindow::ShirinaZubchatogoVenca()
     ModulZacepleniya();
 }
 
-void DmWindow::ModulZacepleniya()
+void DmWindow::ModulZacepleniya(void)
 {
     dmm1 = ROUND2(0.01 * daw2);
     dmm2 = ROUND2(0.02 * daw2);
@@ -118,7 +118,7 @@ void DmWindow::ModulZacepleniya()
     UgolNaklonaZubjev();
 }
 
-void DmWindow::UgolNaklonaZubjev()
+void DmWindow::UgolNaklonaZubjev(void)
 {
     if (CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
         dbb = 0.0;
@@ -130,7 +130,7 @@ void DmWindow::UgolNaklonaZubjev()
     ChisloZubjev();
 }
 
-void DmWindow::ChisloZubjev()
+void DmWindow::ChisloZubjev(void)
 {
     dZsum = 2.0 * daw2 * cos(dbb * (PI / 180)) / dmm;
     dZsum = ROUND2(dZsum);
@@ -154,7 +154,7 @@ void DmWindow::ChisloZubjev()
     FacticheskijUgolNaklona();
 }
 
-void DmWindow::FacticheskijUgolNaklona()
+void DmWindow::FacticheskijUgolNaklona(void)
 {
     if (CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
         dBeta = 0.0;
@@ -165,7 +165,7 @@ void DmWindow::FacticheskijUgolNaklona()
 
     FacticheskoePeredatochnoeOtnoshenie();
 }
-void DmWindow::FacticheskoePeredatochnoeOtnoshenie()
+void DmWindow::FacticheskoePeredatochnoeOtnoshenie(void)
 {
     dUf = ROUND1((double)iZ2 / iZ1);
 
@@ -181,7 +181,7 @@ void DmWindow::FacticheskoePeredatochnoeOtnoshenie()
     OsnovnojGeometricheskijObjom();
 }
 
-void DmWindow::OsnovnojGeometricheskijObjom()
+void DmWindow::OsnovnojGeometricheskijObjom(void)
 {
     dd1 = iZ1 * dmm / cos(dBeta * (PI / 180));
     dd1 = ROUND1(dd1);
@@ -216,7 +216,7 @@ void DmWindow::OsnovnojGeometricheskijObjom()
     ProverkaNaKontaktnuyuVinoslivost();
 }
 
-void DmWindow::ProverkaNaKontaktnuyuVinoslivost()
+void DmWindow::ProverkaNaKontaktnuyuVinoslivost(void)
 {
     dPsibd2 = (double)ib1 / dd1;
     dPsibd2 = ROUND2(dPsibd2);
@@ -295,7 +295,7 @@ void DmWindow::ProverkaNaKontaktnuyuVinoslivost()
     SilaDejstviyaVZaceplenii();
 }
 
-void DmWindow::SilaDejstviyaVZaceplenii()
+void DmWindow::SilaDejstviyaVZaceplenii(void)
 {
     dFt = 2.0 * dT2 * 1000.0 / dd1;
     dFt = ROUND1(dFt);
@@ -315,7 +315,7 @@ void DmWindow::SilaDejstviyaVZaceplenii()
     ProverkaNaVinoslivostPoNapryajeniyuIzgiba();
 }
 
-void DmWindow::ProverkaNaVinoslivostPoNapryajeniyuIzgiba()
+void DmWindow::ProverkaNaVinoslivostPoNapryajeniyuIzgiba(void)
 {
     ui->label_StepenPeredachi->setText(QString::number(iNaznachenie));
 
@@ -483,7 +483,7 @@ void DmWindow::ProverkaPrigodnostiZagotovki()
 #endif
 }
 
-bool DmWindow::checkTab5()
+bool DmWindow::checkTab5(void)
 {
     bool noErrors = true;
 
