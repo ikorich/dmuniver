@@ -1,5 +1,6 @@
 #include "dmwindow.h"
 #include "ui_dmwindow.h"
+#include "defines/table5.h"
 
 void DmWindow::on_doubleSpinBox_T3_valueChanged(double value)
 {
@@ -52,11 +53,24 @@ void DmWindow::on_comboBox_St_2_currentIndexChanged(QString value)
 void DmWindow::on_doubleSpinBox_SF_2_valueChanged(double value)
 {
     dSF = value;
+    DopustimieNapryajeniyaIzgiba();
+}
+
+void DmWindow::on_comboBox_z1_currentIndexChanged(QString value)
+{
+    iz1 = value.toInt();
+    chisloZubjev2();
 }
 
 void DmWindow::viborMaterialaZubchatihKoles(void)
 {
     DopustimieNapryajeniyaIzgiba();
+}
+
+void DmWindow::on_doubleSpinBox_psibd_valueChanged(double value)
+{
+    dPsibd3 = ROUND1(value);
+    KoefficientShiriniVenca();
 }
 
 void DmWindow::DopustimieNapryajeniyaIzgiba(void)
@@ -90,6 +104,63 @@ void DmWindow::DopustimieNapryajeniyaIzgiba(void)
 
 void DmWindow::chisloZubjev2(void)
 {
+
+    iu = iz1 * du3;
+    ui->label_u->setText(QString::number(iu));
+
+    iz2 = iu;
+    ui->label_z2_2->setText(QString::number(iz2));
+
+    KoefficientShiriniVenca();
+}
+
+void DmWindow::KoefficientShiriniVenca(void)
+{
+    EkvivalentnoeChisloZubjev();
+}
+
+void DmWindow::EkvivalentnoeChisloZubjev(void)
+{
+    izv1 = iz1;
+    izv2 = iz2;
+
+    ui->label_zv1_2->setText(QString::number(izv1));
+    ui->label_zv2_2->setText(QString::number(izv2));
+
+    for (int i = LENGTH(KoeficientYf2)-2 ; i >= 0; i--)
+        if (izv1 >= KoeficientYf2[i][0])
+        {
+            double temp1 = KoeficientYf2[i+1][0] - izv1;
+            double temp2 = izv1 - KoeficientYf2[i][0];
+            if(temp1 < temp2)
+                dYF61 = KoeficientYf2[i+1][1];
+            else
+                dYF61 = KoeficientYf2[i][1];
+            break;
+        }
+    for (int i = LENGTH(KoeficientYf2)-2 ; i >= 0; i--)
+        if (izv2 >= KoeficientYf2[i][0])
+        {
+            double temp1 = KoeficientYf2[i+1][0] - izv2;
+            double temp2 = izv2 - KoeficientYf2[i][0];
+            if(temp1 < temp2)
+                dYF62 = KoeficientYf2[i+1][1];
+            else
+                dYF62 = KoeficientYf2[i][1];
+            break;
+        }
+
+    ui->label_YF1_2->setText(QString::number(dYF61));
+    ui->label_YF2_2->setText(QString::number(dYF62));
+
+
+
+
+
+
+
+
+
 
 
 
@@ -126,6 +197,9 @@ bool DmWindow::checkTab6(void)
     int     iTempVal2 = 0;
     double  dTempVal1 = 0.0;
     double  dTempVal2 = 0.0;
+
+    dTempVal1 = 0.1;
+    dTempVal2 = 0.1;
 
     if (dT3 != dValT3 || dn3 != dValN3 || du3 != dValI3)
     {

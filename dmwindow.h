@@ -72,6 +72,10 @@ private:
 
 private slots:
     //Tab 6
+    void EkvivalentnoeChisloZubjev(void);
+    void on_doubleSpinBox_psibd_valueChanged(double value);
+    void KoefficientShiriniVenca(void);
+    void on_comboBox_z1_currentIndexChanged(QString value);
     void chisloZubjev2(void);
     void on_spinBox_C_valueChanged(int );
     void on_doubleSpinBox_SF_2_valueChanged(double value);
@@ -295,7 +299,11 @@ private:
     double dSF;
     int    iN1FE, iN2FE;
     double dSff1, dSff2;
-
+    int    iz1, iz2;
+    int    iu;
+    double dPsibd3;
+    int    izv1, izv2;
+    double dYF61, dYF62;
 };
 
 #endif // DMWINDOW_H
