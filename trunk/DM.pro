@@ -15,7 +15,8 @@ HEADERS += dmwindow.h \
     defines/table1.h \
     defines/var.h \
     defines/table3.h \
-    defines/table4.h
+    defines/table4.h \
+    defines/table5.h
 FORMS += dmwindow.ui
 RESOURCES += chemes.qrc
 win32 {
