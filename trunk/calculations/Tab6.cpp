@@ -153,13 +153,25 @@ void DmWindow::EkvivalentnoeChisloZubjev(void)
     ui->label_YF1_2->setText(QString::number(dYF61));
     ui->label_YF2_2->setText(QString::number(dYF62));
 
+    ProektnijRascetPeredachi();
+}
 
+void DmWindow::ProektnijRascetPeredachi(void)
+{
+    dYF1SF1 = dYF61 / (dSf1 / dSF);
+    dYF1SF1 = ROUND4(dYF1SF1);
 
+    dYF2SF2 = dYF62 / (dSf2 / dSF);
+    dYF2SF2 = ROUND4(dYF2SF2);
 
+    ui->label_YF1SF1->setText(QString::number(dYF1SF1));
+    ui->label_YF2SF2->setText(QString::number(dYF2SF2));
 
+    RaschetnoeZnachenieModulya();
+}
 
-
-
+void DmWindow::RaschetnoeZnachenieModulya(void)
+{
 
 
 

@@ -5,6 +5,7 @@
 #include <qgraphicsview.h>
 #include "math.h"
 
+#define ROUND4(x) ((double)((int)((x + 0.00005)*10000)))/10000.0;
 #define ROUND3(x) ((double)((int)((x + 0.0005)*1000)))/1000.0;
 #define ROUND2(x) ((double)((int)((x + 0.005)*100)))/100.0;
 #define ROUND1(x) ((double)((int)((x + 0.05)*10)))/10.0;
@@ -72,6 +73,8 @@ private:
 
 private slots:
     //Tab 6
+    void RaschetnoeZnachenieModulya(void);
+    void ProektnijRascetPeredachi(void);
     void EkvivalentnoeChisloZubjev(void);
     void on_doubleSpinBox_psibd_valueChanged(double value);
     void KoefficientShiriniVenca(void);
@@ -304,6 +307,7 @@ private:
     double dPsibd3;
     int    izv1, izv2;
     double dYF61, dYF62;
+    double dYF1SF1, dYF2SF2;
 };
 
 #endif // DMWINDOW_H
