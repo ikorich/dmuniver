@@ -73,6 +73,7 @@ private:
 
 private slots:
     //Tab 6
+    void on_comboBox_m_2_currentIndexChanged(QString value);
     void RaschetnoeZnachenieModulya(void);
     void ProektnijRascetPeredachi(void);
     void EkvivalentnoeChisloZubjev(void);
@@ -308,6 +309,8 @@ private:
     int    izv1, izv2;
     double dYF61, dYF62;
     double dYF1SF1, dYF2SF2;
+    double dmm3;
+    double dm;
 };
 
 #endif // DMWINDOW_H
