@@ -11,7 +11,8 @@ DmWindow::DmWindow(QWidget *parent) :
     ui->setupUi(this);
 //Reset Value
     //Global
-    CurrentReductor = 0;
+    CurrentReductor = Reductor::CILINDRICHESKAYA_PRYMOZUBAYA;
+    CurrentPeredacha = Peredacha::CILINDRICHESKAYA;
     //Tab2
     dValPiv = dValV = dValOmega = dValOmega1 = dValOmega2 = dValOmega3 = dValOmega4 = dValD = dValP = dValZ = 0.0;
     iValN = iValLh = iValLh = iValFt = 0;

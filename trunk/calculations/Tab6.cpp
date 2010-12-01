@@ -73,6 +73,12 @@ void DmWindow::on_doubleSpinBox_psibd_valueChanged(double value)
     KoefficientShiriniVenca();
 }
 
+void DmWindow::on_comboBox_m_2_currentIndexChanged(QString value)
+{
+    dm = value.toDouble();
+    RaschetnoeZnachenieModulya();
+}
+
 void DmWindow::DopustimieNapryajeniyaIzgiba(void)
 {
     dSf1 = 1.8 * iHB1;
@@ -172,8 +178,10 @@ void DmWindow::ProektnijRascetPeredachi(void)
 
 void DmWindow::RaschetnoeZnachenieModulya(void)
 {
+    dmm3 = 14.0 * pow(((dT3 * 1.0 * dYF61) / (dPsibd3 * izv1 * izv1 * (dYF1SF1 == dYF2SF2 ? dSff1 : dSff2))) , 0.333333333);
+    dmm3 = ROUND2(dmm3);
 
-
+    ui->label_mm_2->setText(QString::number(dmm3));
 
 
 
@@ -209,9 +217,6 @@ bool DmWindow::checkTab6(void)
     int     iTempVal2 = 0;
     double  dTempVal1 = 0.0;
     double  dTempVal2 = 0.0;
-
-    dTempVal1 = 0.1;
-    dTempVal2 = 0.1;
 
     if (dT3 != dValT3 || dn3 != dValN3 || du3 != dValI3)
     {
@@ -280,8 +285,23 @@ bool DmWindow::checkTab6(void)
     }
     else ui->label_checkSb2->setVisible(false);
 
-
-
+    for (int i = LENGTH(raschetnoeZnachenieModulay)-2 ; i >= 0; i--)
+        if (dm >= raschetnoeZnachenieModulay[i])
+        {
+            dTempVal1 = raschetnoeZnachenieModulay[i+1] - dm;
+            dTempVal2 = dm - raschetnoeZnachenieModulay[i];
+            if(dTempVal1 < dTempVal2)
+                dTempVal1 = raschetnoeZnachenieModulay[i+1];
+            else
+                dTempVal1 = raschetnoeZnachenieModulay[i];
+            break;
+        }
+    if (dTempVal1 != dm)
+    {
+        ui->label_checkm->setVisible(true);
+        noErrors = false;
+    }
+    else ui->label_checkm->setVisible(false);
 
 
 
