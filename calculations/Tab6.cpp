@@ -79,6 +79,12 @@ void DmWindow::on_comboBox_m_2_currentIndexChanged(QString value)
     RaschetnoeZnachenieModulya();
 }
 
+void DmWindow::on_spinBox_StepenTochnostiPeredachi_valueChanged(int value)
+{
+    iStepenTochnostiPeredachi = value;
+    OkrujnayaSkorostIStepenTochnostiPeredachi();
+}
+
 void DmWindow::DopustimieNapryajeniyaIzgiba(void)
 {
     dSf1 = 1.8 * iHB1;
@@ -178,18 +184,54 @@ void DmWindow::ProektnijRascetPeredachi(void)
 
 void DmWindow::RaschetnoeZnachenieModulya(void)
 {
-    dmm3 = 14.0 * pow(((dT3 * 1.0 * dYF61) / (dPsibd3 * izv1 * izv1 * (dYF1SF1 == dYF2SF2 ? dSff1 : dSff2))) , 0.333333333);
+    dmm3 = 14.0 * pow(((dT3 * 1.0 * dYF61) / (dPsibd3 * iz1 * iz1 * (dYF1SF1 == dYF2SF2 ? dSff1 : dSff2))) , 0.333333333);
     dmm3 = ROUND2(dmm3);
 
     ui->label_mm_2->setText(QString::number(dmm3));
 
+    OsnovnieGeometricheskieRazmeri();
+}
 
+void DmWindow::OsnovnieGeometricheskieRazmeri(void)
+{
+    dd61 = iz1 * dm;
+    dd61 = ROUND2(dd61);
+    ui->label_d1_2->setText(QString::number(iz1) + tr(" * ") + QString::number(dm) + tr(" = ") + QString::number(dd61));
 
+    dd62 = iz2 * dm;
+    dd62 = ROUND2(dd62);
+    ui->label_d2_2->setText(QString::number(iz2) + tr(" * ") + QString::number(dm) + tr(" = ") + QString::number(dd62));
 
+    dda61 = dd61 + 2.0 * dm;
+    dda61 = ROUND1(dda61);
+    ui->label_da1_2->setText(QString::number(dd61) + tr(" + 2 * ") + QString::number(dm) + tr(" = ") + QString::number(dda61));
 
+    dda62 = dd62 + 2.0 * dm;
+    dda62 = ROUND1(dda62);
+    ui->label_da2_2->setText(QString::number(dd62) + tr(" + 2 * ") + QString::number(dm) + tr(" = ") + QString::number(dda61));
 
+    ddf61 = dd61 - 2.5 * dm;
+    ddf61 = ROUND1(ddf61);
+    ui->label_df1_2->setText(QString::number(dd61) + tr(" - 2.5 * ") + QString::number(dm) + tr(" = ") + QString::number(ddf61));
 
+    ddf62 = dd62 - 2.5 * dm;
+    ddf62 = ROUND1(ddf62);
+    ui->label_df2_2->setText(QString::number(dd62) + tr(" - 2.5 * ") + QString::number(dm) + tr(" = ") + QString::number(ddf61));
 
+    ib62 = ROUND((dPsibd3 * dd61));
+    ib61 = ib62 + 3;
+
+    ui->label_b2_2->setText(QString::number(ib62));
+    ui->label_b1_2->setText(QString::number(ib61));
+
+    OkrujnayaSkorostIStepenTochnostiPeredachi();
+}
+
+void DmWindow::OkrujnayaSkorostIStepenTochnostiPeredachi(void)
+{
+    dV61 = PI * dd61 * dn3 / 60000;
+    dV61 = ROUND2(dV61);
+    ui->label_V_2->setText(QString::number(dV61));
 
 
 
@@ -302,6 +344,42 @@ bool DmWindow::checkTab6(void)
         noErrors = false;
     }
     else ui->label_checkm->setVisible(false);
+
+    if (dV61 <= 2)
+    {
+        iTempVal1 = 9;
+    }
+    else if (dV61 <= 6)
+    {
+        iTempVal1 = 8;
+    }
+    else if (dV61 <= 10)
+    {
+        iTempVal1 = 7;
+    }
+    else if (dV61 <= 15)
+    {
+        iTempVal1 = 6;
+    }
+    else
+    {
+        iTempVal1 = 5;
+    }
+
+    if (iStepenTochnostiPeredachi != iTempVal1)
+    {
+        ui->label_checkStepenTochnosti->setVisible(true);
+        noErrors = false;
+    }
+    else ui->label_checkStepenTochnosti->setVisible(false);
+
+
+
+
+
+
+
+
 
 
 

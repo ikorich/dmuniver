@@ -73,6 +73,9 @@ private:
 
 private slots:
     //Tab 6
+    void on_spinBox_StepenTochnostiPeredachi_valueChanged(int value);
+    void OkrujnayaSkorostIStepenTochnostiPeredachi(void);
+    void OsnovnieGeometricheskieRazmeri(void);
     void on_comboBox_m_2_currentIndexChanged(QString value);
     void RaschetnoeZnachenieModulya(void);
     void ProektnijRascetPeredachi(void);
@@ -311,6 +314,12 @@ private:
     double dYF1SF1, dYF2SF2;
     double dmm3;
     double dm;
+    double dd61, dd62;
+    double dda61, dda62;
+    double ddf61, ddf62;
+    int    ib61, ib62;
+    double dV61;
+    int    iStepenTochnostiPeredachi;
 };
 
 #endif // DMWINDOW_H
