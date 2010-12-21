@@ -233,6 +233,33 @@ void DmWindow::OkrujnayaSkorostIStepenTochnostiPeredachi(void)
     dV61 = ROUND2(dV61);
     ui->label_V_2->setText(QString::number(dV61));
 
+    SilaVZaceplenii();
+}
+
+void DmWindow::SilaVZaceplenii(void)
+{
+    dFt12 = 2.0 * dT3 * 1000 / dd61;
+    dFt12 = ROUND1(dFt12);
+    ui->label_Ft12->setText(QString::number(dFt12));
+
+    dFa1 = dFt12 * tan(20.0 * (PI / 180)); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    dFa1 = ROUND1(dFa1);
+    ui->label_Fa1->setText(QString::number(dFa1));
+
+    ProverkaaNaVinoslivostPoNapryjeniyamIzgiba();
+}
+
+void DmWindow::ProverkaaNaVinoslivostPoNapryjeniyamIzgiba(void)
+{
+
+
+
+
+
+
+
+
+
 
 
 
@@ -328,10 +355,10 @@ bool DmWindow::checkTab6(void)
     else ui->label_checkSb2->setVisible(false);
 
     for (int i = LENGTH(raschetnoeZnachenieModulay)-2 ; i >= 0; i--)
-        if (dm >= raschetnoeZnachenieModulay[i])
+        if (dmm3 >= raschetnoeZnachenieModulay[i])
         {
-            dTempVal1 = raschetnoeZnachenieModulay[i+1] - dm;
-            dTempVal2 = dm - raschetnoeZnachenieModulay[i];
+            dTempVal1 = raschetnoeZnachenieModulay[i+1] - dmm3;
+            dTempVal2 = dmm3 - raschetnoeZnachenieModulay[i];
             if(dTempVal1 < dTempVal2)
                 dTempVal1 = raschetnoeZnachenieModulay[i+1];
             else

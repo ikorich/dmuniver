@@ -55,6 +55,15 @@ struct Peredacha
     };
 };
 
+struct Privod
+{
+    enum Enum
+    {
+        KLINNOREMENNAYA = 0,
+        PLOSKOREMENNAYA,
+    };
+};
+
 typedef unsigned int uint;
 
 class DmWindow : public QMainWindow {
@@ -73,6 +82,9 @@ private:
 
 private slots:
     //Tab 6
+    void ProverkaaNaVinoslivostPoNapryjeniyamIzgiba(void);
+    void SilaVZaceplenii(void);
+    void on_comboBoxPrivodType_currentIndexChanged(int index);
     void on_spinBox_StepenTochnostiPeredachi_valueChanged(int value);
     void OkrujnayaSkorostIStepenTochnostiPeredachi(void);
     void OsnovnieGeometricheskieRazmeri(void);
@@ -181,6 +193,7 @@ private slots:
     void setPicture(QGraphicsView *graphics, const char* buffer );
 
 private:
+    int CurrentPrivod;
     int CurrentReductor;
     int CurrentPeredacha;
 
@@ -320,6 +333,8 @@ private:
     int    ib61, ib62;
     double dV61;
     int    iStepenTochnostiPeredachi;
+    double dFt12;
+    double dFa1;
 };
 
 #endif // DMWINDOW_H
