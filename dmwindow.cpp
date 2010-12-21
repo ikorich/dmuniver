@@ -11,6 +11,7 @@ DmWindow::DmWindow(QWidget *parent) :
     ui->setupUi(this);
 //Reset Value
     //Global
+    CurrentPrivod = Privod::KLINNOREMENNAYA;
     CurrentReductor = Reductor::CILINDRICHESKAYA_PRYMOZUBAYA;
     CurrentPeredacha = Peredacha::CILINDRICHESKAYA;
     //Tab2
@@ -260,4 +261,12 @@ void DmWindow::on_comboBoxPeredacha3Type1_currentIndexChanged(int index)
         CurrentPeredacha = Peredacha::KONICHESKAYA;
     else if (index == 2)
         CurrentPeredacha = Peredacha::CEPNAYA;
+}
+
+void DmWindow::on_comboBoxPrivodType_currentIndexChanged(int index)
+{
+    if (index == 0)
+        CurrentPrivod = Privod::KLINNOREMENNAYA;
+    else if (index == 1)
+        CurrentPrivod = Privod::PLOSKOREMENNAYA;
 }

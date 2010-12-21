@@ -253,9 +253,9 @@ bool DmWindow::checkTab2(void)
 {
     bool noErrors = true;
 
-    if ((dValEta1 >= predelEta[ui->comboBoxPrivodType->currentIndex()][0] && dValEta1 <= predelEta[ui->comboBoxPrivodType->currentIndex()][1]) &&
-        (dValEta2 >= predelEta[ 3 + ui->comboBoxPeredacha1Type1->currentIndex()][0] && dValEta2 <= predelEta[ 3 + ui->comboBoxPeredacha1Type1->currentIndex()][1]) &&
-        (dValEta3 >= predelEta[ 6 + ui->comboBoxPeredacha3Type1->currentIndex()][0] && dValEta3 <= predelEta[ 6 + ui->comboBoxPeredacha3Type1->currentIndex()][1]))
+    if ((dValEta1 >= predelEta[CurrentPrivod][0] && dValEta1 <= predelEta[CurrentPrivod][1]) &&
+        (dValEta2 >= predelEta[ 2 + CurrentReductor][0] && dValEta2 <= predelEta[ 2 + CurrentReductor][1]) &&
+        (dValEta3 >= predelEta[ 6 + CurrentPeredacha][0] && dValEta3 <= predelEta[ 6 + CurrentPeredacha][1]))
     {
         ui->label_CheckEta->setVisible(false);
     }
