@@ -276,7 +276,7 @@ void DmWindow::ProverkaNaKontaktnuyuVinoslivost(void)
     }
     else ui->label_OtnoshenieSigmaH1H2->setText(tr(">"));
 
-    dSigmaHmax = dSigmaH51 * sqrt(ui->label_TmaxTnom_2->text().toDouble());
+    dSigmaHmax = dSigmaH51 * sqrt(dTmaxTnom);
     dSigmaHmax = ROUND(dSigmaHmax);
 
     ui->label_SigmaHmax1->setText(QString::number(dSigmaHmax));
@@ -399,8 +399,8 @@ void DmWindow::ProverkaNaVinoslivostPoNapryajeniyuIzgiba(void)
     }
     else ui->label_OtnoshenieSigmaF2_2->setText(">");
 
-    iSigmaFmax1 = ROUND(dSigmaF51 * ui->label_TmaxTnom_2->text().toDouble());
-    iSigmaFmax2 = ROUND(dSigmaF52 * ui->label_TmaxTnom_2->text().toDouble());
+    iSigmaFmax1 = ROUND(dSigmaF51 * dTmaxTnom);
+    iSigmaFmax2 = ROUND(dSigmaF52 * dTmaxTnom);
 
     iSigmaFFmax1 = ROUND(4.8 * iHBcp1);
     iSigmaFFmax2 = ROUND(4.8 * iHBcp2);

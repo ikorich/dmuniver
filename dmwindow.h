@@ -82,6 +82,9 @@ private:
 
 private slots:
     //Tab 6
+    void proverkaNaKontaktnujuProchnost(void);
+    void proverkaNaProchnost(void);
+    void on_doubleSpinBox_valueChanged(double value);
     void ProverkaaNaVinoslivostPoNapryjeniyamIzgiba(void);
     void SilaVZaceplenii(void);
     void on_comboBoxPrivodType_currentIndexChanged(int index);
@@ -216,6 +219,7 @@ private:
     double  dValN1, dValN2, dValN3, dValN4;
     double  dValP1, dValP2, dValP3, dValP4;
     double  dValT1, dValT2, dValT3, dValT4;
+    double  dTmaxTnom;
 
     //Tab 3
     double dValXi;
@@ -335,6 +339,14 @@ private:
     int    iStepenTochnostiPeredachi;
     double dFt12;
     double dFa1;
+    double dKFV61;
+    double dSigmaF61, dSigmaF62;
+    double dSigmaFmax61, dSigmaFmax62;
+    double dSigmaFFmax61, dSigmaFFmax62;
+    double dSigmaH;
+    double dKHV61;
+    double dSigmaHmax61;
+    double dSigmaHHmax61;
 };
 
 #endif // DMWINDOW_H

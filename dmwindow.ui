@@ -867,7 +867,7 @@ p, li { white-space: pre-wrap; }
                   <double>0.010000000000000</double>
                  </property>
                  <property name="value">
-                  <double>0.000000000000000</double>
+                  <double>0.030000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -2772,7 +2772,7 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-1957</y>
              <width>918</width>
              <height>2897</height>
             </rect>
@@ -7611,7 +7611,7 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-1414</y>
              <width>944</width>
              <height>3206</height>
             </rect>
@@ -10725,7 +10725,7 @@ p, li { white-space: pre-wrap; }
                   <item row="0" column="2">
                    <widget class="QLabel" name="label_OtnoshenieSigmaFmax1_2">
                     <property name="text">
-                     <string>label_OtnoshenieSigmaFmax1_2</string>
+                     <string>&lt;</string>
                     </property>
                    </widget>
                   </item>
@@ -10768,7 +10768,7 @@ p, li { white-space: pre-wrap; }
                   <item row="1" column="2">
                    <widget class="QLabel" name="label_OtnoshenieSigmaFmax2_2">
                     <property name="text">
-                     <string>label_OtnoshenieSigmaFmax2_2</string>
+                     <string>&lt;</string>
                     </property>
                    </widget>
                   </item>
@@ -11307,9 +11307,9 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-1510</y>
+             <y>-1761</y>
              <width>918</width>
-             <height>2255</height>
+             <height>2505</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_91">
@@ -13243,20 +13243,6 @@ p, li { white-space: pre-wrap; }
                     </property>
                    </widget>
                   </item>
-                  <item row="0" column="2">
-                   <widget class="QLabel" name="label_b2_2">
-                    <property name="text">
-                     <string>label_b2_2</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="2">
-                   <widget class="QLabel" name="label_b1_2">
-                    <property name="text">
-                     <string>label_b1_2</string>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="0" column="3">
                    <widget class="QLabel" name="label_436">
                     <property name="text">
@@ -13268,6 +13254,20 @@ p, li { white-space: pre-wrap; }
                    <widget class="QLabel" name="label_438">
                     <property name="text">
                      <string>мм</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLabel" name="label_b1_2">
+                    <property name="text">
+                     <string>label_b1_2</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="label_b2_2">
+                    <property name="text">
+                     <string>label_b2_2</string>
                     </property>
                    </widget>
                   </item>
@@ -13520,7 +13520,11 @@ p, li { white-space: pre-wrap; }
                 </widget>
                </item>
                <item row="2" column="1">
-                <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+                <widget class="QDoubleSpinBox" name="doubleSpinBox">
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
+                 </property>
+                </widget>
                </item>
                <item row="2" column="2">
                 <widget class="QLabel" name="label_455">
@@ -13790,7 +13794,7 @@ p, li { white-space: pre-wrap; }
                 </widget>
                </item>
                <item row="5" column="0" colspan="6">
-                <widget class="QLabel" name="label_468">
+                <widget class="QLabel" name="label_checksigmaF1F2">
                  <property name="text">
                   <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -13808,6 +13812,146 @@ p, li { white-space: pre-wrap; }
               <property name="title">
                <string>5.12. Проверка на прочность при изгибе максимальной нагрузкой:</string>
               </property>
+              <layout class="QGridLayout" name="gridLayout_125">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_468">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;σ&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;Fmax1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = σ&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;F1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;(T&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;max&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;/T&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;nom&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_469">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;σ&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;Fmax2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = σ&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;F2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;(T&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;max&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;/T&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;nom&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="7">
+                <spacer name="horizontalSpacer_125">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="2" column="0" colspan="7">
+                <widget class="QLabel" name="label_checkSigmaFmax12">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ff0000;&quot;&gt;Уточнить&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_SigmaFmax1">
+                 <property name="text">
+                  <string>label_SigmaFmax1</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLabel" name="label_SigmaFmax2">
+                 <property name="text">
+                  <string>label_SigmaFmax2</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_471">
+                 <property name="text">
+                  <string>МПа</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLabel" name="label_472">
+                 <property name="text">
+                  <string>МПа</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QLabel" name="labelOtnoshenieSigmaFmax1">
+                 <property name="text">
+                  <string>&lt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <widget class="QLabel" name="labelOtnoshenieSigmaFmax2">
+                 <property name="text">
+                  <string>&lt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="4">
+                <widget class="QLabel" name="label_475">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; [σ&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;F&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;]&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;max1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = 4.8*HB&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;/S&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;F&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="4">
+                <widget class="QLabel" name="label_476">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; [σ&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;F&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;]&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;max2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = 4.8*HB&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;/S&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;F&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_SigmaFFmax1">
+                 <property name="text">
+                  <string>label_SigmaFFmax1</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="5">
+                <widget class="QLabel" name="label_SigmaFFmax2">
+                 <property name="text">
+                  <string>label_SigmaFFmax2</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="6">
+                <widget class="QLabel" name="label_479">
+                 <property name="text">
+                  <string>МПа</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="6">
+                <widget class="QLabel" name="label_480">
+                 <property name="text">
+                  <string>МПа</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item row="13" column="0">
@@ -13815,6 +13959,173 @@ p, li { white-space: pre-wrap; }
               <property name="title">
                <string>5.13. Проверка на контактную прочность:</string>
               </property>
+              <layout class="QGridLayout" name="gridLayout_126">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_470">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;σ&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;H&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = 426&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;√(&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;F&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;t&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;*К&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;Нa&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;*K&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;Hb&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;*K&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;HV&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;*(u+1)/( d&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;*b&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;*u)) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <spacer name="horizontalSpacer_126">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_SigmaH">
+                 <property name="text">
+                  <string>label_SigmaH</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_473">
+                 <property name="text">
+                  <string>МПа</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0" colspan="4">
+                <widget class="QLabel" name="label_474">
+                 <property name="text">
+                  <string>Коэффициент, учитывающий  динамическую нагрузку в зацеплении:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0" colspan="4">
+                <widget class="QFrame" name="frame_52">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_127">
+                  <property name="margin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_KHV">
+                    <property name="text">
+                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;K&lt;span style=&quot; vertical-align:sub;&quot;&gt;HV&lt;/span&gt; = K&lt;span style=&quot; vertical-align:sub;&quot;&gt;FV&lt;/span&gt; =&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                    <property name="indent">
+                     <number>40</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="8">
+                   <spacer name="horizontalSpacer_127">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_478">
+                    <property name="text">
+                     <string>TextLabel</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0" colspan="2">
+                   <widget class="QLabel" name="label_477">
+                    <property name="text">
+                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;σ&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;Hmax&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = σ&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;H&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;√&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;(T&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;max&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;/T&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;nom&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                    <property name="indent">
+                     <number>40</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLabel" name="label_SigmaHmax">
+                    <property name="text">
+                     <string>label_SigmaHmax</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QLabel" name="label_481">
+                    <property name="text">
+                     <string>МПа</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="4">
+                   <widget class="QLabel" name="label_OtnoshenieSigmaHmax_2">
+                    <property name="text">
+                     <string>&lt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="5">
+                   <widget class="QLabel" name="label_482">
+                    <property name="text">
+                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;[σ&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;H&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;]&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;max&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;  = 2.8*S&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;T&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="6">
+                   <widget class="QLabel" name="label_SigmaHHmax">
+                    <property name="text">
+                     <string>label_SigmaHHmax</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="7">
+                   <widget class="QLabel" name="label_483">
+                    <property name="text">
+                     <string>МПа</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="3" column="0" colspan="4">
+                <widget class="QLabel" name="label_checkSigmaHmax">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ff0000;&quot;&gt;Уточнить&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
            </layout>
@@ -13859,25 +14170,31 @@ p, li { white-space: pre-wrap; }
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
+  <tabstop>graphicsView</tabstop>
   <tabstop>comboBoxPrivodType</tabstop>
   <tabstop>comboBoxPeredacha1Type1</tabstop>
-  <tabstop>comboBoxPeredacha3Type1</tabstop>
-  <tabstop>doubleSpinBox_P</tabstop>
   <tabstop>spinBox_N</tabstop>
   <tabstop>spinBox_LH</tabstop>
+  <tabstop>spinBox_Ft</tabstop>
   <tabstop>doubleSpinBox_V</tabstop>
   <tabstop>doubleSpinBox_Omega</tabstop>
   <tabstop>doubleSpinBox_D</tabstop>
   <tabstop>doubleSpinBox_p</tabstop>
   <tabstop>doubleSpinBox_z</tabstop>
-  <tabstop>spinBox_2</tabstop>
+  <tabstop>tableWidget_var</tabstop>
+  <tabstop>tableWidget_remark</tabstop>
+  <tabstop>graphicsView_2</tabstop>
   <tabstop>doubleSpinBox_nu1</tabstop>
   <tabstop>doubleSpinBox_nu2</tabstop>
   <tabstop>doubleSpinBox_nu3</tabstop>
   <tabstop>comboBox_Pnom</tabstop>
+  <tabstop>tableWidgetPnom</tabstop>
   <tabstop>doubleSpinBox_i1</tabstop>
   <tabstop>comboBox_i2</tabstop>
+  <tabstop>tableWidget_4Privoda</tabstop>
   <tabstop>spinBox_Variant2</tabstop>
+  <tabstop>tableWidget_Charact1</tabstop>
+  <tabstop>tableWidget_Charact2</tabstop>
   <tabstop>doubleSpinBox_moshnistNaVedushijVal</tabstop>
   <tabstop>spinBox_ChastotaVrasheniya</tabstop>
   <tabstop>doubleSpinBox_peredatochnoeOtnoshenie</tabstop>
@@ -13890,6 +14207,7 @@ p, li { white-space: pre-wrap; }
   <tabstop>doubleSpinBox_Xi</tabstop>
   <tabstop>comboBox_L2</tabstop>
   <tabstop>comboBox_L2_2</tabstop>
+  <tabstop>tableWidgetSechenie</tabstop>
   <tabstop>comboBox_Ca1</tabstop>
   <tabstop>comboBox_Ca2</tabstop>
   <tabstop>comboBox_Cl1</tabstop>
@@ -13899,7 +14217,6 @@ p, li { white-space: pre-wrap; }
   <tabstop>doubleSpinBox_Cz2</tabstop>
   <tabstop>comboBox_sechenieRemnya3</tabstop>
   <tabstop>comboBox_q</tabstop>
-  <tabstop>graphicsView_2</tabstop>
   <tabstop>comboBox_Shesternya</tabstop>
   <tabstop>spinBox_HVsr1</tabstop>
   <tabstop>comboBox_Koleso</tabstop>
@@ -13919,24 +14236,33 @@ p, li { white-space: pre-wrap; }
   <tabstop>comboBox_aw</tabstop>
   <tabstop>comboBox_m</tabstop>
   <tabstop>spinBox_StepenPeredachi</tabstop>
-  <tabstop>comboBox_Kfbeta</tabstop>
+  <tabstop>comboBox_Zm</tabstop>
+  <tabstop>doubleSpinBox_Khv</tabstop>
   <tabstop>doubleSpinBox_T3</tabstop>
-  <tabstop>doubleSpinBox_n3</tabstop>
-  <tabstop>doubleSpinBox_u3</tabstop>
-  <tabstop>scrollArea_2</tabstop>
-  <tabstop>tableWidget_Charact2</tabstop>
-  <tabstop>scrollArea</tabstop>
-  <tabstop>scrollArea_5</tabstop>
-  <tabstop>tableWidgetSechenie</tabstop>
-  <tabstop>graphicsView</tabstop>
-  <tabstop>scrollArea_4</tabstop>
-  <tabstop>tableWidget_remark</tabstop>
-  <tabstop>tableWidget_4Privoda</tabstop>
+  <tabstop>doubleSpinBox_Kfv</tabstop>
+  <tabstop>comboBoxPeredacha3Type1</tabstop>
   <tabstop>scrollArea_3</tabstop>
-  <tabstop>tableWidget_var</tabstop>
-  <tabstop>tableWidget_Charact1</tabstop>
-  <tabstop>tableWidgetPnom</tabstop>
+  <tabstop>scrollArea_4</tabstop>
+  <tabstop>comboBox_Kfbeta</tabstop>
+  <tabstop>spinBox_2</tabstop>
+  <tabstop>doubleSpinBox_P</tabstop>
+  <tabstop>doubleSpinBox_u3</tabstop>
   <tabstop>tabWidget</tabstop>
+  <tabstop>scrollArea_2</tabstop>
+  <tabstop>scrollArea_5</tabstop>
+  <tabstop>doubleSpinBox_n3</tabstop>
+  <tabstop>scrollArea</tabstop>
+  <tabstop>spinBox_Litje</tabstop>
+  <tabstop>spinBox_HB1</tabstop>
+  <tabstop>spinBox_HB2</tabstop>
+  <tabstop>comboBox_Sb_2</tabstop>
+  <tabstop>comboBox_St_2</tabstop>
+  <tabstop>doubleSpinBox_SF_2</tabstop>
+  <tabstop>comboBox_z1</tabstop>
+  <tabstop>doubleSpinBox_psibd</tabstop>
+  <tabstop>comboBox_m_2</tabstop>
+  <tabstop>spinBox_StepenTochnostiPeredachi</tabstop>
+  <tabstop>doubleSpinBox</tabstop>
  </tabstops>
  <resources>
   <include location="chemes.qrc"/>
