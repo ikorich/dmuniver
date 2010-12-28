@@ -160,7 +160,8 @@ void DmWindow::on_spinBox_Variant2_valueChanged(int val)
     ui->label_Dvigatel_2->setText(ui->tableWidgetPnom->item(val-1, 1)->text());
     ui->label_nnom_2->setText(ui->tableWidgetPnom->item(val-1, 3)->text());
     ui->label_Pnom_2->setText(ui->tableWidgetPnom->item(val-1, 0)->text());
-    ui->label_TmaxTnom_2->setText(ui->tableWidgetPnom->item(val-1, 4)->text());
+    dTmaxTnom = ui->tableWidgetPnom->item(val-1, 4)->text().toDouble();
+    ui->label_TmaxTnom_2->setText(QString::number(dTmaxTnom));
 
     updateHarakteristiki();
 }

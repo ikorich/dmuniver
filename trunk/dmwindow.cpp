@@ -15,7 +15,7 @@ DmWindow::DmWindow(QWidget *parent) :
     CurrentReductor = Reductor::CILINDRICHESKAYA_PRYMOZUBAYA;
     CurrentPeredacha = Peredacha::CILINDRICHESKAYA;
     //Tab2
-    dValPiv = dValV = dValOmega = dValOmega1 = dValOmega2 = dValOmega3 = dValOmega4 = dValD = dValP = dValZ = 0.0;
+    dValPiv = dValV = dValOmega = dValOmega1 = dValOmega2 = dValOmega3 = dValOmega4 = dValD = dValP = dValZ = dTmaxTnom = 0.0;
     iValN = iValLh = iValLh = iValFt = 0;
     dValEta = dValEta1 = dValEta2 = dValEta3 = dValNiv = dValI = dValI1 = dValI2 = dValI3 = 0.0;
     dValN1 = dValN2 = dValN3 = dValN4 = dValP1 = dValP2 = dValP3 = dValP4 = dValT1 = dValT2 = dValT3 = dValT4 = 0.0;
@@ -270,3 +270,5 @@ void DmWindow::on_comboBoxPrivodType_currentIndexChanged(int index)
     else if (index == 1)
         CurrentPrivod = Privod::PLOSKOREMENNAYA;
 }
+
+
