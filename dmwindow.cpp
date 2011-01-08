@@ -99,6 +99,8 @@ DmWindow::DmWindow(QWidget *parent) :
     on_spinBox_2_valueChanged(1);
     setPicture(ui->graphicsView_2 , ":/resources/shkiv.jpg");
     on_comboBoxPrivodType_currentIndexChanged(0);
+    on_comboBoxPeredacha1Type1_currentIndexChanged(0);
+    on_comboBoxPeredacha3Type1_currentIndexChanged(0);
 #ifdef TAB_CONTROL
     for (uint i = 2 ; i < ui->tabWidget->count() ; i++)
     {
@@ -243,37 +245,91 @@ void DmWindow::setPicture(QGraphicsView *graphics, const char* buffer )
 
 void DmWindow::on_comboBoxPeredacha1Type1_currentIndexChanged(int index)
 {
-    if (index == 0)
-        CurrentReductor = Reductor::CILINDRICHESKAYA_PRYMOZUBAYA;
-    else if (index == 1)
-        CurrentReductor = Reductor::CILINDRICHESKAYA_KOSOZUBAYA;
-    else if (index == 2)
-        CurrentReductor = Reductor::KONICHESKAYA;
-    else if (index == 3)
-        CurrentReductor = Reductor::CHERVYACHNAYA;
+//сложновложенный иф. Целесообразней свитч
+
+//но если хош оставить иф, то раскоменитируй код ниже
+    //    if (index == 0)
+    //        {CurrentReductor = Reductor::CILINDRICHESKAYA_PRYMOZUBAYA;ui->label_typreductora->setText(tr("Расчет цилиндрического прямозубого редуктора:"));}
+    //    else if (index == 1)
+    //        {CurrentReductor = Reductor::CILINDRICHESKAYA_KOSOZUBAYA;ui->label_typreductora->setText(tr("Расчет цилиндрического косозубого редуктора:"));}
+    //    else if (index == 2)
+    //        {CurrentReductor = Reductor::KONICHESKAYA;ui->label_typreductora->setText(tr("Расчет конического редуктора:"));}
+    //    else if (index == 3)
+    //        {CurrentReductor = Reductor::CHERVYACHNAYA;ui->label_typreductora->setText(tr("Расчет червячного редуктора:"));}
+
+//вариант со свитч
+    switch(index)
+    {
+        case 0:
+            CurrentReductor = Reductor::CILINDRICHESKAYA_PRYMOZUBAYA;
+            ui->label_typreductora->setText(tr("Расчет цилиндрического прямозубого редуктора:"));
+        break;
+        case 1:
+            CurrentReductor = Reductor::CILINDRICHESKAYA_KOSOZUBAYA;
+            ui->label_typreductora->setText(tr("Расчет цилиндрического косозубого редуктора:"));
+        break;
+        case 2:
+            CurrentReductor = Reductor::KONICHESKAYA;
+            ui->label_typreductora->setText(tr("Расчет конического редуктора:"));
+        break;
+        case 3:
+            CurrentReductor = Reductor::CHERVYACHNAYA;
+            ui->label_typreductora->setText(tr("Расчет червячного редуктора:"));
+        break;
+    }
 }
 
 void DmWindow::on_comboBoxPeredacha3Type1_currentIndexChanged(int index)
 {
-    if (index == 0)
-        CurrentPeredacha = Peredacha::CILINDRICHESKAYA;
-    else if (index == 1)
-        CurrentPeredacha = Peredacha::KONICHESKAYA;
-    else if (index == 2)
-        CurrentPeredacha = Peredacha::CEPNAYA;
+//      вариант с иф, если не хош свитч
+//    if (index == 0)
+//        {CurrentPeredacha = Peredacha::CILINDRICHESKAYA;ui->label_typotkritoiperedachi->setText(tr("Расчет цилиндрической открытой передачи:"));}
+//    else if (index == 1)
+//        {CurrentPeredacha = Peredacha::KONICHESKAYA;ui->label_typotkritoiperedachi->setText(tr("Расчет конической открытой передачи:"));}
+//    else if (index == 2)
+//        {CurrentPeredacha = Peredacha::CEPNAYA;ui->label_typotkritoiperedachi->setText(tr("Расчет цепной открытой передачи:"));}
+    switch(index)
+    {
+        case 0:
+            CurrentPeredacha = Peredacha::CILINDRICHESKAYA;
+            ui->label_typotkritoiperedachi->setText(tr("Расчет цилиндрической открытой передачи:"));
+        break;
+        case 1:
+            CurrentPeredacha = Peredacha::KONICHESKAYA;
+            ui->label_typotkritoiperedachi->setText(tr("Расчет конической открытой передачи:"));
+        break;
+        case 2:
+            CurrentPeredacha = Peredacha::CEPNAYA;
+            ui->label_typotkritoiperedachi->setText(tr("Расчет цепной открытой передачи:"));
+        break;
+    }
 }
 
 void DmWindow::on_comboBoxPrivodType_currentIndexChanged(int index)
 {
-    if (index == 0)
+// У тебя была ошибка. Плоскоременную перепутал с клинноременной.
+
+//     вариант с иф, если не хош свитч
+//    if (index == 0)
+//    {
+//        CurrentPrivod = Privod::PLOSKOREMENNAYA;
+//        ui->label_TypRemPeredachi->setText(tr("Расчет плоскоременной передачи:"));
+//    }
+//    else if (index == 1)
+//    {
+//        CurrentPrivod = Privod::KLINNOREMENNAYA;
+//        ui->label_TypRemPeredachi->setText(tr("Расчет клинноременной передачи:"));
+//    }
+    switch(index)
     {
-        CurrentPrivod = Privod::KLINNOREMENNAYA;
-        ui->label_TypRemPeredachi->setText(tr("Расчет клинноременной передачи:"));
-    }
-    else if (index == 1)
-    {
-        CurrentPrivod = Privod::PLOSKOREMENNAYA;
-        ui->label_TypRemPeredachi->setText(tr("Расчет плоскоременной передачи:"));
+        case 0:
+            CurrentPrivod = Privod::PLOSKOREMENNAYA;
+            ui->label_TypRemPeredachi->setText(tr("Расчет плоскоременной передачи:"));
+        break;
+        case 1:
+            CurrentPrivod = Privod::KLINNOREMENNAYA;
+            ui->label_TypRemPeredachi->setText(tr("Расчет клинноременной передачи:"));
+        break;
     }
 }
 
