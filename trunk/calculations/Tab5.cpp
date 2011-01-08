@@ -50,7 +50,6 @@ void DmWindow::on_spinBox_StepenPeredachi_valueChanged(int value)
     ProverkaNaKontaktnuyuVinoslivost();
 }
 
-
 void DmWindow::on_comboBox_Zm_currentIndexChanged(QString value)
 {
     iZm = value.toInt();
@@ -121,8 +120,15 @@ void DmWindow::ModulZacepleniya(void)
 void DmWindow::UgolNaklonaZubjev(void)
 {
     if (CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
+    {
         dbb = 0.0;
-    else dbb = asin(3.5 * dmm / ib2) * (180.0/PI);
+        ui->label_BetaBFormula->setVisible(false);
+    }
+    else
+    {
+        dbb = asin(3.5 * dmm / ib2) * (180.0/PI);
+        ui->label_BetaBFormula->setVisible(true);
+    }
     dbb = ROUND2(dbb);
 
     ui->label_bb->setText(QString::number(dbb));
@@ -157,8 +163,15 @@ void DmWindow::ChisloZubjev(void)
 void DmWindow::FacticheskijUgolNaklona(void)
 {
     if (CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
+    {
         dBeta = 0.0;
-    else dBeta = acos((double)iZsum * dmm / (2.0 * daw2)) * (180.0/PI);;
+        ui->label_BetaFormula->setVisible(false);
+    }
+    else
+    {
+        dBeta = acos((double)iZsum * dmm / (2.0 * daw2)) * (180.0/PI);
+        ui->label_BetaFormula->setVisible(true);
+    }
     dBeta = ROUND1(dBeta);
 
     ui->label_beta->setText(QString::number(dBeta));

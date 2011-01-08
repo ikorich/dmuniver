@@ -98,6 +98,7 @@ DmWindow::DmWindow(QWidget *parent) :
 
     on_spinBox_2_valueChanged(1);
     setPicture(ui->graphicsView_2 , ":/resources/shkiv.jpg");
+    on_comboBoxPrivodType_currentIndexChanged(0);
 #ifdef TAB_CONTROL
     for (uint i = 2 ; i < ui->tabWidget->count() ; i++)
     {
@@ -186,7 +187,6 @@ void DmWindow::on_tabWidget_currentChanged(int index)
 
 }
 
-
 void DmWindow::on_spinBox_2_valueChanged(int index)
 {
     char buffer [256];
@@ -266,9 +266,15 @@ void DmWindow::on_comboBoxPeredacha3Type1_currentIndexChanged(int index)
 void DmWindow::on_comboBoxPrivodType_currentIndexChanged(int index)
 {
     if (index == 0)
+    {
         CurrentPrivod = Privod::KLINNOREMENNAYA;
+        ui->label_TypRemPeredachi->setText(tr("Расчет клинноременной передачи:"));
+    }
     else if (index == 1)
+    {
         CurrentPrivod = Privod::PLOSKOREMENNAYA;
+        ui->label_TypRemPeredachi->setText(tr("Расчет плоскоременной передачи:"));
+    }
 }
 
 
