@@ -52,7 +52,7 @@
        <enum>QTabWidget::North</enum>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>2</number>
       </property>
       <property name="usesScrollButtons">
        <bool>true</bool>
@@ -2745,7 +2745,7 @@ p, li { white-space: pre-wrap; }
          <number>0</number>
         </property>
         <item>
-         <widget class="QLabel" name="label_28">
+         <widget class="QLabel" name="label_TypRemPeredachi">
           <property name="font">
            <font>
             <weight>75</weight>
@@ -2753,7 +2753,7 @@ p, li { white-space: pre-wrap; }
            </font>
           </property>
           <property name="text">
-           <string>Расчет клиноременной передачи</string>
+           <string>label_TypRemPeredachi</string>
           </property>
           <property name="indent">
            <number>12</number>
@@ -2772,7 +2772,7 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-1957</y>
+             <y>-1034</y>
              <width>918</width>
              <height>2897</height>
             </rect>
@@ -7611,7 +7611,7 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-1414</y>
+             <y>-139</y>
              <width>944</width>
              <height>3206</height>
             </rect>
@@ -8424,18 +8424,18 @@ p, li { white-space: pre-wrap; }
                <item row="0" column="0">
                 <widget class="QLabel" name="label_241">
                  <property name="text">
-                  <string>b' = arcsin 3,5 *m / b =</string>
+                  <string>b' =</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
+               <item row="0" column="2">
                 <widget class="QLabel" name="label_bb">
                  <property name="text">
                   <string>label_bb</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="2">
+               <item row="0" column="3">
                 <spacer name="horizontalSpacer_57">
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
@@ -8447,6 +8447,13 @@ p, li { white-space: pre-wrap; }
                   </size>
                  </property>
                 </spacer>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_BetaBFormula">
+                 <property name="text">
+                  <string>arcsin 3.5 *m / b =</string>
+                 </property>
+                </widget>
                </item>
               </layout>
              </widget>
@@ -8616,19 +8623,19 @@ p, li { white-space: pre-wrap; }
                   <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Lucida Grande'; font-size:14pt;&quot;&gt;β = arccos(z&lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande'; font-size:14pt; vertical-align:sub;&quot;&gt;сум&lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande'; font-size:14pt;&quot;&gt; * m / (2 * a&lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande'; font-size:14pt; vertical-align:sub;&quot;&gt;w&lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande'; font-size:14pt;&quot;&gt;)) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;β =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
+               <item row="0" column="2">
                 <widget class="QLabel" name="label_beta">
                  <property name="text">
                   <string>label_beta</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="2">
+               <item row="0" column="3">
                 <spacer name="horizontalSpacer_60">
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
@@ -8640,6 +8647,17 @@ p, li { white-space: pre-wrap; }
                   </size>
                  </property>
                 </spacer>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_BetaFormula">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;arccos(z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;сум&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; * m / (2 * a&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;w&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;)) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
                </item>
               </layout>
              </widget>
@@ -11307,7 +11325,7 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-1761</y>
+             <y>0</y>
              <width>918</width>
              <height>2505</height>
             </rect>
