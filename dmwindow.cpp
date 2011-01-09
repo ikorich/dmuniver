@@ -9,11 +9,7 @@ DmWindow::DmWindow(QWidget *parent) :
     ui(new Ui::DmWindow)
 {
     ui->setupUi(this);
-//Reset Value
-    //Global
-    CurrentPrivod = Privod::KLINNOREMENNAYA;
-    CurrentReductor = Reductor::CILINDRICHESKAYA_PRYMOZUBAYA;
-    CurrentPeredacha = Peredacha::CILINDRICHESKAYA;
+//Set Default Value
     //Tab2
     dValPiv = dValV = dValOmega = dValOmega1 = dValOmega2 = dValOmega3 = dValOmega4 = dValD = dValP = dValZ = dTmaxTnom = 0.0;
     iValN = iValLh = iValLh = iValFt = 0;
@@ -37,11 +33,12 @@ DmWindow::DmWindow(QWidget *parent) :
     dT2 = dn2 = du2 = dPsiba = dPsibd = dKHBeta = daw = daw2 = dKa = dmm = dmm1 = dmm2 = dbb = dZsum = dZ1 = dBeta = dUf = dUf2 = 0.0;
     dd1 = dd2 = dda1 = dda2 = ddf1 = ddf2 = dPsibd2 = dV = dEtaAlpha = dZh = dZe = dKHa = dKHV = dSigmaH51 = dSigmaHmax = dSigmaHHmax = 0.0;
     dFt = dFr = dFa = dKFBeta = dKFV = dKFa = dYF1 = dYF2 = dYb = dSigmaF51 = dSigmaF52 = dDzag = dCzag = 0.0;
-    ib1 = ib2 = iZsum = iZ1 = iZ2 = iNaznachenie = iZm = iZV1 = iZV2 = iDrped = iSrped = iSzag1 = iSzag2 = 20;
+    ib1 = ib2 = iZsum = iZ1 = iZ2 = iNaznachenie = iZm = iZV1 = iZV2 = iDrped = iSrped = iSzag1 = iSzag2 = 0;
     //Tab6
-
-
-
+    dT3 = dn3 = du3 = dSf1 = dSf2 = dSF = dSff1 = dSff2 = dPsibd3 = dYF61 = dYF62 = dYF1SF1 = dYF2SF2 = dmm3 = dm = dd61 = dd62 = 0.0;
+    dda61 = dda62 = ddf61 = ddf62 = dV61 = dFt12 = dFa1 = dKFV61 = dSigmaF61 = dSigmaF62 = dSigmaFmax61 = dSigmaFmax62 = 0.0;
+    dSigmaFFmax61 = dSigmaFFmax62 = dSigmaH = dKHV61 = dSigmaHmax61 = dSigmaHHmax61 = 0.0;
+    iLitje = iHB1 = iHB2 = iSb2 = iSt2 = iN1FE = iN2FE = iz1 = iz2 = iu = izv1 = izv2 = ib61 = ib62 = iStepenTochnostiPeredachi = 0;
 
 //Tab 1
     connect(ui->doubleSpinBox_nu1,                      SIGNAL(valueChanged(double)),       this, SLOT(updateKPDText()));
@@ -96,7 +93,7 @@ DmWindow::DmWindow(QWidget *parent) :
     connect(ui->doubleSpinBox_n2,                      SIGNAL(valueChanged(double)),       this, SLOT(KoefficientShirini()));
     connect(ui->doubleSpinBox_u2,                      SIGNAL(valueChanged(double)),       this, SLOT(KoefficientShirini()));
 
-    on_spinBox_2_valueChanged(1);
+    on_spinBox_Variant_valueChanged(1);
     setPicture(ui->graphicsView_2 , ":/resources/shkiv.jpg");
     on_comboBoxPrivodType_currentIndexChanged(0);
     on_comboBoxPeredacha1Type1_currentIndexChanged(0);
@@ -189,7 +186,7 @@ void DmWindow::on_tabWidget_currentChanged(int index)
 
 }
 
-void DmWindow::on_spinBox_2_valueChanged(int index)
+void DmWindow::on_spinBox_Variant_valueChanged(int index)
 {
     char buffer [256];
     sprintf (buffer, ":/resources/var%d.jpg", index);
@@ -245,19 +242,6 @@ void DmWindow::setPicture(QGraphicsView *graphics, const char* buffer )
 
 void DmWindow::on_comboBoxPeredacha1Type1_currentIndexChanged(int index)
 {
-//сложновложенный иф. Целесообразней свитч
-
-//но если хош оставить иф, то раскоменитируй код ниже
-    //    if (index == 0)
-    //        {CurrentReductor = Reductor::CILINDRICHESKAYA_PRYMOZUBAYA;ui->label_typreductora->setText(tr("Расчет цилиндрического прямозубого редуктора:"));}
-    //    else if (index == 1)
-    //        {CurrentReductor = Reductor::CILINDRICHESKAYA_KOSOZUBAYA;ui->label_typreductora->setText(tr("Расчет цилиндрического косозубого редуктора:"));}
-    //    else if (index == 2)
-    //        {CurrentReductor = Reductor::KONICHESKAYA;ui->label_typreductora->setText(tr("Расчет конического редуктора:"));}
-    //    else if (index == 3)
-    //        {CurrentReductor = Reductor::CHERVYACHNAYA;ui->label_typreductora->setText(tr("Расчет червячного редуктора:"));}
-
-//вариант со свитч
     switch(index)
     {
         case 0:
@@ -281,13 +265,6 @@ void DmWindow::on_comboBoxPeredacha1Type1_currentIndexChanged(int index)
 
 void DmWindow::on_comboBoxPeredacha3Type1_currentIndexChanged(int index)
 {
-//      вариант с иф, если не хош свитч
-//    if (index == 0)
-//        {CurrentPeredacha = Peredacha::CILINDRICHESKAYA;ui->label_typotkritoiperedachi->setText(tr("Расчет цилиндрической открытой передачи:"));}
-//    else if (index == 1)
-//        {CurrentPeredacha = Peredacha::KONICHESKAYA;ui->label_typotkritoiperedachi->setText(tr("Расчет конической открытой передачи:"));}
-//    else if (index == 2)
-//        {CurrentPeredacha = Peredacha::CEPNAYA;ui->label_typotkritoiperedachi->setText(tr("Расчет цепной открытой передачи:"));}
     switch(index)
     {
         case 0:
@@ -307,19 +284,6 @@ void DmWindow::on_comboBoxPeredacha3Type1_currentIndexChanged(int index)
 
 void DmWindow::on_comboBoxPrivodType_currentIndexChanged(int index)
 {
-// У тебя была ошибка. Плоскоременную перепутал с клинноременной.
-
-//     вариант с иф, если не хош свитч
-//    if (index == 0)
-//    {
-//        CurrentPrivod = Privod::PLOSKOREMENNAYA;
-//        ui->label_TypRemPeredachi->setText(tr("Расчет плоскоременной передачи:"));
-//    }
-//    else if (index == 1)
-//    {
-//        CurrentPrivod = Privod::KLINNOREMENNAYA;
-//        ui->label_TypRemPeredachi->setText(tr("Расчет клинноременной передачи:"));
-//    }
     switch(index)
     {
         case 0:
