@@ -114,8 +114,7 @@ private slots:
     bool checkTab6(void);
 
     //Tab 2
-    void on_spinBox_2_valueChanged(int index);
-    void on_spinBox_Variant2_valueChanged(int );
+    void on_spinBox_Variant2_valueChanged(int index);
     void on_comboBox_Pnom_currentIndexChanged(void);
     void on_tabWidget_currentChanged(int index);
     void updateKPDText(void);
@@ -191,6 +190,7 @@ private slots:
     double GetVspomogatelniyKoeficient(void);
 
     //Global
+    void on_spinBox_Variant_valueChanged(int index);
     void on_comboBoxPeredacha1Type1_currentIndexChanged(int index);
     void on_comboBoxPeredacha3Type1_currentIndexChanged(int index);
     void setPicture(QGraphicsView *graphics, const char* buffer );
