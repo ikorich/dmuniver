@@ -11,7 +11,7 @@ DmWindow::DmWindow(QWidget *parent) :
     ui->setupUi(this);
 //Set Default Value
     //Tab2
-    dValPiv = dValV = dValOmega = dValOmega1 = dValOmega2 = dValOmega3 = dValOmega4 = dValD = dValP = dValZ = dTmaxTnom = 0.0;
+    dValPiv = dValV = dValOmega = dValOmega1 = dValOmega2 = dValOmega3 = dValOmega4 = dValD = dValP = dValZ = dTmaxTnom1 = dTmaxTnom2 = 0.0;
     iValN = iValLh = iValLh = iValFt = 0;
     dValEta = dValEta1 = dValEta2 = dValEta3 = dValNiv = dValI = dValI1 = dValI2 = dValI3 = 0.0;
     dValN1 = dValN2 = dValN3 = dValN4 = dValP1 = dValP2 = dValP3 = dValP4 = dValT1 = dValT2 = dValT3 = dValT4 = 0.0;
@@ -21,6 +21,7 @@ DmWindow::DmWindow(QWidget *parent) :
     dValPo1 = dValPo2 = dVal_ll1 = dVal_ll2 = dValCl1 = dValCl2 = dValPPo1 = dValPPo2 = dValCp = dValCz1 = dValCz2 = dValF0 = 0.0;
     dValRn = dValde1 = dValde2 = dValM = 0.0;
     iValRemen1 = iValRemen2 = iValZp1 = iValZp2 = 0;
+    iValZp = 1;
     //Tab4
     iShesternya4Index = iKoleso4Index = iN1 = iN2 = iN2fe = 0;
     dNH01 = dNH02 = dKHL1 = dKHL2 = dSigmaH1 = dSigmaH2 = dSigmaH3 = dSigmaF1 = dSigmaF2 = dKFL1 = dKFL2 = dVs = 0.0;
@@ -104,6 +105,8 @@ DmWindow::DmWindow(QWidget *parent) :
         ui->tabWidget->setTabEnabled(i, false);
     }
 #endif
+    ui->tabWidget->setCurrentIndex(Tabs::TAB_1);
+    setTablesWidht();
 }
 
 DmWindow::~DmWindow()
@@ -228,6 +231,7 @@ void DmWindow::on_spinBox_Variant_valueChanged(int index)
     }
 
     ui->label_var->setText(line);
+    ui->tableWidget_remark->resizeColumnsToContents();
 }
 
 void DmWindow::setPicture(QGraphicsView *graphics, const char* buffer )
@@ -297,4 +301,45 @@ void DmWindow::on_comboBoxPrivodType_currentIndexChanged(int index)
     }
 }
 
+void DmWindow::setTablesWidht()
+{
+    int i;
+    ui->tableWidget_var->setColumnWidth(0, 100);
+    for (i = 1; i < ui->tableWidget_var->columnCount(); i++)
+        ui->tableWidget_var->setColumnWidth(i, 50);
 
+    ui->tableWidget_var->horizontalHeader()->setResizeMode(QHeaderView::Fixed);
+    ui->tableWidget_var->verticalHeader()->setResizeMode(QHeaderView::Fixed);
+
+    ui->tableWidget_remark->horizontalHeader()->setResizeMode(QHeaderView::Fixed);
+    ui->tableWidget_remark->verticalHeader()->setResizeMode(QHeaderView::Fixed);
+
+    ui->tableWidgetPnom->setColumnWidth(0, 113);
+    ui->tableWidgetPnom->setColumnWidth(1, 113);
+    ui->tableWidgetPnom->setColumnWidth(2, 180);
+    ui->tableWidgetPnom->setColumnWidth(3, 240);
+    ui->tableWidgetPnom->setColumnWidth(4, 114);
+    ui->tableWidgetPnom->horizontalHeader()->setResizeMode(QHeaderView::Fixed);
+    ui->tableWidgetPnom->verticalHeader()->setResizeMode(QHeaderView::Fixed);
+
+    ui->tableWidget_4Privoda->setColumnWidth(0, 205);
+    for (i = 1; i < ui->tableWidget_4Privoda->columnCount(); i++)
+        ui->tableWidget_4Privoda->setColumnWidth(i, 111);
+    ui->tableWidget_4Privoda->horizontalHeader()->setResizeMode(QHeaderView::Fixed);
+    ui->tableWidget_4Privoda->verticalHeader()->setResizeMode(QHeaderView::Fixed);
+
+    ui->tableWidget_Charact1->setColumnWidth(0, 205);
+    for (i = 1; i < ui->tableWidget_Charact1->columnCount(); i++)
+        ui->tableWidget_Charact1->setColumnWidth(i, 50);
+    ui->tableWidget_Charact1->horizontalHeader()->setResizeMode(QHeaderView::Fixed);
+    ui->tableWidget_Charact1->verticalHeader()->setResizeMode(QHeaderView::Fixed);
+
+    for (i = 0; i < ui->tableWidget_Charact2->columnCount(); i++)
+        ui->tableWidget_Charact2->setColumnWidth(i, 55);
+    ui->tableWidget_Charact2->horizontalHeader()->setResizeMode(QHeaderView::Fixed);
+    ui->tableWidget_Charact2->verticalHeader()->setResizeMode(QHeaderView::Fixed);
+
+    ui->tableWidgetSechenie->horizontalHeader()->setResizeMode(QHeaderView::Fixed);
+    ui->tableWidgetSechenie->verticalHeader()->setResizeMode(QHeaderView::Fixed);
+
+}

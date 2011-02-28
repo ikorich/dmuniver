@@ -50,9 +50,9 @@ void DmWindow::on_comboBox_St_2_currentIndexChanged(QString value)
     viborMaterialaZubchatihKoles();
 }
 
-void DmWindow::on_doubleSpinBox_SF_2_valueChanged(double value)
+void DmWindow::on_comboBox_SF_2_currentIndexChanged(QString value)
 {
-    dSF = value;
+    dSF = value.toDouble();
     DopustimieNapryajeniyaIzgiba();
 }
 
@@ -296,10 +296,10 @@ void DmWindow::ProverkaaNaVinoslivostPoNapryjeniyamIzgiba(void)
 
 void DmWindow::proverkaNaProchnost(void)
 {
-    dSigmaFmax61 = dSigmaF61 * dTmaxTnom;
+    dSigmaFmax61 = dSigmaF61 * dTmaxTnom2;
     dSigmaFmax61 = ROUND1(dSigmaFmax61);
 
-    dSigmaFmax62 = dSigmaF62 * dTmaxTnom;
+    dSigmaFmax62 = dSigmaF62 * dTmaxTnom2;
     dSigmaFmax62 = ROUND1(dSigmaFmax62);
 
     ui->label_SigmaFmax1->setText(QString::number(dSigmaFmax61));
@@ -343,7 +343,7 @@ void DmWindow::proverkaNaKontaktnujuProchnost(void)
 
     ui->label_SigmaH->setText(QString::number(dSigmaH));
 
-    dSigmaHmax61 = dSigmaH * sqrt(dTmaxTnom);
+    dSigmaHmax61 = dSigmaH * sqrt(dTmaxTnom2);
     dSigmaHmax61 = ROUND1(dSigmaHmax61);
 
     ui->label_SigmaHmax->setText(QString::number(dSigmaHmax61));
