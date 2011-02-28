@@ -20,6 +20,12 @@ void DmWindow::on_doubleSpinBox_u2_valueChanged(double value)
     KoefficientShirini();
 }
 
+void DmWindow::on_doubleSpinBox_TmaxTnom_valueChanged(double value)
+{
+    dTmaxTnom2 = value;
+    KoefficientShirini();
+}
+
 void DmWindow::on_comboBox_Psiba_currentIndexChanged(QString value)
 {
     dPsiba = value.toDouble();
@@ -60,6 +66,12 @@ void DmWindow::on_doubleSpinBox_Khv_valueChanged(double value)
 {
     dKHV = value;
     ProverkaNaKontaktnuyuVinoslivost();
+}
+
+void DmWindow::on_doubleSpinBox_Beta_valueChanged(double value)
+{
+    dbb = value;
+    UgolNaklonaZubjev();
 }
 
 void DmWindow::on_comboBox_Kfbeta_currentIndexChanged(QString value)
@@ -119,7 +131,7 @@ void DmWindow::ModulZacepleniya(void)
 
 void DmWindow::UgolNaklonaZubjev(void)
 {
-    if (CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
+    /*if (CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
     {
         dbb = 0.0;
         ui->label_BetaBFormula->setVisible(false);
@@ -131,7 +143,7 @@ void DmWindow::UgolNaklonaZubjev(void)
     }
     dbb = ROUND2(dbb);
 
-    ui->label_bb->setText(QString::number(dbb));
+    ui->label_bb->setText(QString::number(dbb) + tr("°"));*/
 
     ChisloZubjev();
 }
@@ -143,7 +155,7 @@ void DmWindow::ChisloZubjev(void)
 
     iZsum = ROUND(dZsum);
 
-    ui->label_Zsumm1->setText(tr("2*") + QString::number(daw2) + tr("*cos(") + QString::number(dbb) + tr(")/") + QString::number(dmm) + tr("=")  + QString::number(dZsum));
+    ui->label_Zsumm1->setText(tr("2*") + QString::number(daw2) + tr("*cos(") + QString::number(dbb) + tr("°)/") + QString::number(dmm) + tr("=")  + QString::number(dZsum));
     ui->label_Zsumm2->setText(QString::number(iZsum));
 
     dZ1 = (double)iZsum / (du2 + 1);
@@ -174,7 +186,7 @@ void DmWindow::FacticheskijUgolNaklona(void)
     }
     dBeta = ROUND1(dBeta);
 
-    ui->label_beta->setText(QString::number(dBeta));
+    ui->label_beta->setText(QString::number(dBeta) + tr("°"));
 
     FacticheskoePeredatochnoeOtnoshenie();
 }
@@ -182,9 +194,8 @@ void DmWindow::FacticheskoePeredatochnoeOtnoshenie(void)
 {
     dUf = ROUND1((double)iZ2 / iZ1);
 
-    ui->label_uf->setText(QString::number(iZ2) + tr(" / ") + QString::number(iZ2) + tr(" = ") + QString::number(dUf));
+    ui->label_uf->setText(QString::number(iZ2) + tr(" / ") + QString::number(iZ1) + tr(" = ") + QString::number(dUf));
 
-    //че-то там не то в экселе
 
     dUf2 = (fabs(du2 - dUf)) / du2 * 100;
     dUf2 = ROUND2(dUf2);
@@ -199,12 +210,12 @@ void DmWindow::OsnovnojGeometricheskijObjom(void)
     dd1 = iZ1 * dmm / cos(dBeta * (PI / 180));
     dd1 = ROUND1(dd1);
 
-    ui->label_d1->setText(QString::number(iZ1) + tr(" * ") + QString::number(dmm) + tr(" /cos(") + QString::number(dBeta) + tr(") = ") + QString::number(dd1));
+    ui->label_d1->setText(QString::number(iZ1) + tr(" * ") + QString::number(dmm) + tr(" /cos(") + QString::number(dBeta) + tr("°) = ") + QString::number(dd1));
 
     dd2 = iZ2 * dmm / cos(dBeta * (PI / 180));
     dd2 = ROUND1(dd2);
 
-    ui->label_d2->setText(QString::number(iZ2) + tr(" * ") + QString::number(dmm) + tr(" /cos(") + QString::number(dBeta) + tr(") = ") + QString::number(dd2));
+    ui->label_d2->setText(QString::number(iZ2) + tr(" * ") + QString::number(dmm) + tr(" /cos(") + QString::number(dBeta) + tr("°) = ") + QString::number(dd2));
 
     dda1 = dd1 + 2.0 * dmm;
     dda1 = ROUND1(dda1);
@@ -244,7 +255,7 @@ void DmWindow::ProverkaNaKontaktnuyuVinoslivost(void)
     dEtaAlpha = (1.88 - 3.2 * ( 1.0 / iZ1 + 1.0 / iZ2 )) * cos(dBeta * (PI / 180));
     dEtaAlpha = ROUND2(dEtaAlpha);
 
-    ui->label_EtaAlpha->setText(tr("[1.88 - 3.2 * (1 / ") + QString::number(iZ1) + tr(" + 1 / ")  + QString::number(iZ2) + tr(")] * cos(") + QString::number(dBeta) + tr(") = ") + QString::number(dEtaAlpha));
+    ui->label_EtaAlpha->setText(tr("[1.88 - 3.2 * (1 / ") + QString::number(iZ1) + tr(" + 1 / ")  + QString::number(iZ2) + tr(")] * cos(") + QString::number(dBeta) + tr("°) = ") + QString::number(dEtaAlpha));
 
     if (CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
         dZh = 1.76;
@@ -289,7 +300,7 @@ void DmWindow::ProverkaNaKontaktnuyuVinoslivost(void)
     }
     else ui->label_OtnoshenieSigmaH1H2->setText(tr(">"));
 
-    dSigmaHmax = dSigmaH51 * sqrt(dTmaxTnom);
+    dSigmaHmax = dSigmaH51 * sqrt(dTmaxTnom2);
     dSigmaHmax = ROUND(dSigmaHmax);
 
     ui->label_SigmaHmax1->setText(QString::number(dSigmaHmax));
@@ -315,15 +326,15 @@ void DmWindow::SilaDejstviyaVZaceplenii(void)
 
     ui->label_Ft->setText(tr("2 * ") + QString::number(dT2) + tr(" * 1000 / ") + QString::number(dd1) + tr(" = ") + QString::number(dFt) + tr(" H"));
 
-    dFr = dFt * tan(20.0 * (PI / 180)) / cos(dBeta * (PI / 180));;
+    dFr = dFt * tan(20.0 * (PI / 180)) / cos(dBeta * (PI / 180));
     dFr = ROUND1(dFr);
 
-    ui->label_Fr->setText(QString::number(dFt) + tr(" * tg(20) / cos(") + QString::number(dBeta) + tr(" = ") + QString::number(dFr) + tr(" H"));
+    ui->label_Fr->setText(QString::number(dFt) + tr(" * tg(20°) / cos(") + QString::number(dBeta) + tr("°) = ") + QString::number(dFr) + tr(" H"));
 
     dFa = dFt * tan(dBeta * (PI / 180));
     dFa = ROUND1(dFa);
 
-    ui->label_Fa->setText(QString::number(dFt) + tr(" * tg(") + QString::number(dBeta) + tr(") = ") + QString::number(dFa) + tr(" H"));
+    ui->label_Fa->setText(QString::number(dFt) + tr(" * tg(") + QString::number(dBeta) + tr("°) = ") + QString::number(dFa) + tr(" H"));
 
     ProverkaNaVinoslivostPoNapryajeniyuIzgiba();
 }
@@ -332,7 +343,7 @@ void DmWindow::ProverkaNaVinoslivostPoNapryajeniyuIzgiba(void)
 {
     ui->label_StepenPeredachi->setText(QString::number(iNaznachenie));
 
-    if (CurrentReductor == Reductor::CILINDRICHESKAYA_PRYMOZUBAYA || CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
+    if (CurrentReductor == Reductor::CILINDRICHESKAYA_PRYMOZUBAYA)
     {
         dKFa = 1;
     }
@@ -412,8 +423,8 @@ void DmWindow::ProverkaNaVinoslivostPoNapryajeniyuIzgiba(void)
     }
     else ui->label_OtnoshenieSigmaF2_2->setText(">");
 
-    iSigmaFmax1 = ROUND(dSigmaF51 * dTmaxTnom);
-    iSigmaFmax2 = ROUND(dSigmaF52 * dTmaxTnom);
+    iSigmaFmax1 = ROUND(dSigmaF51 * dTmaxTnom2);
+    iSigmaFmax2 = ROUND(dSigmaF52 * dTmaxTnom2);
 
     iSigmaFFmax1 = ROUND(4.8 * iHBcp1);
     iSigmaFFmax2 = ROUND(4.8 * iHBcp2);
@@ -500,7 +511,7 @@ bool DmWindow::checkTab5(void)
 {
     bool noErrors = true;
 
-    if (dT2 != dValT2 || dn2 != dValN2 || du2 != dValI2)
+    if (dT2 != dValT2 || dn2 != dValN2 || du2 != dValI2 || dTmaxTnom1 != dTmaxTnom2)
     {
         ui->label_CheckT2->setVisible(true);
         noErrors = false;
@@ -761,8 +772,11 @@ double DmWindow::GetVspomogatelniyKoeficient()
 {
     double _dKa = 0.0;
 
-    if (CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
-        _dKa = 49.5;
+    if (CurrentReductor == Reductor::CILINDRICHESKAYA_PRYMOZUBAYA)
+        _dKa = 490;
+
+    else if (CurrentReductor == Reductor::CILINDRICHESKAYA_KOSOZUBAYA)
+        _dKa = 430;
 
     return _dKa;
 }

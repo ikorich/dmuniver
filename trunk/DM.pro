@@ -26,5 +26,5 @@ else:macx {
     RC_FILE = resources/icon.icns
 }
 else {
-    kde-config --resources/icon.png icon
+    #kde-config --resources/icon.png icon
 }

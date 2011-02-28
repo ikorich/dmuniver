@@ -82,6 +82,9 @@ private:
 
 private slots:
     //Tab 6
+
+    void on_doubleSpinBox_Beta_valueChanged(double );
+    void on_comboBox_SF_2_currentIndexChanged(QString value);
     void proverkaNaKontaktnujuProchnost(void);
     void proverkaNaProchnost(void);
     void on_doubleSpinBox_valueChanged(double value);
@@ -100,7 +103,6 @@ private slots:
     void on_comboBox_z1_currentIndexChanged(QString value);
     void chisloZubjev2(void);
     void on_spinBox_C_valueChanged(int );
-    void on_doubleSpinBox_SF_2_valueChanged(double value);
     void DopustimieNapryajeniyaIzgiba(void);
     void on_comboBox_St_2_currentIndexChanged(QString value);
     void on_comboBox_Sb_2_currentIndexChanged(QString value);
@@ -145,8 +147,10 @@ private slots:
     void updateNagruzkaVala(void);
     void updateOsnovnieRazmeriShkivov(void);
     double getValPo(uint start, uint end, double d1, double v);
+    void on_spinBox_KolRemney_valueChanged(int value);
 
     //Tab 4
+    void on_doubleSpinBox_TmaxTnom_valueChanged(double value);
     void on_spinBox_HVsr2_valueChanged(int value);
     void on_spinBox_HVsr1_valueChanged(int value);
     void on_comboBox_Koleso_currentIndexChanged(int index);
@@ -194,6 +198,7 @@ private slots:
     void on_comboBoxPeredacha1Type1_currentIndexChanged(int index);
     void on_comboBoxPeredacha3Type1_currentIndexChanged(int index);
     void setPicture(QGraphicsView *graphics, const char* buffer );
+    void setTablesWidht();
 
 private:
     int CurrentPrivod;
@@ -215,11 +220,11 @@ private:
     double  dValOmega1, dValOmega2, dValOmega3, dValOmega4;
     double  dValEta, dValEta1, dValEta2, dValEta3;
     double  dValNiv;
-    double  dValI, dValI1, dValI2, dValI3;
+    double  dValI, dValI1, dValI2, dValI3, dValI32;
     double  dValN1, dValN2, dValN3, dValN4;
     double  dValP1, dValP2, dValP3, dValP4;
     double  dValT1, dValT2, dValT3, dValT4;
-    double  dTmaxTnom;
+    double  dTmaxTnom1, dTmaxTnom2;
 
     //Tab 3
     double dValXi;
@@ -241,7 +246,7 @@ private:
     double dValPPo1, dValPPo2;
     double dValCp;
     int    iValRemen1, iValRemen2;
-    int    iValZp1, iValZp2;
+    int    iValZp1, iValZp2, iValZp;
     double dValCz1, dValCz2;
     double dValF0;
     double dValRn;

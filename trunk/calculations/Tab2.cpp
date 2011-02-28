@@ -21,7 +21,7 @@ void DmWindow::updatePValues(void)
         if (iValFt > 0 && dValV > 0)
         {
             dValPiv = dValV * iValFt;
-            ui->label_P4->setText(QString::number(iValFt) + tr("+") + QString::number(dValV) + tr("="));
+            ui->label_P4->setText(QString::number(iValFt) + tr("*") + QString::number(dValV) + tr("="));
         }
     }
     else dValPiv = ui->doubleSpinBox_P->value();
@@ -109,7 +109,7 @@ void DmWindow::updateIValues(void)
     ui->label_i1->setText( QString::number(predelI[0][0])+" .. "+QString::number(predelI[0][1]));
     int shift = CurrentReductor + 1;
     ui->label_i2->setText( QString::number(predelI[shift][0])+" .. "+QString::number(predelI[shift][1]));
-    shift = 4 + ui->comboBoxPeredacha3Type1->currentIndex();
+    shift = 5 + CurrentPeredacha;
     ui->label_i3->setText( QString::number(predelI[shift][0])+" .. "+QString::number(predelI[shift][1]));
 
     ui->label_RemennayaPeredacha->setText(ui->comboBoxPrivodType->currentText());
@@ -128,6 +128,7 @@ void DmWindow::on_spinBox_Variant2_valueChanged(int val)
     ui->label_i_1->setText(ui->tableWidget_4Privoda->item(1, val+1)->text());
     ui->label_i_2->setText(ui->tableWidget_4Privoda->item(2, val+1)->text());
     ui->label_i_3->setText(ui->tableWidget_4Privoda->item(3, val+1)->text());
+    dValI32 = ui->tableWidget_4Privoda->item(3, val+1)->text().toDouble();
 
     //round
     dValI2 = ui->label_i_2->text().toDouble();
@@ -135,13 +136,12 @@ void DmWindow::on_spinBox_Variant2_valueChanged(int val)
     ui->label_i3_2->setText(tr("нет расчета"));
     if (ui->comboBoxPeredacha3Type1->currentIndex() != 2)
     {
-        double i3 = ui->label_i_3->text().toDouble();
         for (int i = LENGTH(roundI) - 2 ; i >= 0 ; i--)
         {
-            if(i3 >= roundI[i])
+            if(dValI32 >= roundI[i])
             {
-                double temp1 = roundI[i+1] - i3;
-                double temp2 = i3 - roundI[i];
+                double temp1 = roundI[i+1] - dValI32;
+                double temp2 = dValI32 - roundI[i];
 
                 if(temp1 < temp2)
                     dValI3 = roundI[i+1];
@@ -160,8 +160,8 @@ void DmWindow::on_spinBox_Variant2_valueChanged(int val)
     ui->label_Dvigatel_2->setText(ui->tableWidgetPnom->item(val-1, 1)->text());
     ui->label_nnom_2->setText(ui->tableWidgetPnom->item(val-1, 3)->text());
     ui->label_Pnom_2->setText(ui->tableWidgetPnom->item(val-1, 0)->text());
-    dTmaxTnom = ui->tableWidgetPnom->item(val-1, 4)->text().toDouble();
-    ui->label_TmaxTnom_2->setText(QString::number(dTmaxTnom));
+    dTmaxTnom1 = ui->tableWidgetPnom->item(val-1, 4)->text().toDouble();
+    ui->label_TmaxTnom_2->setText(QString::number(dTmaxTnom1));
 
     updateHarakteristiki();
 }
@@ -230,15 +230,15 @@ void DmWindow::updateHarakteristiki(void)
     ui->tableWidget_Charact2->setItem(1 , 2 , new QTableWidgetItem(QString::number(dValN3)));
     ui->tableWidget_Charact2->setItem(1 , 3 , new QTableWidgetItem(QString::number(dValN4)));
 
-    ui->tableWidget_Charact2->setItem(2 , 0 , new QTableWidgetItem(QString::number(dValT1)));
-    ui->tableWidget_Charact2->setItem(2 , 1 , new QTableWidgetItem(QString::number(dValT2)));
-    ui->tableWidget_Charact2->setItem(2 , 2 , new QTableWidgetItem(QString::number(dValT3)));
-    ui->tableWidget_Charact2->setItem(2 , 3 , new QTableWidgetItem(QString::number(dValT4)));
+    ui->tableWidget_Charact2->setItem(2 , 0 , new QTableWidgetItem(QString::number(dValOmega1)));
+    ui->tableWidget_Charact2->setItem(2 , 1 , new QTableWidgetItem(QString::number(dValOmega2)));
+    ui->tableWidget_Charact2->setItem(2 , 2 , new QTableWidgetItem(QString::number(dValOmega3)));
+    ui->tableWidget_Charact2->setItem(2 , 3 , new QTableWidgetItem(QString::number(dValOmega4)));
 
-    ui->tableWidget_Charact2->setItem(3 , 0 , new QTableWidgetItem(QString::number(dValOmega1)));
-    ui->tableWidget_Charact2->setItem(3 , 1 , new QTableWidgetItem(QString::number(dValOmega2)));
-    ui->tableWidget_Charact2->setItem(3 , 2 , new QTableWidgetItem(QString::number(dValOmega3)));
-    ui->tableWidget_Charact2->setItem(3 , 3 , new QTableWidgetItem(QString::number(dValOmega4)));
+    ui->tableWidget_Charact2->setItem(3 , 0 , new QTableWidgetItem(QString::number(dValT1)));
+    ui->tableWidget_Charact2->setItem(3 , 1 , new QTableWidgetItem(QString::number(dValT2)));
+    ui->tableWidget_Charact2->setItem(3 , 2 , new QTableWidgetItem(QString::number(dValT3)));
+    ui->tableWidget_Charact2->setItem(3 , 3 , new QTableWidgetItem(QString::number(dValT4)));
 
 #ifdef TAB_CONTROL
     if (checkTab2())
@@ -300,8 +300,8 @@ bool DmWindow::checkTab2(void)
         noErrors = false;
     } else ui->label_CheckI2->setVisible(false);
 
-    shift = 4 + ui->comboBoxPeredacha3Type1->currentIndex();
-    if(dValI3 < predelI[shift][0] || dValI3 > predelI[shift][1])
+    shift = 5 + CurrentPeredacha;
+    if(dValI32 < predelI[shift][0] || dValI32 > predelI[shift][1])
     {
         ui->label_CheckI3->setVisible(true);
         noErrors = false;

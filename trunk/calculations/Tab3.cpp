@@ -339,7 +339,6 @@ void DmWindow::updateNatyajenieRemnya(void)
 {
     double Ca = 0;
     double V = 0;
-    double z = 0;
     double Cl = 0;
     double q = ui->comboBox_q->currentText().toDouble();
 
@@ -349,7 +348,6 @@ void DmWindow::updateNatyajenieRemnya(void)
     {
         Ca = dValCa1;
         V  = dValV1;
-        z  = iValZp1;
         Cl = dValCl1;
 
         bTrueCheck = true;
@@ -358,7 +356,6 @@ void DmWindow::updateNatyajenieRemnya(void)
     {
         Ca = dValCa2;
         V  = dValV2;
-        z  = iValZp2;
         Cl = dValCl2;
 
         bTrueCheck = true;
@@ -366,7 +363,7 @@ void DmWindow::updateNatyajenieRemnya(void)
     
     if (bTrueCheck)
     {
-        dValF0 = ((850.0 * dValP1 * Cl) / (z * V * Ca * dValCp)) + q * (V*V);
+        dValF0 = ((850.0 * dValP1 * Cl) / (iValZp * V * Ca * dValCp)) + q * (V*V);
         dValF0 = ROUND1(dValF0);
     }
     else
@@ -388,12 +385,12 @@ void DmWindow::updateNagruzkaVala(void)
     if (ui->comboBox_sechenieRemnya3->currentIndex() == ui->comboBox_sechenieRemnya1->currentIndex())
     {
         a1 = dValAlpha1;
-        z  = iValZp1;
+        z  = iValZp;
     }
     else if (ui->comboBox_sechenieRemnya3->currentIndex() == ui->comboBox_sechenieRemnya2->currentIndex())
     {
         a1 = dValAlpha2;
-        z  = iValZp1;
+        z  = iValZp;
     }
 
     dValRn = ROUND1(dValF0 * z * sin((a1/2.0)*(PI/180.0)));
@@ -415,11 +412,11 @@ void DmWindow::updateOsnovnieRazmeriShkivov(void)
 
     if (ui->comboBox_sechenieRemnya3->currentIndex() == ui->comboBox_sechenieRemnya1->currentIndex())
     {
-        z  = iValZp1;
+        z  = iValZp;
     }
     else if (ui->comboBox_sechenieRemnya3->currentIndex() == ui->comboBox_sechenieRemnya2->currentIndex())
     {
-        z  = iValZp1;
+        z  = iValZp;
     }
 
     dValM = ROUND2((z - 1)*jolobStandart[ui->comboBox_sechenieRemnya3->currentIndex()][2] + 2 * jolobStandart[ui->comboBox_sechenieRemnya3->currentIndex()][3]);
@@ -632,8 +629,8 @@ bool DmWindow::checkTab3(void)
     } else ui->label_checkZp2->setVisible(false);
 
     if ((ui->comboBox_sechenieRemnya3->currentIndex() != ui->comboBox_sechenieRemnya1->currentIndex() && ui->comboBox_sechenieRemnya3->currentIndex() != ui->comboBox_sechenieRemnya2->currentIndex())
-        || ((ui->comboBox_sechenieRemnya3->currentIndex() == ui->comboBox_sechenieRemnya1->currentIndex() && iValZp1 > 5))
-        || ((ui->comboBox_sechenieRemnya3->currentIndex() == ui->comboBox_sechenieRemnya2->currentIndex()) && iValZp2 > 5))
+        || ((ui->comboBox_sechenieRemnya3->currentIndex() == ui->comboBox_sechenieRemnya1->currentIndex() && iValZp1 != iValZp))
+        || ((ui->comboBox_sechenieRemnya3->currentIndex() == ui->comboBox_sechenieRemnya2->currentIndex()) && iValZp2 != iValZp))
     {
         ui->label_checkSechebie3->setVisible(true);
         noErrors = false;
@@ -678,4 +675,10 @@ double DmWindow::getValPo(uint start, uint end, double d1, double v)
     }
 
     return Po;
+}
+
+void DmWindow::on_spinBox_KolRemney_valueChanged(int value)
+{
+    iValZp = value;
+    updateNatyajenieRemnya();
 }
