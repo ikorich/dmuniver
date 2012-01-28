@@ -2,92 +2,17 @@
 #include "ui_dmwindow.h"
 #include "defines/table4.h"
 
-void DmWindow::on_doubleSpinBox_T2_valueChanged(double value)
-{
-    dT2 = ROUND2(value);
-    KoefficientShirini();
-}
-
-void DmWindow::on_doubleSpinBox_n2_valueChanged(double value)
-{
-    dn2 = ROUND1(value);
-    KoefficientShirini();
-}
-
-void DmWindow::on_doubleSpinBox_u2_valueChanged(double value)
-{
-    du2 = ROUND2(value);
-    KoefficientShirini();
-}
-
-void DmWindow::on_doubleSpinBox_TmaxTnom_valueChanged(double value)
-{
-    dTmaxTnom2 = value;
-    KoefficientShirini();
-}
-
-void DmWindow::on_comboBox_Psiba_currentIndexChanged(QString value)
-{
-    dPsiba = value.toDouble();
-    KoefficientShirini();
-}
-
-void DmWindow::on_comboBox_KHBeta_currentIndexChanged(QString value)
-{
-    dKHBeta = value.toDouble();
-    updateMejOsevoeRastoyanie();
-}
-
-void DmWindow::on_comboBox_aw_currentIndexChanged(QString value)
-{
-    daw2 = value.toDouble();
-    updateMejOsevoeRastoyanie();
-}
-
-void DmWindow::on_comboBox_m_currentIndexChanged(QString value)
-{
-    dmm = value.toDouble();
-    ModulZacepleniya();
-}
-
-void DmWindow::on_spinBox_StepenPeredachi_valueChanged(int value)
-{
-    iNaznachenie = value;
-    ProverkaNaKontaktnuyuVinoslivost();
-}
-
-void DmWindow::on_comboBox_Zm_currentIndexChanged(QString value)
-{
-    iZm = value.toInt();
-    ProverkaNaKontaktnuyuVinoslivost();
-}
-
-void DmWindow::on_doubleSpinBox_Khv_valueChanged(double value)
-{
-    dKHV = value;
-    ProverkaNaKontaktnuyuVinoslivost();
-}
-
-void DmWindow::on_doubleSpinBox_Beta_valueChanged(double value)
-{
-    dbb = value;
-    UgolNaklonaZubjev();
-}
-
-void DmWindow::on_comboBox_Kfbeta_currentIndexChanged(QString value)
-{
-    dKFBeta = value.toDouble();
-    ProverkaNaVinoslivostPoNapryajeniyuIzgiba();
-}
-
-void DmWindow::on_doubleSpinBox_Kfv_valueChanged(double value)
-{
-    dKFV = ROUND2(value);
-    ProverkaNaVinoslivostPoNapryajeniyuIzgiba();
-}
+#pragma mark ============ Reductor Cilindricheskij =================
 
 void DmWindow::KoefficientShirini(void)
-{    
+{
+    dT2 = ui->doubleSpinBox_T2->value();
+    dn2 = ui->doubleSpinBox_n2->value();
+    du2 = ui->doubleSpinBox_u2->value();
+    dTmaxTnom2 = ui->doubleSpinBox_TmaxTnom->value();
+
+    dPsiba = ui->comboBox_Psiba->currentText().toDouble();
+
     dPsibd = 0.5 * dPsiba * (du2 + 1);
     dPsibd = ROUND2(dPsibd);
 
@@ -98,6 +23,9 @@ void DmWindow::KoefficientShirini(void)
 
 void DmWindow::updateMejOsevoeRastoyanie(void)
 {
+    dKHBeta = ui->comboBox_KHBeta->currentText().toDouble();
+    daw2 = ui->comboBox_aw->currentText().toDouble();
+
     dKa = GetVspomogatelniyKoeficient();
     ui->label_Ka->setText(QString::number(dKa));
 
@@ -122,6 +50,8 @@ void DmWindow::ShirinaZubchatogoVenca(void)
 
 void DmWindow::ModulZacepleniya(void)
 {
+    dmm = ui->comboBox_m->currentText().toDouble();
+
     dmm1 = ROUND2(0.01 * daw2);
     dmm2 = ROUND2(0.02 * daw2);
 
@@ -131,6 +61,8 @@ void DmWindow::ModulZacepleniya(void)
 
 void DmWindow::UgolNaklonaZubjev(void)
 {
+    dbb = ui->doubleSpinBox_Beta->value();
+
     /*if (CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
     {
         dbb = 0.0;
@@ -242,6 +174,10 @@ void DmWindow::OsnovnojGeometricheskijObjom(void)
 
 void DmWindow::ProverkaNaKontaktnuyuVinoslivost(void)
 {
+    iNaznachenie = ui->spinBox_StepenPeredachi->value();
+    iZm = ui->comboBox_Zm->currentText().toInt();
+    dKHV = ui->doubleSpinBox_Khv->value();
+
     dPsibd2 = (double)ib1 / dd1;
     dPsibd2 = ROUND2(dPsibd2);
 
@@ -341,6 +277,9 @@ void DmWindow::SilaDejstviyaVZaceplenii(void)
 
 void DmWindow::ProverkaNaVinoslivostPoNapryajeniyuIzgiba(void)
 {
+    dKFBeta = ui->comboBox_Kfbeta->currentText().toDouble();
+    dKFV = ROUND2(ui->doubleSpinBox_Kfv->value());
+
     ui->label_StepenPeredachi->setText(QString::number(iNaznachenie));
 
     if (CurrentReductor == Reductor::CILINDRICHESKAYA_PRYMOZUBAYA)
@@ -452,8 +391,6 @@ void DmWindow::ProverkaNaVinoslivostPoNapryajeniyuIzgiba(void)
 
 void DmWindow::ProverkaPrigodnostiZagotovki()
 {
-
-
     if (ui->comboBox_Shesternya->currentIndex() == 0)
         iDrped = 80;
     else if (ui->comboBox_Shesternya->currentIndex() == 1)
@@ -507,265 +444,300 @@ void DmWindow::ProverkaPrigodnostiZagotovki()
 #endif
 }
 
+#pragma mark ============ Reductor Konicheskij ==================
+
+void DmWindow::KoefficientShiriniZubchastihVencov(void)
+{
+     dKbe = ROUND2(ui->doubleSpinBox_Kbe->value());
+     KoefficientNeravnomernosti();
+}
+
+void DmWindow::KoefficientNeravnomernosti(void)
+{
+    //dKbeu =
+
+#ifdef TAB_CONTROL
+    if (checkTab5())
+        ui->tabWidget->setTabEnabled(5, true);
+    else ui->tabWidget->setTabEnabled(5, false);
+#else
+    checkTab5();
+#endif
+}
+
+
+#pragma mark =================== check ==========================
+
 bool DmWindow::checkTab5(void)
 {
     bool noErrors = true;
 
-    if (dT2 != dValT2 || dn2 != dValN2 || du2 != dValI2 || dTmaxTnom1 != dTmaxTnom2)
-    {
-        ui->label_CheckT2->setVisible(true);
-        noErrors = false;
-    } else ui->label_CheckT2->setVisible(false);
+    if (CurrentReductor == Reductor::CILINDRICHESKAYA_PRYMOZUBAYA || CurrentReductor == Reductor::CILINDRICHESKAYA_KOSOZUBAYA) {
+        if (dT2 != dValT2 || dn2 != dValN2 || du2 != dValI2 || dTmaxTnom1 != dTmaxTnom2)
+        {
+            ui->label_CheckT2->setVisible(true);
+            noErrors = false;
+        } else ui->label_CheckT2->setVisible(false);
 
+        double tempVal = 0.0;
+        if (CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
+        {
+            if (dPsibd >= 1.2)
+            {
+                tempVal = 1.07;
+            }
+            else if (dPsibd >= 0.8)
+            {
+                tempVal = 1.04;
+            }
+            else if (dPsibd >= 0.6)
+            {
+                tempVal = 1.03;
+            }
+            else if (dPsibd >= 0.4)
+            {
+                tempVal = 1.02;
+            }
+            else
+            {
+                tempVal = 1.01;
+            }
+        }
 
-    double tempVal = 0.0;
-    if (CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
-    {
-        if (dPsibd >= 1.2)
+        if (dKHBeta != tempVal)
         {
-            tempVal = 1.07;
+            ui->label_CheckPsi->setVisible(true);
+            noErrors = false;
         }
-        else if (dPsibd >= 0.8)
+        else ui->label_CheckPsi->setVisible(false);
+
+        for (int i = LENGTH(mejosevoeRastoyanie)-2 ; i >= 0; i--)
         {
-            tempVal = 1.04;
+            if (daw > mejosevoeRastoyanie[i])
+            {
+                tempVal = mejosevoeRastoyanie[i+1];
+                break;
+            }
+            else if (daw == mejosevoeRastoyanie[i])
+            {
+                tempVal = daw;
+                break;
+            }
         }
-        else if (dPsibd >= 0.6)
+
+        if(daw2 != tempVal)
         {
+            ui->label_checkAw->setVisible(true);
+            noErrors = false;
+        } else ui->label_checkAw->setVisible(false);
+
+        if (dmm >= dmm1 && dmm <= dmm2)
+        {
+            ui->label_checkM_2->setVisible(false);
+        }
+        else
+        {
+            ui->label_checkM_2->setVisible(true);
+            noErrors = false;
+        }
+
+        if (dUf2 > 4.0)
+        {
+             ui->label_checkUf_2->setText(tr("<span style=\" color:#ff0000;\"> > 4%, что не допустимо.</span>"));
+        }
+        else ui->label_checkUf_2->setText(tr("<span style=\" color:#ff0000;\"> < 4%, что допустимо.</span>"));
+
+        if(dV <= 2)
+        {
+            tempVal = 9;
+        }
+        else if(dV <= 6)
+        {
+            tempVal = 8;
+        }
+        else if(dV <= 10)
+        {
+            tempVal = 7;
+        }
+        else if(dV <= 15)
+        {
+            tempVal = 6;
+        }
+        else tempVal = 5;
+
+        if (iNaznachenie != tempVal)
+        {
+            ui->label_checkNaznachenie->setVisible(true);
+            noErrors = false;
+        }
+        else ui->label_checkNaznachenie->setVisible(false);
+
+        if((iNaznachenie >=6 && iNaznachenie <= 9) || CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
+        {
+            if (dV < 1)
+            {
+                tempVal = 1;
+            }
+            else
+            {
+                if(dV < 1.5)
+                {
+                    tempVal = 0;
+                }
+                else if(dV < 2.5)
+                {
+                    tempVal = 1;
+                }
+                else if(dV >= 2.5 && dV < 4.5)
+                {
+                    tempVal = 2;
+                }
+                else if(dV >= 4.5 && dV < 6.5)
+                {
+                    tempVal = 3;
+                }
+                else if(dV >= 6.5 && dV < 8.5)
+                {
+                    tempVal = 4;
+                }
+                else if(dV >= 8.5)
+                {
+                    tempVal = 5;
+                }
+
+                tempVal = KoeficientKHV[iNaznachenie-6][static_cast<int>(tempVal)];
+            }
+
+        }
+        else tempVal = -1.0;
+
+        if (dKHV != tempVal)
+        {
+            ui->label_checkKHV->setVisible(true);
+            noErrors = false;
+        } else ui->label_checkKHV->setVisible(false);
+
+        if (ui->label_OtnoshenieSigmaH1H2->text() == tr(">"))
+        {
+            ui->label_checkSigmaH_2->setText(tr("<span style=\" color:#ff0000;\">Условие контактной выносливости не выполняется, пожалуйста уточните!</span>"));
+            noErrors = false;
+        } else ui->label_checkSigmaH_2->setText(tr("<span style=\" color:#ff0000;\">Условие контактной выносливости выполняется.</span>"));
+
+        if (ui->label_OtnoshenieSigmaHmax->text() == tr(">"))
+        {
+            ui->label_checkSigmaHmax_2->setText(tr("<span style=\" color:#ff0000;\">Условие не выполняется, пожалуйста уточните!</span>"));
+            noErrors = false;
+        } else ui->label_checkSigmaHmax_2->setText(tr("<span style=\" color:#ff0000;\">Условие  выполняется.</span>"));
+
+        if(dPsibd <= 0.2)
+            tempVal = 1;
+        else if(dPsibd <= 0.4)
             tempVal = 1.03;
-        }
-        else if (dPsibd >= 0.4)
-        {
-            tempVal = 1.02;
-        }
+        else if(dPsibd <= 0.6)
+            tempVal = 1.05;
+        else if(dPsibd <= 0.8)
+            tempVal = 1.07;
+        else if(dPsibd <= 1.2)
+            tempVal = 1.14;
         else
+            tempVal = -1;
+
+        if (dKFBeta != tempVal)
         {
-            tempVal = 1.01;
-        }
-    }
+            ui->label_checkKFBeta_2->setVisible(true);
+            noErrors = false;
+        } else ui->label_checkKFBeta_2->setVisible(false);
 
-    if (dKHBeta != tempVal)
-    {
-        ui->label_CheckPsi->setVisible(true);
-        noErrors = false;
-    }
-    else ui->label_CheckPsi->setVisible(false);
-
-    for (int i = LENGTH(mejosevoeRastoyanie)-2 ; i >= 0; i--)
-    {
-        if (daw > mejosevoeRastoyanie[i])
+        if(iNaznachenie >=6 && iNaznachenie <= 9)
         {
-            tempVal = mejosevoeRastoyanie[i+1];
-            break;
-        }
-        else if (daw == mejosevoeRastoyanie[i])
-        {
-            tempVal = daw;
-            break;
-        }
-    }
-
-    if(daw2 != tempVal)
-    {
-        ui->label_checkAw->setVisible(true);
-        noErrors = false;
-    } else ui->label_checkAw->setVisible(false);
-
-    if (dmm >= dmm1 && dmm <= dmm2)
-    {
-        ui->label_checkM_2->setVisible(false);
-    }
-    else
-    {
-        ui->label_checkM_2->setVisible(true);
-        noErrors = false;
-    }
-
-    if (dUf2 > 4.0)
-    {
-         ui->label_checkUf_2->setText(tr("<span style=\" color:#ff0000;\"> > 4%, что не допустимо.</span>"));
-    }
-    else ui->label_checkUf_2->setText(tr("<span style=\" color:#ff0000;\"> < 4%, что допустимо.</span>"));
-
-    if(dV <= 2)
-    {
-        tempVal = 9;
-    }
-    else if(dV <= 6)
-    {
-        tempVal = 8;
-    }
-    else if(dV <= 10)
-    {
-        tempVal = 7;
-    }
-    else if(dV <= 15)
-    {
-        tempVal = 6;
-    }
-    else tempVal = 5;
-
-    if (iNaznachenie != tempVal)
-    {
-        ui->label_checkNaznachenie->setVisible(true);
-        noErrors = false;
-    }
-    else ui->label_checkNaznachenie->setVisible(false);
-
-    if((iNaznachenie >=6 && iNaznachenie <= 9) || CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
-    {
-        if (dV < 1)
-        {
-            tempVal = 1;
-        }
-        else
-        {
-            if(dV < 1.5)
-            {
-                tempVal = 0;
-            }
-            else if(dV < 2.5)
+            if (dV < 1)
             {
                 tempVal = 1;
             }
-            else if(dV >= 2.5 && dV < 4.5)
+            else
             {
-                tempVal = 2;
-            }
-            else if(dV >= 4.5 && dV < 6.5)
-            {
-                tempVal = 3;
-            }
-            else if(dV >= 6.5 && dV < 8.5)
-            {
-                tempVal = 4;
-            }
-            else if(dV >= 8.5)
-            {
-                tempVal = 5;
+                if(dV < 1.5)
+                {
+                    tempVal = 0;
+                }
+                else if(dV < 2.5)
+                {
+                    tempVal = 1;
+                }
+                else if(dV >= 2.5 && dV < 4.5)
+                {
+                    tempVal = 2;
+                }
+                else if(dV >= 4.5 && dV < 6.5)
+                {
+                    tempVal = 3;
+                }
+                else if(dV >= 6.5 && dV < 8.5)
+                {
+                    tempVal = 4;
+                }
+                else if(dV >= 8.5)
+                {
+                    tempVal = 5;
+                }
+
+                tempVal = KoeficientKFV[iNaznachenie-6][static_cast<int>(tempVal)];
             }
 
-            tempVal = KoeficientKHV[iNaznachenie-6][static_cast<int>(tempVal)];
         }
+        else tempVal = -1.0;
 
-    }
-    else tempVal = -1.0;
-
-    if (dKHV != tempVal)
-    {
-        ui->label_checkKHV->setVisible(true);
-        noErrors = false;
-    } else ui->label_checkKHV->setVisible(false);
-
-    if (ui->label_OtnoshenieSigmaH1H2->text() == tr(">"))
-    {
-        ui->label_checkSigmaH_2->setText(tr("<span style=\" color:#ff0000;\">Условие контактной выносливости не выполняется, пожалуйста уточните!</span>"));
-        noErrors = false;
-    } else ui->label_checkSigmaH_2->setText(tr("<span style=\" color:#ff0000;\">Условие контактной выносливости выполняется.</span>"));
-
-    if (ui->label_OtnoshenieSigmaHmax->text() == tr(">"))
-    {
-        ui->label_checkSigmaHmax_2->setText(tr("<span style=\" color:#ff0000;\">Условие не выполняется, пожалуйста уточните!</span>"));
-        noErrors = false;
-    } else ui->label_checkSigmaHmax_2->setText(tr("<span style=\" color:#ff0000;\">Условие  выполняется.</span>"));
-
-    if(dPsibd <= 0.2)
-        tempVal = 1;
-    else if(dPsibd <= 0.4)
-        tempVal = 1.03;
-    else if(dPsibd <= 0.6)
-        tempVal = 1.05;
-    else if(dPsibd <= 0.8)
-        tempVal = 1.07;
-    else if(dPsibd <= 1.2)
-        tempVal = 1.14;
-    else
-        tempVal = -1;
-
-    if (dKFBeta != tempVal)
-    {
-        ui->label_checkKFBeta_2->setVisible(true);
-        noErrors = false;
-    } else ui->label_checkKFBeta_2->setVisible(false);
-
-    if(iNaznachenie >=6 && iNaznachenie <= 9)
-    {
-        if (dV < 1)
+        if (dKFV != tempVal)
         {
-            tempVal = 1;
-        }
-        else
+            ui->label_checkKFV_2->setVisible(true);
+            noErrors = false;
+        } else ui->label_checkKFV_2->setVisible(false);
+
+        if (ui->label_OtnoshenieSigmaF1_2->text() == tr(">") && ui->label_OtnoshenieSigmaF2_2->text() == tr(">"))
         {
-            if(dV < 1.5)
-            {
-                tempVal = 0;
-            }
-            else if(dV < 2.5)
-            {
-                tempVal = 1;
-            }
-            else if(dV >= 2.5 && dV < 4.5)
-            {
-                tempVal = 2;
-            }
-            else if(dV >= 4.5 && dV < 6.5)
-            {
-                tempVal = 3;
-            }
-            else if(dV >= 6.5 && dV < 8.5)
-            {
-                tempVal = 4;
-            }
-            else if(dV >= 8.5)
-            {
-                tempVal = 5;
-            }
+            ui->label_checkSigmaF1F2->setText(tr("<span style=\" color:#ff0000;\">Условие выносливости на изгиб не выполняется, пожалуйста уточните!</span>"));
+            noErrors = false;
+        } else ui->label_checkSigmaF1F2->setText(tr("<span style=\" color:#ff0000;\">Условие выносливости на изгиб выполняется.</span>"));
 
-            tempVal = KoeficientKFV[iNaznachenie-6][static_cast<int>(tempVal)];
+        if (ui->label_OtnoshenieSigmaFmax1_2->text() == tr(">") && ui->label_OtnoshenieSigmaFmax2_2->text() == tr(">"))
+        {
+            ui->label_checkSigmaF1F2max->setText(tr("<span style=\" color:#ff0000;\">Условие  выносливости не выполняется, пожалуйста уточните!</span>"));
+            noErrors = false;
+        } else ui->label_checkSigmaF1F2max->setText(tr("<span style=\" color:#ff0000;\">Условие выносливости выполняется.</span>"));
+
+        if (dDzag > iDrped)
+        {
+            ui->label_checkDzag->setText(tr("<span style=\" color:#ff0000;\"> - заготовка  не  пригодна, уточните!</span>"));
+            noErrors = false;
         }
+        else ui->label_checkDzag->setText(tr("<span style=\" color:#ff0000;\"> - заготовка  пригодна.</span>"));
 
+        if (iSzag1 > iSrped)
+        {
+            ui->label_checkSzag1->setText(tr("<span style=\" color:#ff0000;\"> - заготовка  не  пригодна, уточните!</span>"));
+            noErrors = false;
+        }
+        else ui->label_checkSzag1->setText(tr("<span style=\" color:#ff0000;\"> - заготовка  пригодна.</span>"));
+
+        if (iSzag2 > iSrped)
+        {
+            ui->label_checkSzag2->setText(tr("<span style=\" color:#ff0000;\"> - заготовка  не  пригодна, уточните!</span>"));
+            noErrors = false;
+        }
+        else ui->label_checkSzag2->setText(tr("<span style=\" color:#ff0000;\"> - заготовка  пригодна.</span>"));
+
+        return noErrors;
     }
-    else tempVal = -1.0;
+    else if (CurrentReductor == Reductor::KONICHESKAYA) {
 
-    if (dKFV != tempVal)
-    {
-        ui->label_checkKFV_2->setVisible(true);
-        noErrors = false;
-    } else ui->label_checkKFV_2->setVisible(false);
-
-    if (ui->label_OtnoshenieSigmaF1_2->text() == tr(">") && ui->label_OtnoshenieSigmaF2_2->text() == tr(">"))
-    {
-        ui->label_checkSigmaF1F2->setText(tr("<span style=\" color:#ff0000;\">Условие выносливости на изгиб не выполняется, пожалуйста уточните!</span>"));
-        noErrors = false;
-    } else ui->label_checkSigmaF1F2->setText(tr("<span style=\" color:#ff0000;\">Условие выносливости на изгиб выполняется.</span>"));
-
-    if (ui->label_OtnoshenieSigmaFmax1_2->text() == tr(">") && ui->label_OtnoshenieSigmaFmax2_2->text() == tr(">"))
-    {
-        ui->label_checkSigmaF1F2max->setText(tr("<span style=\" color:#ff0000;\">Условие  выносливости не выполняется, пожалуйста уточните!</span>"));
-        noErrors = false;
-    } else ui->label_checkSigmaF1F2max->setText(tr("<span style=\" color:#ff0000;\">Условие выносливости выполняется.</span>"));
-
-    if (dDzag > iDrped)
-    {
-        ui->label_checkDzag->setText(tr("<span style=\" color:#ff0000;\"> - заготовка  не  пригодна, уточните!</span>"));
-        noErrors = false;
+        if (dT2 != dValT2 || dn2 != dValN2 || du2 != dValI2)
+        {
+            ui->label_CheckT2_2->setVisible(true);
+            noErrors = false;
+        } else ui->label_CheckT2_2->setVisible(false);
     }
-    else ui->label_checkDzag->setText(tr("<span style=\" color:#ff0000;\"> - заготовка  пригодна.</span>"));
 
-    if (iSzag1 > iSrped)
-    {
-        ui->label_checkSzag1->setText(tr("<span style=\" color:#ff0000;\"> - заготовка  не  пригодна, уточните!</span>"));
-        noErrors = false;
-    }
-    else ui->label_checkSzag1->setText(tr("<span style=\" color:#ff0000;\"> - заготовка  пригодна.</span>"));
 
-    if (iSzag2 > iSrped)
-    {
-        ui->label_checkSzag2->setText(tr("<span style=\" color:#ff0000;\"> - заготовка  не  пригодна, уточните!</span>"));
-        noErrors = false;
-    }
-    else ui->label_checkSzag2->setText(tr("<span style=\" color:#ff0000;\"> - заготовка  пригодна.</span>"));
-
-    return noErrors;
 }
 
 double DmWindow::GetVspomogatelniyKoeficient()

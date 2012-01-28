@@ -17,31 +17,6 @@ void DmWindow::on_comboBox_Koleso_currentIndexChanged(int index)
         ui->comboBox_Shesternya->setCurrentIndex(index);
 }
 
-void DmWindow::on_spinBox_HVsr1_valueChanged(int value)
-{
-    iHBcp1 = value;
-}
-
-void DmWindow::on_spinBox_HVsr2_valueChanged(int value)
-{
-    iHBcp2 = value;
-}
-
-void DmWindow::on_comboBox_Sb_currentIndexChanged(QString value)
-{
-    iSb = value.toInt();
-}
-
-void DmWindow::on_comboBox_St_currentIndexChanged(QString value)
-{
-    iSt = value.toInt();
-}
-
-void DmWindow::on_spinBox_C_valueChanged(int value)
-{
-    iC = value;
-}
-
 void DmWindow::updateChisloCiclov(void)
 {
     iHBcp1 = ui->spinBox_HVsr1->value();
@@ -63,6 +38,8 @@ void DmWindow::updateChisloCiclov(void)
 
 void DmWindow::updateFactChisloCiclov(void)
 {
+    iC = ui->spinBox_C->value();
+
     ui->label_Nh01_2->setText(ui->label_Nh01->text());
     ui->label_Nh02_2->setText(ui->label_Nh02->text());
 
@@ -158,7 +135,7 @@ void DmWindow::updateKontaktnieNapryajenia(void)
 
 void DmWindow::updateNapryajenieIzgiba(void)
 {
-    if(CurrentReductor == Reductor::CILINDRICHESKAYA_PRYMOZUBAYA || CurrentReductor == Reductor::CILINDRICHESKAYA_KOSOZUBAYA || CurrentReductor == Reductor::KONICHESKAYA)
+    if (CurrentReductor == Reductor::CILINDRICHESKAYA_PRYMOZUBAYA || CurrentReductor == Reductor::CILINDRICHESKAYA_KOSOZUBAYA || CurrentReductor == Reductor::KONICHESKAYA)
     {
         if (iN1 > 4000000)
         {
@@ -193,6 +170,9 @@ void DmWindow::updateNapryajenieIzgiba(void)
     }
     else
     {
+        iSb = ui->comboBox_Sb->currentText().toInt();
+        iSt = ui->comboBox_St->currentText().toInt();
+
         iN2fe = ROUND(60 * iValLh * dValN3);
         dKFL1 = pow((1000000.0/iN2fe), (1.0/9));
         dKFL1 = ROUND2(dKFL1);
