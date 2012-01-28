@@ -83,36 +83,20 @@ private:
 private slots:
     //Tab 6
 
-    void on_doubleSpinBox_Beta_valueChanged(double );
-    void on_comboBox_SF_2_currentIndexChanged(QString value);
     void proverkaNaKontaktnujuProchnost(void);
     void proverkaNaProchnost(void);
-    void on_doubleSpinBox_valueChanged(double value);
     void ProverkaaNaVinoslivostPoNapryjeniyamIzgiba(void);
     void SilaVZaceplenii(void);
     void on_comboBoxPrivodType_currentIndexChanged(int index);
-    void on_spinBox_StepenTochnostiPeredachi_valueChanged(int value);
     void OkrujnayaSkorostIStepenTochnostiPeredachi(void);
     void OsnovnieGeometricheskieRazmeri(void);
-    void on_comboBox_m_2_currentIndexChanged(QString value);
     void RaschetnoeZnachenieModulya(void);
     void ProektnijRascetPeredachi(void);
     void EkvivalentnoeChisloZubjev(void);
-    void on_doubleSpinBox_psibd_valueChanged(double value);
     void KoefficientShiriniVenca(void);
-    void on_comboBox_z1_currentIndexChanged(QString value);
     void chisloZubjev2(void);
-    void on_spinBox_C_valueChanged(int );
     void DopustimieNapryajeniyaIzgiba(void);
-    void on_comboBox_St_2_currentIndexChanged(QString value);
-    void on_comboBox_Sb_2_currentIndexChanged(QString value);
-    void on_spinBox_HB2_valueChanged(int value);
-    void on_spinBox_HB1_valueChanged(int value);
-    void on_spinBox_Litje_valueChanged(int value);
     void viborMaterialaZubchatihKoles(void);
-    void on_doubleSpinBox_u3_valueChanged(double value);
-    void on_doubleSpinBox_n3_valueChanged(double value);
-    void on_doubleSpinBox_T3_valueChanged(double value);
     bool checkTab6(void);
 
     //Tab 2
@@ -147,12 +131,8 @@ private slots:
     void updateNagruzkaVala(void);
     void updateOsnovnieRazmeriShkivov(void);
     double getValPo(uint start, uint end, double d1, double v);
-    void on_spinBox_KolRemney_valueChanged(int value);
 
     //Tab 4
-    void on_doubleSpinBox_TmaxTnom_valueChanged(double value);
-    void on_spinBox_HVsr2_valueChanged(int value);
-    void on_spinBox_HVsr1_valueChanged(int value);
     void on_comboBox_Koleso_currentIndexChanged(int index);
     void on_comboBox_Shesternya_currentIndexChanged(int index);
     void updateChisloCiclov(void);
@@ -162,36 +142,26 @@ private slots:
     void updateNapryajenieIzgiba(void);
     void updateMejOsevoeRastoyanie(void);
     void updateViborMateriala(void);
-    void on_comboBox_Sb_currentIndexChanged(QString value);
 
     //Tab 5
     void ProverkaPrigodnostiZagotovki(void);
-    void on_doubleSpinBox_Kfv_valueChanged(double value);
-    void on_comboBox_Kfbeta_currentIndexChanged(QString value);
     void ProverkaNaVinoslivostPoNapryajeniyuIzgiba(void);
     void SilaDejstviyaVZaceplenii(void);
-    void on_doubleSpinBox_Khv_valueChanged(double value);
-    void on_comboBox_Zm_currentIndexChanged(QString value);
-    void on_spinBox_StepenPeredachi_valueChanged(int value);
     void ProverkaNaKontaktnuyuVinoslivost(void);
     void OsnovnojGeometricheskijObjom(void);
     void FacticheskoePeredatochnoeOtnoshenie(void);
     void FacticheskijUgolNaklona(void);
     void ChisloZubjev(void);
     void UgolNaklonaZubjev(void);
-    void on_comboBox_m_currentIndexChanged(QString value);
     void ModulZacepleniya(void);
     void ShirinaZubchatogoVenca(void);
-    void on_comboBox_aw_currentIndexChanged(QString value);
-    void on_comboBox_St_currentIndexChanged(QString value );
-    void on_comboBox_KHBeta_currentIndexChanged(QString value);
-    void on_comboBox_Psiba_currentIndexChanged(QString value);
-    void on_doubleSpinBox_u2_valueChanged(double value);
-    void on_doubleSpinBox_n2_valueChanged(double value);
-    void on_doubleSpinBox_T2_valueChanged(double value);
     bool checkTab5(void);
     void KoefficientShirini(void);
     double GetVspomogatelniyKoeficient(void);
+
+    // конический редуктор
+    void KoefficientNeravnomernosti(void);
+    void KoefficientShiriniZubchastihVencov(void);
 
     //Global
     void on_spinBox_Variant_valueChanged(int index);
@@ -199,6 +169,8 @@ private slots:
     void on_comboBoxPeredacha3Type1_currentIndexChanged(int index);
     void setPicture(QGraphicsView *graphics, const char* buffer );
     void setTablesWidht();
+
+
 
 private:
     int CurrentPrivod;
@@ -316,6 +288,9 @@ private:
     int    iSrped;
     double dCzag;
     int    iSzag1, iSzag2;
+
+    double dKbe;
+    double dKbeu;
 
     //Tab 6
     double dT3;

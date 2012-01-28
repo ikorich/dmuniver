@@ -2,93 +2,20 @@
 #include "ui_dmwindow.h"
 #include "defines/table5.h"
 
-void DmWindow::on_doubleSpinBox_T3_valueChanged(double value)
-{
-    dT3 = value;
-    viborMaterialaZubchatihKoles();
-}
-
-void DmWindow::on_doubleSpinBox_n3_valueChanged(double value)
-{
-    dn3 = value;
-    viborMaterialaZubchatihKoles();
-}
-
-void DmWindow::on_doubleSpinBox_u3_valueChanged(double value)
-{
-    du3 = value;
-    viborMaterialaZubchatihKoles();
-}
-
-void DmWindow::on_spinBox_Litje_valueChanged(int value)
-{
-    iLitje = value;
-    viborMaterialaZubchatihKoles();
-}
-
-void DmWindow::on_spinBox_HB1_valueChanged(int value)
-{
-    iHB1 = value;
-    viborMaterialaZubchatihKoles();
-}
-
-void DmWindow::on_spinBox_HB2_valueChanged(int value)
-{
-    iHB2 = value;
-    viborMaterialaZubchatihKoles();
-}
-
-void DmWindow::on_comboBox_Sb_2_currentIndexChanged(QString value)
-{
-    iSb2 = value.toInt();
-    viborMaterialaZubchatihKoles();
-}
-
-void DmWindow::on_comboBox_St_2_currentIndexChanged(QString value)
-{
-    iSt2 = value.toInt();
-    viborMaterialaZubchatihKoles();
-}
-
-void DmWindow::on_comboBox_SF_2_currentIndexChanged(QString value)
-{
-    dSF = value.toDouble();
-    DopustimieNapryajeniyaIzgiba();
-}
-
-void DmWindow::on_comboBox_z1_currentIndexChanged(QString value)
-{
-    iz1 = value.toInt();
-    chisloZubjev2();
-}
-
 void DmWindow::viborMaterialaZubchatihKoles(void)
 {
+    dT3 = ui->doubleSpinBox_T3->value();
+    dn3 = ui->doubleSpinBox_n3->value();
+    du3 = ui->doubleSpinBox_u3->value();
+    iLitje = ui->spinBox_Litje->value();
+    iHB1 = ui->spinBox_HB1->value();
+    iHB2 = ui->spinBox_HB2->value();
+    iSb2 = ui->comboBox_Sb_2->currentText().toInt();
+    iSt2 = ui->comboBox_St_2->currentText().toInt();
+    dSF = ui->comboBox_SF_2->currentText().toDouble();
+    iz1 = ui->comboBox_z1->currentText().toInt();
+
     DopustimieNapryajeniyaIzgiba();
-}
-
-void DmWindow::on_doubleSpinBox_psibd_valueChanged(double value)
-{
-    dPsibd3 = ROUND1(value);
-    KoefficientShiriniVenca();
-}
-
-void DmWindow::on_comboBox_m_2_currentIndexChanged(QString value)
-{
-    dm = value.toDouble();
-    RaschetnoeZnachenieModulya();
-}
-
-void DmWindow::on_spinBox_StepenTochnostiPeredachi_valueChanged(int value)
-{
-    iStepenTochnostiPeredachi = value;
-    OkrujnayaSkorostIStepenTochnostiPeredachi();
-}
-
-void DmWindow::on_doubleSpinBox_valueChanged(double value)
-{
-    dKFV61 = value;
-    ProverkaaNaVinoslivostPoNapryjeniyamIzgiba();
 }
 
 void DmWindow::DopustimieNapryajeniyaIzgiba(void)
@@ -134,6 +61,8 @@ void DmWindow::chisloZubjev2(void)
 
 void DmWindow::KoefficientShiriniVenca(void)
 {
+    dPsibd3 = ROUND1(ui->doubleSpinBox_psibd->value());
+
     EkvivalentnoeChisloZubjev();
 }
 
@@ -190,6 +119,8 @@ void DmWindow::ProektnijRascetPeredachi(void)
 
 void DmWindow::RaschetnoeZnachenieModulya(void)
 {
+    dm = ui->comboBox_m_2->currentText().toDouble();
+
     dmm3 = 14.0 * pow(((dT3 * 1.0 * dYF61) / (dPsibd3 * iz1 * iz1 * (dYF1SF1 == dYF2SF2 ? dSff1 : dSff2))) , 0.333333333);
     dmm3 = ROUND2(dmm3);
 
@@ -235,6 +166,8 @@ void DmWindow::OsnovnieGeometricheskieRazmeri(void)
 
 void DmWindow::OkrujnayaSkorostIStepenTochnostiPeredachi(void)
 {
+    iStepenTochnostiPeredachi = ui->spinBox_StepenTochnostiPeredachi->value();
+
     dV61 = PI * dd61 * dn3 / 60000;
     dV61 = ROUND2(dV61);
     ui->label_V_2->setText(QString::number(dV61));
@@ -257,6 +190,7 @@ void DmWindow::SilaVZaceplenii(void)
 
 void DmWindow::ProverkaaNaVinoslivostPoNapryjeniyamIzgiba(void)
 {
+
     ui->label_StepenTochnostiPeredachi->setText(QString::number(iStepenTochnostiPeredachi));
 
     dSigmaF61 = (2000.0 * dT3 * 1.0 * dKFV61 * dYF61)/(dm * dd61 * ib61);

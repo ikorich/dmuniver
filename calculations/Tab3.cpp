@@ -337,6 +337,8 @@ void DmWindow::updateKolichestvoRemney(void)
 
 void DmWindow::updateNatyajenieRemnya(void)
 {
+    iValZp = ui->spinBox_KolRemney->value();
+
     double Ca = 0;
     double V = 0;
     double Cl = 0;
@@ -675,10 +677,4 @@ double DmWindow::getValPo(uint start, uint end, double d1, double v)
     }
 
     return Po;
-}
-
-void DmWindow::on_spinBox_KolRemney_valueChanged(int value)
-{
-    iValZp = value;
-    updateNatyajenieRemnya();
 }

@@ -4,9 +4,9 @@
 
 void DmWindow::updateKPDText(void)
 {
-    dValEta1 = ui->doubleSpinBox_nu1->value();
-    dValEta2 = ui->doubleSpinBox_nu2->value();
-    dValEta3 = ui->doubleSpinBox_nu3->value();
+    dValEta1 = ROUND2(ui->doubleSpinBox_nu1->value());
+    dValEta2 = ROUND2(ui->doubleSpinBox_nu2->value());
+    dValEta3 = ROUND2(ui->doubleSpinBox_nu3->value());
     dValEta = ROUND2(dValEta1 * dValEta2 * dValEta3);
     ui->label_KPD->setText(QString::number(dValEta1) + "*" + QString::number(dValEta2) + "*" + QString::number(dValEta3) + "=" + QString::number(dValEta));
 
@@ -45,6 +45,7 @@ void DmWindow::updatePnomTable(void)
         ui->tableWidgetPnom->setItem(3, i , new QTableWidgetItem(tr(sincOfRotationHertz3000[index][i])));
     }
 }
+
 void DmWindow::on_comboBox_Pnom_currentIndexChanged(void)
 {
     updatePnomTable();
@@ -134,7 +135,7 @@ void DmWindow::on_spinBox_Variant2_valueChanged(int val)
     dValI2 = ui->label_i_2->text().toDouble();
     ui->label_i2_2->setText(QString::number(dValI2));
     ui->label_i3_2->setText(tr("нет расчета"));
-    if (ui->comboBoxPeredacha3Type1->currentIndex() != 2)
+    //if (ui->comboBoxPeredacha3Type1->currentIndex() != 2)
     {
         for (int i = LENGTH(roundI) - 2 ; i >= 0 ; i--)
         {
@@ -254,9 +255,9 @@ bool DmWindow::checkTab2(void)
 {
     bool noErrors = true;
 
-    if ((dValEta1 >= predelEta[CurrentPrivod][0] && dValEta1 <= predelEta[CurrentPrivod][1]) &&
-        (dValEta2 >= predelEta[ 2 + CurrentReductor][0] && dValEta2 <= predelEta[ 2 + CurrentReductor][1]) &&
-        (dValEta3 >= predelEta[ 6 + CurrentPeredacha][0] && dValEta3 <= predelEta[ 6 + CurrentPeredacha][1]))
+    if ((dValEta1 >= predelEta[3*CurrentPrivod][0] && dValEta1 <= predelEta[3*CurrentPrivod][1]) &&
+        (dValEta2 >= predelEta[ 1 + 3*CurrentReductor][0] && dValEta2 <= predelEta[ 1 + 3*CurrentReductor][1]) &&
+        (dValEta3 >= predelEta[ 2 + 3*CurrentPeredacha][0] && dValEta3 <= predelEta[ 2 + 3*CurrentPeredacha][1]))
     {
         ui->label_CheckEta->setVisible(false);
     }
