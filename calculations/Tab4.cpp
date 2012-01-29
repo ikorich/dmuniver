@@ -110,7 +110,7 @@ void DmWindow::updateKontaktnieNapryajenia(void)
         ui->label_SigmaH1->setText(tr("(2*") + QString::number(iHBcp1) + tr("+70)*") + QString::number(dKHL1) + tr("/") + ui->doubleSpinBox_SH->text() + tr("=") + QString::number(dSigmaH1) + tr(" МПа"));
         ui->label_SigmaH2->setText(tr("(2*") + QString::number(iHBcp2) + tr("+70)*") + QString::number(dKHL2) + tr("/") + ui->doubleSpinBox_SH->text() + tr("=") + QString::number(dSigmaH2) + tr(" МПа"));
 
-        if (CurrentReductor == Reductor::CILINDRICHESKAYA_PRYMOZUBAYA)
+        if (CurrentReductor == Reductor::CILINDRICHESKAYA_PRYMOZUBAYA || CurrentReductor == Reductor::KONICHESKAYA)
         {
             dSigmaH3 = (dSigmaH1 <= dSigmaH2 ? dSigmaH1 : dSigmaH2);
         }
