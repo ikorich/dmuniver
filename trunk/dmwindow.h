@@ -64,6 +64,15 @@ struct Privod
     };
 };
 
+struct Podshipnik
+{
+    enum Enum
+    {
+        SHARIKOVIE = 0,
+        ROLIKOVIE,
+    };
+};
+
 typedef unsigned int uint;
 
 class DmWindow : public QMainWindow {
@@ -162,6 +171,16 @@ private slots:
     // конический редуктор
     void KoefficientNeravnomernosti(void);
     void KoefficientShiriniZubchastihVencov(void);
+    void PredvaritelnoeZnachenieVneshnegoDelitelnogoDiametraKolesa(void);
+    void ChisloZubjevKolesa(void);
+    void VneshnijOkrujnojModul(void);
+    void VneshnieDelitelnieDiametriKoles(void);
+    void VneshnieKonusnoeRastoyanie(void);
+    void ShirinaZubchatihVencov(void);
+    void SrednijModul(void);
+    void SrednieDelitelnieDeametriKolesa(void);
+    void UgliPriVershinahDelitelnihKonusovKoles(void);
+    void SilaVZaceplenii2(void);
 
     //Global
     void on_spinBox_Variant_valueChanged(int index);
@@ -291,6 +310,18 @@ private:
 
     double dKbe;
     double dKbeu;
+    int    iPodshipnikTupe;
+    double dddl;
+    int    idl1;
+    int    idl2;
+    double dmll;
+    double dml;
+    double dRl;
+    double db;
+    double ddm1, ddm2;
+    double dBeta1, dBeta2;
+    double dFt12_5;
+    double dFr1_5, dFa2_5, dFa1_5, dFr2_5;
 
     //Tab 6
     double dT3;

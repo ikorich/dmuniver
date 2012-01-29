@@ -122,6 +122,7 @@ void DmWindow::FacticheskijUgolNaklona(void)
 
     FacticheskoePeredatochnoeOtnoshenie();
 }
+
 void DmWindow::FacticheskoePeredatochnoeOtnoshenie(void)
 {
     dUf = ROUND1((double)iZ2 / iZ1);
@@ -448,13 +449,140 @@ void DmWindow::ProverkaPrigodnostiZagotovki()
 
 void DmWindow::KoefficientShiriniZubchastihVencov(void)
 {
+     dT2 = ROUND2(ui->doubleSpinBox_T2_2->value());
+     dn2 = ROUND1(ui->doubleSpinBox_n2_2->value());
+     du2 = ROUND2(ui->doubleSpinBox_u2_2->value());
+
      dKbe = ROUND2(ui->doubleSpinBox_Kbe->value());
+
      KoefficientNeravnomernosti();
 }
 
 void DmWindow::KoefficientNeravnomernosti(void)
 {
-    //dKbeu =
+    dKbeu = (dKbe * du2) / (2.0 - dKbe);
+    dKbeu = ROUND2(dKbeu);
+
+    ui->label_Kbeu->setText(QString::number(dKbe) + " * " + QString::number(du2) + " / (2 - " + QString::number(dKbe) + ") = " + QString::number(dKbeu));
+
+    iPodshipnikTupe = ui->comboBox_Podshipnik->currentIndex();
+
+    dKHBeta = ui->comboBox_Khb->currentText().toDouble();
+    dKHBeta = ROUND2(dKHBeta);
+
+    PredvaritelnoeZnachenieVneshnegoDelitelnogoDiametraKolesa();
+}
+
+void DmWindow::PredvaritelnoeZnachenieVneshnegoDelitelnogoDiametraKolesa(void)
+{
+    dddl = 1000.0 * pow(((dT2 * dKHBeta * du2 * du2) / (dKbe * (1.0 - dKbe) * dSigmaH3 * dSigmaH3 )) , 0.333333333);
+    dddl = ROUND2(dddl);
+    ui->label_dl2->setText(QString::number(dddl));
+
+    ChisloZubjevKolesa();
+}
+
+void DmWindow::ChisloZubjevKolesa(void)
+{
+    dZ1 = ui->spinBox_z1->value();
+
+    double dZ2_2 = dZ1 * du2;
+    dZ2_2 = ROUND1(dZ2_2);
+
+    iZ2 = ROUND(dZ2_2);
+
+    ui->label_z2_3->setText(QString::number(dZ2_2));
+    ui->label_z2_4->setText(QString::number(iZ2));
+
+    VneshnijOkrujnojModul();
+}
+
+void DmWindow::VneshnijOkrujnojModul(void)
+{
+    dmll = dddl / iZ2;
+    dmll = ROUND2(dmll);
+
+    ui->label_mll->setText(QString::number(dddl) + " / " + QString::number(iZ2) + " = " + QString::number(dmll));
+
+    dml = ui->comboBox_ml->currentText().toDouble();
+
+    VneshnieDelitelnieDiametriKoles();
+}
+
+void DmWindow::VneshnieDelitelnieDiametriKoles(void)
+{
+    idl1 = iZ1 * dml;
+    ui->label_dl1->setText(QString::number(iZ1) + " * " + QString::number(dml) + " = " + QString::number(idl1));
+
+    idl2 = iZ2 * dml;
+    ui->label_dl2->setText(QString::number(iZ2) + " * " + QString::number(dml) + " = " + QString::number(idl2));
+
+    VneshnieKonusnoeRastoyanie();
+}
+
+void DmWindow::VneshnieKonusnoeRastoyanie(void)
+{
+    dRl = 0.5 * dml * sqrt((iZ1*iZ1 + iZ2*iZ2));
+    dRl = ROUND2(dRl);
+    ui->label_Rl->setText(QString::number(dRl));
+
+    ShirinaZubchatihVencov();
+}
+
+void DmWindow::ShirinaZubchatihVencov(void)
+{
+    db = dRl * dKbe;
+    db = ROUND1(db);
+    ui->label_b->setText(QString::number(db));
+
+    SrednijModul();
+}
+
+void DmWindow::SrednijModul(void)
+{
+    dmm = dml * (1.0 - 0.5 * dKbe);
+    dmm = ROUND3(dmm);
+
+    ui->label_mm_3->setText(QString::number(dmm));
+
+    SrednieDelitelnieDeametriKolesa();
+}
+
+void DmWindow::SrednieDelitelnieDeametriKolesa(void)
+{
+    ddm1 = dmm * iZ1;
+    ddm1 = ROUND2(ddm1);
+    ui->label_dm1->setText(QString::number(ddm1));
+
+    ddm2 = dmm * iZ2;
+    ddm2 = ROUND2(ddm2);
+    ui->label_dm2->setText(QString::number(ddm2));
+
+    UgliPriVershinahDelitelnihKonusovKoles();
+}
+
+void DmWindow::UgliPriVershinahDelitelnihKonusovKoles(void)
+{
+    dBeta1 = atan((double)iZ1/iZ2) * (PI / 180);
+    dBeta1 = ROUND2(dBeta1);
+
+    ui->label_beta1->setText(QString::number(dBeta1));
+
+    dBeta2 = 90.0 - dBeta2;
+    dBeta2 = ROUND2(dBeta2);
+
+    ui->label_beta2->setText(QString::number(dBeta2));
+
+    SilaVZaceplenii2();
+}
+
+void DmWindow::SilaVZaceplenii2(void)
+{
+    dFt12_5 = 2.0 * dT2 * 1000 / ddm1;
+    dFt12_5 = ROUND2(dFt12_5);
+    ui->label_Ft12_2->setText(QString::number(dFt12_5) + " H");
+
+    //dFr1_5 = ;
 
 #ifdef TAB_CONTROL
     if (checkTab5())

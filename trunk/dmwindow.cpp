@@ -118,6 +118,11 @@ DmWindow::DmWindow(QWidget *parent) :
     connect(ui->doubleSpinBox_n2_2,                    SIGNAL(valueChanged(double)),       this, SLOT(KoefficientShiriniZubchastihVencov()));
     connect(ui->doubleSpinBox_u2_2,                    SIGNAL(valueChanged(double)),       this, SLOT(KoefficientShiriniZubchastihVencov()));
     connect(ui->doubleSpinBox_Kbe,                     SIGNAL(valueChanged(double)),       this, SLOT(KoefficientShiriniZubchastihVencov()));
+    connect(ui->comboBox_Podshipnik,                   SIGNAL(currentIndexChanged(int)),   this, SLOT(KoefficientNeravnomernosti()));
+    connect(ui->comboBox_Khb,                          SIGNAL(currentIndexChanged(int)),   this, SLOT(KoefficientNeravnomernosti()));
+    connect(ui->spinBox_z1,                            SIGNAL(valueChanged(int)),          this, SLOT(ChisloZubjevKolesa()));
+    connect(ui->comboBox_ml,                           SIGNAL(currentIndexChanged(int)),   this, SLOT(VneshnijOkrujnojModul()));
+
 
     on_spinBox_Variant_valueChanged(1);
     setPicture(ui->graphicsView_2 , ":/resources/shkiv.jpg");
