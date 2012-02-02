@@ -52,7 +52,7 @@
        <enum>QTabWidget::North</enum>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>5</number>
       </property>
       <property name="usesScrollButtons">
        <bool>true</bool>
@@ -2911,7 +2911,7 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-1781</y>
+             <y>0</y>
              <width>953</width>
              <height>2899</height>
             </rect>
@@ -6292,7 +6292,7 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-339</y>
+             <y>0</y>
              <width>953</width>
              <height>1257</height>
             </rect>
@@ -11541,9 +11541,9 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-972</y>
+             <y>-1471</y>
              <width>953</width>
-             <height>2256</height>
+             <height>2291</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_129">
@@ -11697,6 +11697,31 @@ p, li { white-space: pre-wrap; }
                   <double>0.000000000000000</double>
                  </property>
                 </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_658">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Коефициент перегрузки&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLabel" name="label_659">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Lucida Grande'; font-size:14pt;&quot;&gt;Т&lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande'; font-size:14pt; vertical-align:sub;&quot;&gt;max&lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande'; font-size:14pt;&quot;&gt;/T&lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande'; font-size:14pt; vertical-align:sub;&quot;&gt;нoм&lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande'; font-size:14pt;&quot;&gt; =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <widget class="QDoubleSpinBox" name="doubleSpinBox_TmaxTnom_2"/>
                </item>
               </layout>
              </widget>
@@ -12278,7 +12303,7 @@ p, li { white-space: pre-wrap; }
                     </property>
                    </widget>
                   </item>
-                  <item row="0" column="6">
+                  <item row="0" column="7">
                    <widget class="QLabel" name="label_516">
                     <property name="text">
                      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -12286,6 +12311,17 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;[1, т.4.4]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="6">
+                   <widget class="QLabel" name="label_checkml">
+                    <property name="text">
+                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ff0000;&quot;&gt;Уточнить&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                     </property>
                    </widget>
                   </item>
@@ -12343,7 +12379,7 @@ p, li { white-space: pre-wrap; }
                   <item row="1" column="1">
                    <widget class="QLabel" name="label_dl2_2">
                     <property name="text">
-                     <string>label_dl2</string>
+                     <string>label_dl2_2</string>
                     </property>
                    </widget>
                   </item>
@@ -12461,7 +12497,7 @@ p, li { white-space: pre-wrap; }
                    </widget>
                   </item>
                   <item row="0" column="3">
-                   <widget class="QLabel" name="label_524">
+                   <widget class="QLabel" name="label_checkb">
                     <property name="text">
                      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -12665,7 +12701,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;β&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = 90-d&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;β&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = 90-&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;β&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                     </property>
                    </widget>
                   </item>
@@ -12881,7 +12917,7 @@ p, li { white-space: pre-wrap; }
                    </spacer>
                   </item>
                   <item row="0" column="1">
-                   <widget class="QSpinBox" name="spinBox">
+                   <widget class="QSpinBox" name="spinBox_StepenTochnostiPeredachi_2">
                     <property name="minimum">
                      <number>5</number>
                     </property>
@@ -12894,6 +12930,40 @@ p, li { white-space: pre-wrap; }
                    <widget class="QLabel" name="label_563">
                     <property name="text">
                      <string>-я степень точности передачи.</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="5">
+                   <spacer name="horizontalSpacer_217">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                     <enum>QSizePolicy::Minimum</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="QLabel" name="label_checkStepenTochnostiPeredachi">
+                    <property name="text">
+                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ff0000;&quot;&gt;Уточнить&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="6">
+                   <widget class="QLabel" name="label_757">
+                    <property name="text">
+                     <string>[1, т.4.5]</string>
                     </property>
                    </widget>
                   </item>
@@ -13202,7 +13272,7 @@ p, li { white-space: pre-wrap; }
                    </spacer>
                   </item>
                   <item row="1" column="1">
-                   <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
+                   <widget class="QDoubleSpinBox" name="doubleSpinBox_KHV"/>
                   </item>
                   <item row="1" column="2">
                    <widget class="QLabel" name="label_576">
@@ -13225,14 +13295,14 @@ p, li { white-space: pre-wrap; }
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="6">
+                  <item row="1" column="8">
                    <widget class="QLabel" name="label_578">
                     <property name="text">
                      <string>[1, т.4.7]</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="0" colspan="7">
+                  <item row="2" column="0" colspan="9">
                    <widget class="QFrame" name="frame_60">
                     <property name="frameShape">
                      <enum>QFrame::NoFrame</enum>
@@ -13308,7 +13378,7 @@ p, li { white-space: pre-wrap; }
                       </widget>
                      </item>
                      <item row="1" column="0" colspan="7">
-                      <widget class="QLabel" name="label_582">
+                      <widget class="QLabel" name="label_checkSigmaH">
                        <property name="text">
                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -13323,6 +13393,33 @@ p, li { white-space: pre-wrap; }
                      </item>
                     </layout>
                    </widget>
+                  </item>
+                  <item row="1" column="6">
+                   <widget class="QLabel" name="label_checkKHV_2">
+                    <property name="text">
+                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ff0000;&quot;&gt;Уточнить&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="7">
+                   <spacer name="horizontalSpacer_218">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                     <enum>QSizePolicy::Minimum</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
                   </item>
                  </layout>
                 </widget>
@@ -13417,7 +13514,7 @@ p, li { white-space: pre-wrap; }
                    </widget>
                   </item>
                   <item row="2" column="0" colspan="8">
-                   <widget class="QLabel" name="label_588">
+                   <widget class="QLabel" name="label_checkSigmaHmax_3">
                     <property name="text">
                      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -13546,7 +13643,7 @@ p, li { white-space: pre-wrap; }
                 </widget>
                </item>
                <item row="0" column="4">
-                <widget class="QLabel" name="label_591">
+                <widget class="QLabel" name="label_checkKFBeta">
                  <property name="text">
                   <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -13647,7 +13744,7 @@ p, li { white-space: pre-wrap; }
                    </widget>
                   </item>
                   <item row="0" column="6">
-                   <widget class="QLabel" name="label_596">
+                   <widget class="QLabel" name="label_checkKFV">
                     <property name="text">
                      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -13706,7 +13803,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;v1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;/cos&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;d&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;v1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;/cos&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;β&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                     </property>
                    </widget>
                   </item>
@@ -13753,7 +13850,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;v2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;/cos&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;d&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;v2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;/cos&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;β&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                     </property>
                    </widget>
                   </item>
@@ -13870,7 +13967,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;σ&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;F1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = F&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;t&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;K&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;Fb&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;K&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;FV&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Y&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;F1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;/(0,85 b m&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;m&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;σ&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;F1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = F&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;t&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;K&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;Fβ&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;K&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;FV&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Y&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;F1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;/(0,85 b m&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;m&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                        </property>
                        <property name="indent">
                         <number>40</number>
@@ -13911,7 +14008,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;σ&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;F2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = F&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;t&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;K&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;Fb&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;K&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;FV&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Y&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;F2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;/(0,85 b m&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;m&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;σ&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;F2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = F&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;t&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;K&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;F&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;β&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;K&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;FV&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Y&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;F2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;/(0,85 b m&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;m&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                        </property>
                        <property name="indent">
                         <number>40</number>
@@ -14074,7 +14171,7 @@ p, li { white-space: pre-wrap; }
                          </widget>
                         </item>
                         <item row="2" column="0" colspan="8">
-                         <widget class="QLabel" name="label_616">
+                         <widget class="QLabel" name="label_checkSigmaF1">
                           <property name="text">
                            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -14235,7 +14332,7 @@ p, li { white-space: pre-wrap; }
                    </widget>
                   </item>
                   <item row="3" column="0" colspan="7">
-                   <widget class="QLabel" name="label_624">
+                   <widget class="QLabel" name="label_checkSigmaFmax1">
                     <property name="text">
                      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -14314,7 +14411,7 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-982</y>
+             <y>0</y>
              <width>953</width>
              <height>2504</height>
             </rect>
@@ -17190,9 +17287,9 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-167</y>
+             <y>-2083</y>
              <width>953</width>
-             <height>1181</height>
+             <height>2363</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_172">
@@ -17425,7 +17522,7 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item row="0" column="1">
-                <widget class="QComboBox" name="comboBox">
+                <widget class="QComboBox" name="comboBox_q_2">
                  <item>
                   <property name="text">
                    <string>19,0</string>
@@ -17482,7 +17579,7 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item row="0" column="3">
-                <widget class="QLabel" name="label_642">
+                <widget class="QLabel" name="label_checkq">
                  <property name="text">
                   <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -17583,7 +17680,7 @@ p, li { white-space: pre-wrap; }
                    </widget>
                   </item>
                   <item row="0" column="2">
-                   <widget class="QComboBox" name="comboBox_2">
+                   <widget class="QComboBox" name="comboBox_K1">
                     <item>
                      <property name="text">
                       <string>1,0</string>
@@ -17630,7 +17727,7 @@ p, li { white-space: pre-wrap; }
                    </widget>
                   </item>
                   <item row="1" column="2">
-                   <widget class="QComboBox" name="comboBox_3">
+                   <widget class="QComboBox" name="comboBox_K2">
                     <item>
                      <property name="text">
                       <string>0,80</string>
@@ -17667,7 +17764,7 @@ p, li { white-space: pre-wrap; }
                    </widget>
                   </item>
                   <item row="2" column="2">
-                   <widget class="QComboBox" name="comboBox_4">
+                   <widget class="QComboBox" name="comboBox_K3">
                     <item>
                      <property name="text">
                       <string>1,00</string>
@@ -17699,7 +17796,7 @@ p, li { white-space: pre-wrap; }
                    </widget>
                   </item>
                   <item row="3" column="2">
-                   <widget class="QComboBox" name="comboBox_5">
+                   <widget class="QComboBox" name="comboBox_K4">
                     <item>
                      <property name="text">
                       <string>1,00</string>
@@ -17736,7 +17833,7 @@ p, li { white-space: pre-wrap; }
                    </widget>
                   </item>
                   <item row="4" column="2">
-                   <widget class="QComboBox" name="comboBox_6">
+                   <widget class="QComboBox" name="comboBox_K5">
                     <item>
                      <property name="text">
                       <string>1,0</string>
@@ -17773,7 +17870,7 @@ p, li { white-space: pre-wrap; }
                    </widget>
                   </item>
                   <item row="5" column="2">
-                   <widget class="QComboBox" name="comboBox_8">
+                   <widget class="QComboBox" name="comboBox_K6">
                     <item>
                      <property name="text">
                       <string>1,00</string>
@@ -17844,16 +17941,62 @@ p, li { white-space: pre-wrap; }
                <item row="1" column="0" colspan="3">
                 <widget class="QFrame" name="frame_74">
                  <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
+                  <enum>QFrame::NoFrame</enum>
                  </property>
                  <property name="frameShadow">
                   <enum>QFrame::Raised</enum>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_178">
+                  <property name="margin">
+                   <number>0</number>
+                  </property>
                   <item row="0" column="0">
                    <widget class="QLabel" name="label_657">
                     <property name="text">
                      <string>где Кт=</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QDoubleSpinBox" name="doubleSpinBox_Kt">
+                    <property name="decimals">
+                     <number>1</number>
+                    </property>
+                    <property name="minimum">
+                     <double>1.000000000000000</double>
+                    </property>
+                    <property name="maximum">
+                     <double>1.700000000000000</double>
+                    </property>
+                    <property name="singleStep">
+                     <double>0.700000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <spacer name="horizontalSpacer_189">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="label_660">
+                    <property name="text">
+                     <string>- коэффициент учитывающий колличество рядов цепи.</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="QLabel" name="label_661">
+                    <property name="text">
+                     <string>[1, с.39]</string>
                     </property>
                    </widget>
                   </item>
@@ -17868,6 +18011,263 @@ p, li { white-space: pre-wrap; }
               <property name="title">
                <string>5.5. Тип цепи:</string>
               </property>
+              <layout class="QGridLayout" name="gridLayout_179">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_662">
+                 <property name="text">
+                  <string>Принимаем  цепь типа ПР -</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QComboBox" name="comboBox_Cep">
+                 <property name="currentIndex">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>однорядная</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>двухрядная</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>трехрядная</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>четырехрядная</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="3" column="0" colspan="7">
+                <widget class="QFrame" name="frame_79">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_180">
+                  <property name="margin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_666">
+                    <property name="text">
+                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;обозначения -&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                    <property name="indent">
+                     <number>190</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <spacer name="horizontalSpacer_190">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_oboznachenie">
+                    <property name="text">
+                     <string>label_oboznachenie</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QLabel" name="label_668">
+                    <property name="text">
+                     <string>(ГОСТ 13568-75),</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="2" column="0" colspan="2">
+                <widget class="QLabel" name="label_663">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;right&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;шаг цепи (мм)   р =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QComboBox" name="comboBox_p">
+                 <item>
+                  <property name="text">
+                   <string>12,700</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>15,875</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>19,050</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>25,400</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>31,750</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>38,100</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>44,450</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="2" column="3">
+                <spacer name="horizontalSpacer_191">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="2" column="5">
+                <spacer name="horizontalSpacer_192">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Minimum</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="2" column="6">
+                <widget class="QLabel" name="label_664">
+                 <property name="text">
+                  <string>[1, т.3.1]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="4">
+                <widget class="QLabel" name="label_665">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ff0000;&quot;&gt;Уточнить&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0" colspan="2">
+                <widget class="QLabel" name="label_667">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;right&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;разрушающее усилие (Н)  Fp =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="2">
+                <widget class="QSpinBox" name="spinBox_Fp">
+                 <property name="maximum">
+                  <number>99999999</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0" colspan="2">
+                <widget class="QLabel" name="label_669">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;right&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;масса 1м цепи(кг/м)  m=&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="2">
+                <widget class="QDoubleSpinBox" name="doubleSpinBox_m">
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0" colspan="2">
+                <widget class="QLabel" name="label_670">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;right&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;площадь поверхности шарниров (мм2)  А=&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="2">
+                <widget class="QSpinBox" name="spinBox_A">
+                 <property name="maximum">
+                  <number>99999</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="4">
+                <widget class="QLabel" name="label_checkCep">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ff0000;&quot;&gt;Уточнить&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item row="6" column="0">
@@ -17875,6 +18275,564 @@ p, li { white-space: pre-wrap; }
               <property name="title">
                <string>5.6. Диаметры звездочек:</string>
               </property>
+              <layout class="QGridLayout" name="gridLayout_181">
+               <item row="3" column="0" colspan="5">
+                <widget class="QFrame" name="frame_80">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_182">
+                  <property name="margin">
+                   <number>0</number>
+                  </property>
+                  <item row="1" column="1" colspan="2">
+                   <widget class="QFrame" name="frame_82">
+                    <property name="frameShape">
+                     <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_184">
+                     <property name="margin">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_685">
+                       <property name="text">
+                        <string>K= 0,6 -  коэффициент высоты зуба;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <spacer name="horizontalSpacer_195">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="label_686">
+                    <property name="text">
+                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;right&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;где, &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                    <property name="indent">
+                     <number>140</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0" colspan="3">
+                   <widget class="QFrame" name="frame_83">
+                    <property name="frameShape">
+                     <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_185">
+                     <property name="margin">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_678">
+                       <property name="text">
+                        <string>- окружности выступов:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QLabel" name="label_680">
+                       <property name="text">
+                        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;D&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;e1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = р*(K+K&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;z1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;-0,31/λ) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="2">
+                      <widget class="QLabel" name="label_De1">
+                       <property name="text">
+                        <string>label_De1</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="3">
+                      <widget class="QLabel" name="label_681">
+                       <property name="text">
+                        <string>мм</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QLabel" name="label_682">
+                       <property name="text">
+                        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;D&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;e2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = р*(K+K&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;z1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;-0,31/λ) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="2">
+                      <widget class="QLabel" name="label_De2">
+                       <property name="text">
+                        <string>label_De2</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="3">
+                      <widget class="QLabel" name="label_684">
+                       <property name="text">
+                        <string>мм</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="4">
+                      <spacer name="horizontalSpacer_194">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="2" column="1" colspan="2">
+                   <widget class="QFrame" name="frame_84">
+                    <property name="frameShape">
+                     <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_186">
+                     <property name="margin">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_687">
+                       <property name="text">
+                        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;K&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;z1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = ctg180/z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="3">
+                      <spacer name="horizontalSpacer_197">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QLabel" name="label_KZ1">
+                       <property name="text">
+                        <string>label_KZ1</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="2">
+                      <widget class="QLabel" name="label_689">
+                       <property name="text">
+                        <string>-коэффициенты числа зубьев,</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="3" column="1" colspan="2">
+                   <widget class="QFrame" name="frame_85">
+                    <property name="frameShape">
+                     <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_187">
+                     <property name="margin">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_690">
+                       <property name="text">
+                        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;K&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;z2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = ctg180/z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QLabel" name="label_KZ2">
+                       <property name="text">
+                        <string>label_KZ2</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="2">
+                      <spacer name="horizontalSpacer_198">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="4" column="1" colspan="2">
+                   <widget class="QFrame" name="frame_86">
+                    <property name="frameShape">
+                     <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_188">
+                     <property name="margin">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_692">
+                       <property name="text">
+                        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;λ &lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;= р/d&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;r&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="3">
+                      <spacer name="horizontalSpacer_199">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QLabel" name="label_Lyambda">
+                       <property name="text">
+                        <string>label_Lyambda</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="2">
+                      <widget class="QLabel" name="label_694">
+                       <property name="text">
+                        <string>- геометрическая характеристика зацепления;</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="5" column="1" colspan="2">
+                   <widget class="QFrame" name="frame_87">
+                    <property name="frameShape">
+                     <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_189">
+                     <property name="margin">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_695">
+                       <property name="text">
+                        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;d&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;r&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="3">
+                      <spacer name="horizontalSpacer_200">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QLabel" name="label_dr">
+                       <property name="text">
+                        <string>TextLabel</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="2">
+                      <widget class="QLabel" name="label_697">
+                       <property name="text">
+                        <string>- диаметр ролика шарнира цепи,</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="5" column="4">
+                   <widget class="QLabel" name="label_705">
+                    <property name="text">
+                     <string>[3,табл.К32]</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="3">
+                   <spacer name="horizontalSpacer_196">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="2" column="0" colspan="5">
+                <widget class="QFrame" name="frame_81">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_183">
+                  <property name="margin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_671">
+                    <property name="text">
+                     <string>- делительные:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_672">
+                    <property name="text">
+                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;d&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = р/sin(180/z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                    <property name="indent">
+                     <number>50</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
+                   <spacer name="horizontalSpacer_193">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLabel" name="label_675">
+                    <property name="text">
+                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;d&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = р/sin(180/z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                    <property name="indent">
+                     <number>50</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="label_d1_3">
+                    <property name="text">
+                     <string>label_d1_3</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLabel" name="label_d2_3">
+                    <property name="text">
+                     <string>label_d2_3</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QLabel" name="label_674">
+                    <property name="text">
+                     <string>мм</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QLabel" name="label_677">
+                    <property name="text">
+                     <string>мм</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="4" column="0" colspan="5">
+                <widget class="QFrame" name="frame_88">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_190">
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_698">
+                    <property name="text">
+                     <string>- окружности впадин:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
+                   <spacer name="horizontalSpacer_201">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_699">
+                    <property name="text">
+                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;D&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;i1 &lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;= d&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;-(d&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;r&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;-0,175&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;√&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;d&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="label_Di1">
+                    <property name="text">
+                     <string>label_Di1</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QLabel" name="label_701">
+                    <property name="text">
+                     <string>мм</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLabel" name="label_702">
+                    <property name="text">
+                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;D&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;i2 &lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;= d&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;-(d&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;r&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;-0,175√d&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLabel" name="label_Di2">
+                    <property name="text">
+                     <string>label_Di2</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QLabel" name="label_704">
+                    <property name="text">
+                     <string>мм</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item row="7" column="0">
@@ -17882,6 +18840,105 @@ p, li { white-space: pre-wrap; }
               <property name="title">
                <string>5.7. Ширина зуба:</string>
               </property>
+              <layout class="QGridLayout" name="gridLayout_191">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_706">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;b&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;c&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = 0,93*b&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;-0,15 =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <spacer name="horizontalSpacer_202">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_bc">
+                 <property name="text">
+                  <string>label_bc</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_708">
+                 <property name="text">
+                  <string>мм</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0" colspan="4">
+                <widget class="QFrame" name="frame_89">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_192">
+                  <property name="margin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_709">
+                    <property name="text">
+                     <string>где b3=</string>
+                    </property>
+                    <property name="indent">
+                     <number>40</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <spacer name="horizontalSpacer_203">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_b3">
+                    <property name="text">
+                     <string>label_b3</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="label_711">
+                    <property name="text">
+                     <string>мм - ширина ролика</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="QLabel" name="label_712">
+                    <property name="text">
+                     <string>[3,табл.К32]</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item row="8" column="0">
@@ -17889,6 +18946,46 @@ p, li { white-space: pre-wrap; }
               <property name="title">
                <string>5.8. Скорость цепи:</string>
               </property>
+              <layout class="QGridLayout" name="gridLayout_193">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_713">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;V&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;ц&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = р*z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;*n&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;/(60*1000) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <spacer name="horizontalSpacer_204">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_Vc">
+                 <property name="text">
+                  <string>label_Vc</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_715">
+                 <property name="text">
+                  <string>м/с</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item row="9" column="0">
@@ -17896,6 +18993,42 @@ p, li { white-space: pre-wrap; }
               <property name="title">
                <string>5.9. Межосевое расстояние:</string>
               </property>
+              <layout class="QGridLayout" name="gridLayout_194">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_716">
+                 <property name="text">
+                  <string>a = (30…50)*p =</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <spacer name="horizontalSpacer_205">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_a">
+                 <property name="text">
+                  <string>label_a</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_718">
+                 <property name="text">
+                  <string>мм</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item row="10" column="0">
@@ -17903,6 +19036,88 @@ p, li { white-space: pre-wrap; }
               <property name="title">
                <string>5.10. Расчетная длина цепи в шагах:</string>
               </property>
+              <layout class="QGridLayout" name="gridLayout_195">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_719">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;l&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;c &lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;= 2*a/р+(z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;+z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;)/2+((z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;-z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;)/2p)2(р/a) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <spacer name="horizontalSpacer_206">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_Icc">
+                 <property name="text">
+                  <string>label_Icc</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0" colspan="3">
+                <widget class="QFrame" name="frame_90">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_196">
+                  <property name="margin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_721">
+                    <property name="text">
+                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Принимаем l&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;c &lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;=&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                    <property name="indent">
+                     <number>40</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <spacer name="horizontalSpacer_207">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_Ic">
+                    <property name="text">
+                     <string>label_Ic</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item row="11" column="0">
@@ -17910,6 +19125,46 @@ p, li { white-space: pre-wrap; }
               <property name="title">
                <string>5.11. Фактическое межосевое расстояние</string>
               </property>
+              <layout class="QGridLayout" name="gridLayout_197">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_723">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;а = (р/4)[l&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;с&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;-0,5(z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;+z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;)+√[l&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;c&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;-0,5(z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;+z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;)]2-8(z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;-z&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;)2/(2p)2] =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <spacer name="horizontalSpacer_208">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_a_2">
+                 <property name="text">
+                  <string>label_a_2</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_725">
+                 <property name="text">
+                  <string>мм</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item row="12" column="0">
@@ -17917,6 +19172,46 @@ p, li { white-space: pre-wrap; }
               <property name="title">
                <string>5.12. Окружное усилие</string>
               </property>
+              <layout class="QGridLayout" name="gridLayout_198">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_726">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;F&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;t&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = (2*Т*1000)/d1 =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <spacer name="horizontalSpacer_209">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_Ft_2">
+                 <property name="text">
+                  <string>label_Ft_2</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_728">
+                 <property name="text">
+                  <string>H</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item row="13" column="0">
@@ -17924,6 +19219,42 @@ p, li { white-space: pre-wrap; }
               <property name="title">
                <string>5.13. Рассчетная стрела провисания:</string>
               </property>
+              <layout class="QGridLayout" name="gridLayout_199">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_729">
+                 <property name="text">
+                  <string>y = 0,02*a =</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <spacer name="horizontalSpacer_210">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_y">
+                 <property name="text">
+                  <string>label_y</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_731">
+                 <property name="text">
+                  <string>мм</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item row="14" column="0">
@@ -17931,6 +19262,118 @@ p, li { white-space: pre-wrap; }
               <property name="title">
                <string>5.14. Начальное натяжение цепи:</string>
               </property>
+              <layout class="QGridLayout" name="gridLayout_200">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_732">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;F&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;o &lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;= g К&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;f&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; m a / 1000 =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <spacer name="horizontalSpacer_211">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_FO">
+                 <property name="text">
+                  <string>label_FO</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_734">
+                 <property name="text">
+                  <string>H</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0" colspan="4">
+                <widget class="QFrame" name="frame_91">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_201">
+                  <property name="margin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_735">
+                    <property name="text">
+                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;K&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;f&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <spacer name="horizontalSpacer_212">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QComboBox" name="comboBox_Kf">
+                    <item>
+                     <property name="text">
+                      <string>1</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>3</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="label_736">
+                    <property name="text">
+                     <string>- коэффициент угла наклона передачи,</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="QLabel" name="label_737">
+                    <property name="text">
+                     <string>[1, с.41]</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item row="15" column="0">
@@ -17938,6 +19381,46 @@ p, li { white-space: pre-wrap; }
               <property name="title">
                <string>5.15. Натяжение цепи от действия центробежной силы:</string>
               </property>
+              <layout class="QGridLayout" name="gridLayout_202">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_738">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;F&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;v&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; = m*V&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;ц&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;2 =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <spacer name="horizontalSpacer_213">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_Fv">
+                 <property name="text">
+                  <string>label_Fv</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_740">
+                 <property name="text">
+                  <string>H</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item row="16" column="0">
@@ -17945,6 +19428,77 @@ p, li { white-space: pre-wrap; }
               <property name="title">
                <string>5.16. Проверочный расчет передачи на износостойкость:</string>
               </property>
+              <layout class="QGridLayout" name="gridLayout_203">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_741">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;q = F&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;t&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;*K&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;e&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;/(A*K&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;т&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="6">
+                <spacer name="horizontalSpacer_214">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_q">
+                 <property name="text">
+                  <string>label_q</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_743">
+                 <property name="text">
+                  <string>&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QLabel" name="label_744">
+                 <property name="text">
+                  <string>[q] =</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="4">
+                <widget class="QLabel" name="label_qq">
+                 <property name="text">
+                  <string>label_qq</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_746">
+                 <property name="text">
+                  <string>МПа</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0" colspan="7">
+                <widget class="QLabel" name="label_747">
+                 <property name="text">
+                  <string>Условие выполняется.</string>
+                 </property>
+                 <property name="indent">
+                  <number>40</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item row="17" column="0">
@@ -17952,6 +19506,80 @@ p, li { white-space: pre-wrap; }
               <property name="title">
                <string>5.17. Проверочный расчет цепи на статическую прочность:</string>
               </property>
+              <layout class="QGridLayout" name="gridLayout_205">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_748">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;S = F&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;p&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;/(F&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;t&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;+F&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;v&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;+F&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;) =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="6">
+                <spacer name="horizontalSpacer_215">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_S">
+                 <property name="text">
+                  <string>label_S</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_750">
+                 <property name="text">
+                  <string>&lt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QLabel" name="label_751">
+                 <property name="text">
+                  <string>[S] =</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="4">
+                <widget class="QSpinBox" name="spinBox_S">
+                 <property name="minimum">
+                  <number>3</number>
+                 </property>
+                 <property name="maximum">
+                  <number>6</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_752">
+                 <property name="text">
+                  <string>- нормативный запас прочности цепи.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0" colspan="7">
+                <widget class="QLabel" name="label_753">
+                 <property name="text">
+                  <string>Прочность обеспечивается</string>
+                 </property>
+                 <property name="indent">
+                  <number>40</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item row="18" column="0">
@@ -17959,6 +19587,46 @@ p, li { white-space: pre-wrap; }
               <property name="title">
                <string>5.18. Расчетная нагрузка на вали передачи:</string>
               </property>
+              <layout class="QGridLayout" name="gridLayout_204">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_754">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;R = 1,15*F&lt;/span&gt;&lt;span style=&quot; font-size:14pt; vertical-align:sub;&quot;&gt;t&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; =&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <spacer name="horizontalSpacer_216">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_R">
+                 <property name="text">
+                  <string>label_R</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_756">
+                 <property name="text">
+                  <string>H</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
            </layout>
