@@ -6,10 +6,10 @@
 
 void DmWindow::KoefficientShirini(void)
 {
-    dT2 = ui->doubleSpinBox_T2->value();
-    dn2 = ui->doubleSpinBox_n2->value();
-    du2 = ui->doubleSpinBox_u2->value();
-    dTmaxTnom2 = ui->doubleSpinBox_TmaxTnom->value();
+    dT2 = ROUND2(ui->doubleSpinBox_T2->value());
+    dn2 = ROUND1(ui->doubleSpinBox_n2->value());
+    du2 = ROUND2(ui->doubleSpinBox_u2->value());
+    dTmaxTnom2 = ROUND2(ui->doubleSpinBox_TmaxTnom->value());
 
     dPsiba = ui->comboBox_Psiba->currentText().toDouble();
 
@@ -278,7 +278,7 @@ void DmWindow::SilaDejstviyaVZaceplenii(void)
 
 void DmWindow::ProverkaNaVinoslivostPoNapryajeniyuIzgiba(void)
 {
-    dKFBeta = ui->comboBox_Kfbeta->currentText().toDouble();
+    dKFBeta = ROUND2(ui->comboBox_Kfbeta->currentText().toDouble());
     dKFV = ROUND2(ui->doubleSpinBox_Kfv->value());
 
     ui->label_StepenPeredachi->setText(QString::number(iNaznachenie));
@@ -452,6 +452,7 @@ void DmWindow::KoefficientShiriniZubchastihVencov(void)
      dT2 = ROUND2(ui->doubleSpinBox_T2_2->value());
      dn2 = ROUND1(ui->doubleSpinBox_n2_2->value());
      du2 = ROUND2(ui->doubleSpinBox_u2_2->value());
+     dTmaxTnom2 = ROUND2(ui->doubleSpinBox_TmaxTnom_2->value());
 
      dKbe = ROUND2(ui->doubleSpinBox_Kbe->value());
 
@@ -484,9 +485,9 @@ void DmWindow::PredvaritelnoeZnachenieVneshnegoDelitelnogoDiametraKolesa(void)
 
 void DmWindow::ChisloZubjevKolesa(void)
 {
-    dZ1 = ui->spinBox_z1->value();
+    iZ1 = ui->spinBox_z1->value();
 
-    double dZ2_2 = dZ1 * du2;
+    double dZ2_2 = du2 * iZ1;
     dZ2_2 = ROUND1(dZ2_2);
 
     iZ2 = ROUND(dZ2_2);
@@ -515,7 +516,7 @@ void DmWindow::VneshnieDelitelnieDiametriKoles(void)
     ui->label_dl1->setText(QString::number(iZ1) + " * " + QString::number(dml) + " = " + QString::number(idl1));
 
     idl2 = iZ2 * dml;
-    ui->label_dl2->setText(QString::number(iZ2) + " * " + QString::number(dml) + " = " + QString::number(idl2));
+    ui->label_dl2_2->setText(QString::number(iZ2) + " * " + QString::number(dml) + " = " + QString::number(idl2));
 
     VneshnieKonusnoeRastoyanie();
 }
@@ -563,12 +564,12 @@ void DmWindow::SrednieDelitelnieDeametriKolesa(void)
 
 void DmWindow::UgliPriVershinahDelitelnihKonusovKoles(void)
 {
-    dBeta1 = atan((double)iZ1/iZ2) * (PI / 180);
+    dBeta1 = atan((double)iZ1/iZ2) * (180 / PI);
     dBeta1 = ROUND2(dBeta1);
 
     ui->label_beta1->setText(QString::number(dBeta1));
 
-    dBeta2 = 90.0 - dBeta2;
+    dBeta2 = 90.0 - dBeta1;
     dBeta2 = ROUND2(dBeta2);
 
     ui->label_beta2->setText(QString::number(dBeta2));
@@ -582,7 +583,171 @@ void DmWindow::SilaVZaceplenii2(void)
     dFt12_5 = ROUND2(dFt12_5);
     ui->label_Ft12_2->setText(QString::number(dFt12_5) + " H");
 
-    //dFr1_5 = ;
+    dFr1_5 = dFt12_5 * tan(20.0 * (PI / 180)) * cos(dBeta1 * (PI / 180));
+    dFr1_5 = dFa2_5 = ROUND2(dFr1_5);
+
+    ui->label_Fr1->setText(QString::number(dFr1_5));
+
+    dFa1_5 = dFt12_5 * tan(20.0 * (PI / 180)) * sin(dBeta1* (PI / 180));
+    dFa1_5 = dFr2_5 = ROUND2(dFa1_5);
+
+    ui->label_Fa1_2->setText(QString::number(dFa1_5));
+
+    OkrujnayaSkorostStepenTochnostiPeredach();
+}
+
+void DmWindow::OkrujnayaSkorostStepenTochnostiPeredach(void)
+{
+    dV = PI * dn2 * ddm1 / 60000.0;
+    dV = ROUND2(dV);
+
+    ui->label_V_3->setText("3.14*" + QString::number(dn2) + "*" + QString::number(ddm1) + "/(60*1000) = " + QString::number(dV));
+
+    iStepenTochnostiPeredachi2 = ui->spinBox_StepenTochnostiPeredachi_2->value();
+
+    ProverochnijRaschetNaKontaktnujuVinoslivost();
+}
+
+void DmWindow::ProverochnijRaschetNaKontaktnujuVinoslivost(void)
+{
+    iZm = ui->comboBox_Zm_2->currentText().toInt();
+    dZh = 1.76;
+
+    dEtaAlpha = (1.88 - 3.2 * ( 1.0 / iZ1 + 1.0 / iZ2 ));
+    dEtaAlpha = ROUND2(dEtaAlpha);
+
+    ui->label_EpsilonAlpha->setText(tr("1.88 - 3.2 * (1 / ") + QString::number(iZ1) + tr(" + 1 / ")  + QString::number(iZ2) + tr(") = ") + QString::number(dEtaAlpha));
+
+    dZe = pow(((4.0 / dEtaAlpha) / 3), 0.5);
+    dZe = ROUND2(dZe);
+    ui->label_Ze_2->setText(QString::number(dZe));
+
+    dKHV = ui->doubleSpinBox_KHV->value();
+    dKHV = ROUND2(dKHV);
+
+    dSigmaH51 = dZh * iZm * dZe * sqrt(dFt12_5 * dKHBeta * dKHV * sqrt(du2 * du2 + 1) / (0.85 * ddm1 * db * du2));
+    dSigmaH51 = ROUND2(dSigmaH51);
+
+    ui->label_SigmaH_2->setText(QString::number(dSigmaH51));
+    ui->label_SigmaH_3->setText(QString::number(dSigmaH51));
+    ui->label_SigmaH_4->setText(QString::number(dSigmaH3));
+
+    if (dSigmaF51 < dSigmaH3)
+    {
+        ui->label_OtnoshenieSigmaH->setText("<");
+    }
+    else ui->label_OtnoshenieSigmaH->setText(">");
+
+    ui->label_StepenTochnosti->setText(QString::number(iStepenTochnostiPeredachi2));
+
+    dSigmaHmax = dSigmaH3 * sqrt(dTmaxTnom2);
+    dSigmaHmax = ROUND1(dSigmaHmax);
+    ui->label_SigmaHmax_2->setText(QString::number(dSigmaHmax));
+
+    dSigmaHHmax = 2.8 * iSigmaT;
+    dSigmaHHmax = ROUND1(dSigmaHHmax);
+    ui->label_SigmaHmax_3->setText(QString::number(dSigmaHHmax));
+
+    if (dSigmaHmax < dSigmaHHmax)
+    {
+        ui->label_OtnoshenieSigmaHmax_3->setText("<");
+    }
+    else ui->label_OtnoshenieSigmaHmax_3->setText(">");
+
+    ProverkaNaVinoslivostPoNapryjeniyuIzgiba();
+}
+
+void DmWindow::ProverkaNaVinoslivostPoNapryjeniyuIzgiba(void)
+{
+    dKFBeta = ROUND2(ui->comboBox_KFBeta->currentText().toDouble());
+    dKFV = ROUND2(ui->doubleSpinBox_KFv->value());
+
+    ui->label_StepenTochnosti_2->setText(QString::number(iNaznachenie));
+
+    dZV1 = (double)iZ1 / pow(cos(dBeta1 * (PI / 180)), 3);
+    dZV1 = ROUND1(dZV1);
+    ui->label_ZV1->setText(QString::number(dZV1));
+
+    dZV2 = (double)iZ2 / pow (cos(dBeta2 * (PI / 180)), 3);
+    dZV2 = ROUND1(dZV2);
+    ui->label_ZV2->setText(QString::number(dZV2));
+
+    int tempVal1 = iZV1;
+    int tempVal2 = iZV2;
+    if (tempVal1 < 17)
+        tempVal1 = 17;
+    if (tempVal2 < 17)
+        tempVal2 = 17;
+
+    dYF1 = dYF2 = 0;
+    for (int i = 0; i < LENGTH(KoeficientYf); ++i)
+    {
+        if (tempVal1 <= KoeficientYf[i][0] && dYF1 == 0)
+        {
+            dYF1 = KoeficientYf[i][1];
+        }
+
+        if (tempVal2 <= KoeficientYf[i][0] && dYF2 == 0)
+        {
+            dYF2 = KoeficientYf[i][1];
+        }
+    }
+
+    ui->label_YF1_3->setText(QString::number(dYF1));
+    ui->label_YF2_3->setText(QString::number(dYF2));
+
+    dSigmaF51 = dFt12_5 * dKFBeta * dKFV * dYF1 / (0.85 * db * dmm);
+    dSigmaF51 = ROUND2(dSigmaF51);
+    ui->label_SigmaF1_2->setText(QString::number(dSigmaF51));
+    ui->label_SigmaF1_3->setText(QString::number(dSigmaF51));
+
+    dSigmaF52 = dFt12_5 * dKFBeta * dKFV * dYF1 / (0.85 * db * dmm);
+    dSigmaF52 = ROUND2(dSigmaF52);
+    ui->label_SigmaF2_3->setText(QString::number(dSigmaF52));
+    ui->label_SigmaF2_5->setText(QString::number(dSigmaF52));
+
+    ui->label_SigmaF1_5->setText(QString::number(dSigmaF1));
+    ui->label_SigmaF2_6->setText(QString::number(dSigmaF2));
+
+    if (dSigmaF51 < dSigmaF1)
+    {
+        ui->label_OtnoshenieSigmaF1->setText("<");
+    }
+    else ui->label_OtnoshenieSigmaF1->setText(">");
+
+    if (dSigmaF52 < dSigmaF2)
+    {
+        ui->label_OtnoshenieSigmaF2->setText("<");
+    }
+    else ui->label_OtnoshenieSigmaF2->setText(">");
+
+    dSigmaFmax1 = dSigmaF51 * dTmaxTnom2;
+    dSigmaFmax1 = ROUND1(dSigmaFmax1);
+    ui->label_SigmaFmax1_3->setText(QString::number(dSigmaFmax1));
+
+    dSigmaFmax2 = dSigmaF52 * dTmaxTnom2;
+    dSigmaFmax2 = ROUND1(dSigmaFmax2);
+    ui->label_SigmaFmax2_3->setText(QString::number(dSigmaFmax2));
+
+    dSigmaFFmax1 = 4.8 * iHBcp1;
+    dSigmaFFmax1 = ROUND1(dSigmaFFmax1);
+    ui->label_SigmaFmax1_4->setText(QString::number(dSigmaFFmax1));
+
+    dSigmaFFmax2 = 4.8 * iHBcp2;
+    dSigmaFFmax2 = ROUND1(dSigmaFFmax2);
+    ui->label_SigmaFmax2_4->setText(QString::number(dSigmaFFmax2));
+
+    if (dSigmaFmax1 < dSigmaFFmax1)
+    {
+        ui->label_OtnoshenieSigmaFmax1->setText("<");
+    }
+    else ui->label_OtnoshenieSigmaFmax1->setText(">");
+
+    if (dSigmaFmax2 < dSigmaFFmax2)
+    {
+        ui->label_OtnoshenieSigmaFmax2->setText("<");
+    }
+    else ui->label_OtnoshenieSigmaFmax2->setText(">");
 
 #ifdef TAB_CONTROL
     if (checkTab5())
@@ -853,19 +1018,176 @@ bool DmWindow::checkTab5(void)
             noErrors = false;
         }
         else ui->label_checkSzag2->setText(tr("<span style=\" color:#ff0000;\"> - заготовка  пригодна.</span>"));
-
-        return noErrors;
     }
     else if (CurrentReductor == Reductor::KONICHESKAYA) {
 
-        if (dT2 != dValT2 || dn2 != dValN2 || du2 != dValI2)
+        double tempValD = 0.0;
+        int    tempValI = 0;
+
+        if (dT2 != dValT2 || dn2 != dValN2 || du2 != dValI2 || dTmaxTnom1 != dTmaxTnom2)
         {
             ui->label_CheckT2_2->setVisible(true);
             noErrors = false;
         } else ui->label_CheckT2_2->setVisible(false);
+
+        tempValD = ROUND1(dKbeu);
+        tempValI = tempValD * 10 - 1;
+        if (tempValI < 0)
+            tempValI = 0;
+        else if (tempValI > 7)
+            tempValI = 7;
+
+        if(dKHBeta != KoeficientKHBeta[0 + 2 * iPodshipnikTupe][tempValI])
+        {
+            ui->label_CheckKhb->setVisible(true);
+            noErrors = false;
+        } else ui->label_CheckKhb->setVisible(false);
+
+        tempValD = dmll - dml;
+        tempValD = (tempValD > 0) ? tempValD : -tempValD;
+        if ( tempValD > 1.0 )
+        {
+            ui->label_checkml->setVisible(true);
+            noErrors = false;
+        } else ui->label_checkml->setVisible(false);
+
+        if ( dml > db )
+        {
+            ui->label_checkb->setText(tr("<span style=\" color:#ff0000;\"> < 10</span>"));
+            noErrors = false;
+        } else ui->label_checkb->setText(tr("<span style=\" color:#ff0000;\"> > 10m, Уточните!</span>"));
+
+        if ( dml > db )
+        {
+            ui->label_checkb->setText(tr("<span style=\" color:#ff0000;\"> < 10</span>"));
+            noErrors = false;
+        } else ui->label_checkb->setText(tr("<span style=\" color:#ff0000;\"> > 10m, Уточните!</span>"));
+
+        if (dV <= 2.0)
+            tempValI = 9;
+        else if (dV <= 6.0)
+            tempValI = 8;
+        else if (dV <= 10.0)
+            tempValI = 7;
+        else if (dV <= 15.0)
+            tempValI = 6;
+        else
+            tempValI = 5;
+
+        if(iStepenTochnostiPeredachi2 != tempValI)
+        {
+            ui->label_checkStepenTochnostiPeredachi->setVisible(true);
+            noErrors = false;
+        } else ui->label_checkStepenTochnostiPeredachi->setVisible(false);
+
+        if((iStepenTochnostiPeredachi2 >=6 && iStepenTochnostiPeredachi2 <= 9) || CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
+        {
+            if (dV < 1)
+            {
+                tempValI = 1;
+            }
+            else
+            {
+                if(dV < 1.5)
+                {
+                    tempValI = 0;
+                }
+                else if(dV < 2.5)
+                {
+                    tempValI = 1;
+                }
+                else if(dV >= 2.5 && dV < 4.5)
+                {
+                    tempValI = 2;
+                }
+                else if(dV >= 4.5 && dV < 6.5)
+                {
+                    tempValI = 3;
+                }
+                else if(dV >= 6.5 && dV < 8.5)
+                {
+                    tempValI = 4;
+                }
+                else if(dV >= 8.5)
+                {
+                    tempValI = 5;
+                }
+
+                tempValD = KoeficientKHV[iStepenTochnostiPeredachi2-6][static_cast<int>(tempValI)];
+            }
+
+        }
+        else tempValD = -1.0;
+
+        if (dKHV != tempValD)
+        {
+            ui->label_checkKHV_2->setVisible(true);
+            noErrors = false;
+        } else ui->label_checkKHV_2->setVisible(false);
+
+        if (dSigmaH51 > dSigmaH1)
+        {
+            ui->label_checkSigmaH->setText(tr("<span style=\" color:#ff0000;\">Условие контактной выносливости не выполняется, пожалуйста уточните!</span>"));
+            noErrors = false;
+        } else ui->label_checkSigmaH->setText(tr("<span style=\" color:#ff0000;\">Условие контактной выносливости выполняется.</span>"));
+
+        if (dSigmaHmax > dSigmaHHmax)
+        {
+            ui->label_checkSigmaHmax_3->setText(tr("<span style=\" color:#ff0000;\">Условие  не выполняется, пожалуйста уточните!</span>"));
+            noErrors = false;
+        } else ui->label_checkSigmaHmax_3->setText(tr("<span style=\" color:#ff0000;\">Условие  выполняется.</span>"));
+
+        tempValD = ROUND1(dKbeu);
+        tempValI = tempValD * 10 - 1;
+        if (tempValI < 0)
+            tempValI = 0;
+        else if (tempValI > 7)
+            tempValI = 7;
+
+        if(dKFBeta != KoeficientKHBeta[1 + 2 * iPodshipnikTupe][tempValI])
+        {
+            ui->label_checkKFBeta->setVisible(true);
+            noErrors = false;
+        } else ui->label_checkKFBeta->setVisible(false);
+
+        if(iStepenTochnostiPeredachi2 >=6 && iStepenTochnostiPeredachi2 <= 9)
+        {
+            tempValI = ROUND(dV) - 1;
+
+            if (tempValI < 0)
+            {
+                tempValI = 0;
+            }
+            else if (tempValI > 5)
+            {
+                tempValI = 5;
+            }
+
+            tempValD = KoeficientKFV[iStepenTochnostiPeredachi2-6][tempValI];
+
+        }
+        else tempValD = -1.0;
+
+        if (dKFV != tempValD)
+        {
+            ui->label_checkKFV->setVisible(true);
+            noErrors = false;
+        } else ui->label_checkKFV->setVisible(false);
+
+        if (dSigmaF51 > dSigmaF1 || dSigmaF52 > dSigmaF2)
+        {
+            ui->label_checkSigmaF1->setText(tr("<span style=\" color:#ff0000;\">Условие  выносливости на изгиб не выполняется, пожалуйста уточните!</span>"));
+            noErrors = false;
+        } else ui->label_checkSigmaF1->setText(tr("<span style=\" color:#ff0000;\">Условие выносливости на изгиб выполняется.</span>"));
+
+        if (iSigmaFmax1 < iSigmaFFmax1 || iSigmaFmax2 < iSigmaFFmax2)
+        {
+            ui->label_checkSigmaFmax1->setText(tr("<span style=\" color:#ff0000;\">Условие  выносливости не выполняется, пожалуйста уточните!</span>"));
+            noErrors = false;
+        } else ui->label_checkSigmaFmax1->setText(tr("<span style=\" color:#ff0000;\">Условие выносливости выполняется.</span>"));
     }
 
-
+    return noErrors;
 }
 
 double DmWindow::GetVspomogatelniyKoeficient()

@@ -181,6 +181,9 @@ private slots:
     void SrednieDelitelnieDeametriKolesa(void);
     void UgliPriVershinahDelitelnihKonusovKoles(void);
     void SilaVZaceplenii2(void);
+    void OkrujnayaSkorostStepenTochnostiPeredach(void);
+    void ProverochnijRaschetNaKontaktnujuVinoslivost(void);
+    void ProverkaNaVinoslivostPoNapryjeniyuIzgiba(void);
 
     //Global
     void on_spinBox_Variant_valueChanged(int index);
@@ -322,6 +325,10 @@ private:
     double dBeta1, dBeta2;
     double dFt12_5;
     double dFr1_5, dFa2_5, dFa1_5, dFr2_5;
+    int    iStepenTochnostiPeredachi2;
+    double dZV1, dZV2;
+    double dSigmaFmax1, dSigmaFmax2;
+    double dSigmaFFmax1, dSigmaFFmax2;
 
     //Tab 6
     double dT3;
