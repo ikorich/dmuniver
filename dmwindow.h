@@ -73,6 +73,17 @@ struct Podshipnik
     };
 };
 
+struct TypCepi
+{
+    enum Enum
+    {
+        ODNORYADNAYA = 0,
+        DVUHRYADNAYA,
+        TREHRYADNAYA,
+        CHETIREHRYADNAYA
+    };
+};
+
 typedef unsigned int uint;
 
 class DmWindow : public QMainWindow {
@@ -90,23 +101,6 @@ private:
     Ui::DmWindow *ui;
 
 private slots:
-    //Tab 6
-
-    void proverkaNaKontaktnujuProchnost(void);
-    void proverkaNaProchnost(void);
-    void ProverkaaNaVinoslivostPoNapryjeniyamIzgiba(void);
-    void SilaVZaceplenii(void);
-    void on_comboBoxPrivodType_currentIndexChanged(int index);
-    void OkrujnayaSkorostIStepenTochnostiPeredachi(void);
-    void OsnovnieGeometricheskieRazmeri(void);
-    void RaschetnoeZnachenieModulya(void);
-    void ProektnijRascetPeredachi(void);
-    void EkvivalentnoeChisloZubjev(void);
-    void KoefficientShiriniVenca(void);
-    void chisloZubjev2(void);
-    void DopustimieNapryajeniyaIzgiba(void);
-    void viborMaterialaZubchatihKoles(void);
-    bool checkTab6(void);
 
     //Tab 2
     void on_spinBox_Variant2_valueChanged(int index);
@@ -184,6 +178,29 @@ private slots:
     void OkrujnayaSkorostStepenTochnostiPeredach(void);
     void ProverochnijRaschetNaKontaktnujuVinoslivost(void);
     void ProverkaNaVinoslivostPoNapryjeniyuIzgiba(void);
+
+    //Tab 6
+    void proverkaNaKontaktnujuProchnost(void);
+    void proverkaNaProchnost(void);
+    void ProverkaaNaVinoslivostPoNapryjeniyamIzgiba(void);
+    void SilaVZaceplenii(void);
+    void on_comboBoxPrivodType_currentIndexChanged(int index);
+    void OkrujnayaSkorostIStepenTochnostiPeredachi(void);
+    void OsnovnieGeometricheskieRazmeri(void);
+    void RaschetnoeZnachenieModulya(void);
+    void ProektnijRascetPeredachi(void);
+    void EkvivalentnoeChisloZubjev(void);
+    void KoefficientShiriniVenca(void);
+    void chisloZubjev2(void);
+    void DopustimieNapryajeniyaIzgiba(void);
+    void viborMaterialaZubchatihKoles(void);
+    bool checkTab6(void);
+    //цепная передача
+    void ChisloZubjevZvezdochki(void);
+    void OrientirovochnoeZnachenieDopustimogoDavleniyaVSharnirahCepi(void);
+    void KoefficientEkspluatacii(void);
+    void ShagCepiIzRaschetaIznostoikostiEeSharniriv(void);
+    void TypCepi(void);
 
     //Global
     void on_spinBox_Variant_valueChanged(int index);
@@ -365,6 +382,13 @@ private:
     double dKHV61;
     double dSigmaHmax61;
     double dSigmaHHmax61;
+
+    double dq;
+    double dK1, dK2, dK3, dK4, dK5, dK6;
+    double dKe;
+    double dKt;
+    double dp;
+    int    iTypCepi;
 };
 
 #endif // DMWINDOW_H
