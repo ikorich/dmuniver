@@ -2,6 +2,8 @@
 #include "ui_dmwindow.h"
 #include "defines/table5.h"
 
+#pragma mark ============ Peredacha Cilindricheskaya =================
+
 void DmWindow::viborMaterialaZubchatihKoles(void)
 {
     dT3 = ui->doubleSpinBox_T3->value();
@@ -297,7 +299,71 @@ void DmWindow::proverkaNaKontaktnujuProchnost(void)
     }
 
 #ifdef TAB_CONTROL
-    if (checkTab5())
+    if (checkTab6())
+        ui->tabWidget->setTabEnabled(5, true);
+    else ui->tabWidget->setTabEnabled(5, false);
+#else
+    checkTab6();
+#endif
+}
+
+#pragma mark ============ Peredacha Cepnayav =================
+
+void DmWindow::ChisloZubjevZvezdochki(void)
+{
+    dT3 = ui->doubleSpinBox_T3_2->value();
+    dn3 = ui->doubleSpinBox_n3_2->value();
+    du3 = ui->doubleSpinBox_u3_2->value();
+
+    iz1 = ROUND(31.0 - 2.0 * du3);
+    ui->label_z1_5->setText(QString::number(iz1));
+
+    iz2 = ROUND(du3 * iz1);
+    ui->label_z2_5->setText(QString::number(iz2));
+
+    OrientirovochnoeZnachenieDopustimogoDavleniyaVSharnirahCepi();
+}
+
+void DmWindow::OrientirovochnoeZnachenieDopustimogoDavleniyaVSharnirahCepi(void)
+{
+    dq = ui->comboBox_q_2->currentText().toDouble();
+
+    KoefficientEkspluatacii();
+}
+
+void DmWindow::KoefficientEkspluatacii(void)
+{
+    dK1 = ui->comboBox_K1->currentText().toDouble();
+    dK2 = ui->comboBox_K2->currentText().toDouble();
+    dK3 = ui->comboBox_K3->currentText().toDouble();
+    dK4 = ui->comboBox_K4->currentText().toDouble();
+    dK5 = ui->comboBox_K5->currentText().toDouble();
+    dK6 = ui->comboBox_K6->currentText().toDouble();
+
+    dKe = dK1 * dK2 * dK3 * dK4 * dK5 * dK6;
+    dKe = ROUND2(dKe);
+    ui->label_Ke->setText(QString::number(dKe));
+
+    ShagCepiIzRaschetaIznostoikostiEeSharniriv();
+}
+
+void DmWindow::ShagCepiIzRaschetaIznostoikostiEeSharniriv(void)
+{
+    dKt = ui->doubleSpinBox_Kt->value();
+
+    dp = 28.0 * pow((dT3 * dKe / (dq * iz1 * dKt)) , 0.333333333);
+    dp = ROUND1(dp);
+
+    ui->label_p->setText(QString::number(dp));
+
+    TypCepi();
+}
+
+void DmWindow::TypCepi(void)
+{
+    iTypCepi = ui->comboBox_Cep->currentIndex();
+#ifdef TAB_CONTROL
+    if (checkTab6())
         ui->tabWidget->setTabEnabled(5, true);
     else ui->tabWidget->setTabEnabled(5, false);
 #else
@@ -313,193 +379,199 @@ bool DmWindow::checkTab6(void)
     double  dTempVal1 = 0.0;
     double  dTempVal2 = 0.0;
 
-    if (dT3 != dValT3 || dn3 != dValN3 || du3 != dValI3)
+    if (CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
     {
-        ui->label_CheckVvod5->setVisible(true);
-        noErrors = false;
-    } else ui->label_CheckVvod5->setVisible(false);
-
-    if (iLitje == 45)
-    {
-        iTempVal1 = 235;
-        iTempVal2 = 207;
-    }
-    else
-    {
-        iTempVal1 = 207;
-        iTempVal2 = 163;
-    }
-
-    if (iHB1 >= iTempVal2 && iHB1 <= iTempVal1)
-    {
-        ui->label_checkHB1->setVisible(false);
-    }
-    else
-    {
-        ui->label_checkHB1->setVisible(true);
-        noErrors = false;
-    }
-
-    if (iHB2 >= iTempVal2 && iHB2 <= iTempVal1)
-    {
-        ui->label_checkHB2->setVisible(false);
-    }
-    else
-    {
-        ui->label_checkHB2->setVisible(true);
-        noErrors = false;
-    }
-
-    if (iLitje == 35)
-    {
-        iTempVal1 = 500;
-        iTempVal2 = 270;
-    }
-    else if (iLitje == 40)
-    {
-        iTempVal1 = 520;
-        iTempVal2 = 295;
-    }
-    else if (iLitje == 45)
-    {
-        iTempVal1 = 680;
-        iTempVal2 = 440;
-    }
-
-    if (iSb2 != iTempVal1)
-    {
-        ui->label_checkSb1->setVisible(true);
-        noErrors = false;
-    }
-    else ui->label_checkSb1->setVisible(false);
-
-    if (iSt2 != iTempVal2)
-    {
-        ui->label_checkSb2->setVisible(true);
-        noErrors = false;
-    }
-    else ui->label_checkSb2->setVisible(false);
-
-    for (int i = LENGTH(raschetnoeZnachenieModulay)-2 ; i >= 0; i--)
-        if (dmm3 >= raschetnoeZnachenieModulay[i])
+        if (dT3 != dValT3 || dn3 != dValN3 || du3 != dValI3)
         {
-            dTempVal1 = raschetnoeZnachenieModulay[i+1] - dmm3;
-            dTempVal2 = dmm3 - raschetnoeZnachenieModulay[i];
-            if(dTempVal1 < dTempVal2)
-                dTempVal1 = raschetnoeZnachenieModulay[i+1];
-            else
-                dTempVal1 = raschetnoeZnachenieModulay[i];
-            break;
-        }
-    if (dTempVal1 != dm)
-    {
-        ui->label_checkm->setVisible(true);
-        noErrors = false;
-    }
-    else ui->label_checkm->setVisible(false);
+            ui->label_CheckVvod5->setVisible(true);
+            noErrors = false;
+        } else ui->label_CheckVvod5->setVisible(false);
 
-    if (dV61 <= 2)
-    {
-        iTempVal1 = 9;
-    }
-    else if (dV61 <= 6)
-    {
-        iTempVal1 = 8;
-    }
-    else if (dV61 <= 10)
-    {
-        iTempVal1 = 7;
-    }
-    else if (dV61 <= 15)
-    {
-        iTempVal1 = 6;
-    }
-    else
-    {
-        iTempVal1 = 5;
-    }
-
-    if (iStepenTochnostiPeredachi != iTempVal1)
-    {
-        ui->label_checkStepenTochnosti->setVisible(true);
-        noErrors = false;
-    }
-    else ui->label_checkStepenTochnosti->setVisible(false);
-
-    if(iStepenTochnostiPeredachi >=6 && iStepenTochnostiPeredachi <= 9)
-    {
-        if (dV61 < 1)
+        if (iLitje == 45)
         {
-            dTempVal1 = 1.1;
+            iTempVal1 = 235;
+            iTempVal2 = 207;
         }
         else
         {
-            if(dV61 < 1.5)
-            {
-                iTempVal1 = 0;
-            }
-            else if(dV61 < 2.5)
-            {
-                iTempVal1 = 1;
-            }
-            else if(dV61 >= 2.5 && dV61 < 4.5)
-            {
-                iTempVal1 = 2;
-            }
-            else if(dV61 >= 4.5 && dV61 < 6.5)
-            {
-                iTempVal1 = 3;
-            }
-            else if(dV61 >= 6.5 && dV61 < 8.5)
-            {
-                iTempVal1 = 4;
-            }
-            else if(dV61 >= 8.5)
-            {
-                iTempVal1 = 5;
-            }
+            iTempVal1 = 207;
+            iTempVal2 = 163;
+        }
 
-            dTempVal1 = KoeficientKFV2[iStepenTochnostiPeredachi-6][iTempVal1];
+        if (iHB1 >= iTempVal2 && iHB1 <= iTempVal1)
+        {
+            ui->label_checkHB1->setVisible(false);
+        }
+        else
+        {
+            ui->label_checkHB1->setVisible(true);
+            noErrors = false;
+        }
+
+        if (iHB2 >= iTempVal2 && iHB2 <= iTempVal1)
+        {
+            ui->label_checkHB2->setVisible(false);
+        }
+        else
+        {
+            ui->label_checkHB2->setVisible(true);
+            noErrors = false;
+        }
+
+        if (iLitje == 35)
+        {
+            iTempVal1 = 500;
+            iTempVal2 = 270;
+        }
+        else if (iLitje == 40)
+        {
+            iTempVal1 = 520;
+            iTempVal2 = 295;
+        }
+        else if (iLitje == 45)
+        {
+            iTempVal1 = 680;
+            iTempVal2 = 440;
+        }
+
+        if (iSb2 != iTempVal1)
+        {
+            ui->label_checkSb1->setVisible(true);
+            noErrors = false;
+        }
+        else ui->label_checkSb1->setVisible(false);
+
+        if (iSt2 != iTempVal2)
+        {
+            ui->label_checkSb2->setVisible(true);
+            noErrors = false;
+        }
+        else ui->label_checkSb2->setVisible(false);
+
+        for (int i = LENGTH(raschetnoeZnachenieModulay)-2 ; i >= 0; i--)
+            if (dmm3 >= raschetnoeZnachenieModulay[i])
+            {
+                dTempVal1 = raschetnoeZnachenieModulay[i+1] - dmm3;
+                dTempVal2 = dmm3 - raschetnoeZnachenieModulay[i];
+                if(dTempVal1 < dTempVal2)
+                    dTempVal1 = raschetnoeZnachenieModulay[i+1];
+                else
+                    dTempVal1 = raschetnoeZnachenieModulay[i];
+                break;
+            }
+        if (dTempVal1 != dm)
+        {
+            ui->label_checkm->setVisible(true);
+            noErrors = false;
+        }
+        else ui->label_checkm->setVisible(false);
+
+        if (dV61 <= 2)
+        {
+            iTempVal1 = 9;
+        }
+        else if (dV61 <= 6)
+        {
+            iTempVal1 = 8;
+        }
+        else if (dV61 <= 10)
+        {
+            iTempVal1 = 7;
+        }
+        else if (dV61 <= 15)
+        {
+            iTempVal1 = 6;
+        }
+        else
+        {
+            iTempVal1 = 5;
+        }
+
+        if (iStepenTochnostiPeredachi != iTempVal1)
+        {
+            ui->label_checkStepenTochnosti->setVisible(true);
+            noErrors = false;
+        }
+        else ui->label_checkStepenTochnosti->setVisible(false);
+
+        if(iStepenTochnostiPeredachi >=6 && iStepenTochnostiPeredachi <= 9)
+        {
+            if (dV61 < 1)
+            {
+                dTempVal1 = 1.1;
+            }
+            else
+            {
+                if(dV61 < 1.5)
+                {
+                    iTempVal1 = 0;
+                }
+                else if(dV61 < 2.5)
+                {
+                    iTempVal1 = 1;
+                }
+                else if(dV61 >= 2.5 && dV61 < 4.5)
+                {
+                    iTempVal1 = 2;
+                }
+                else if(dV61 >= 4.5 && dV61 < 6.5)
+                {
+                    iTempVal1 = 3;
+                }
+                else if(dV61 >= 6.5 && dV61 < 8.5)
+                {
+                    iTempVal1 = 4;
+                }
+                else if(dV61 >= 8.5)
+                {
+                    iTempVal1 = 5;
+                }
+
+                dTempVal1 = KoeficientKFV2[iStepenTochnostiPeredachi-6][iTempVal1];
+            }
+        }
+        else dTempVal1 = -1.0;
+
+        if (dKFV61 != iTempVal1)
+        {
+            ui->label_checkKfv->setVisible(true);
+            noErrors = false;
+        }
+        else ui->label_checkKfv->setVisible(false);
+
+        if (dSigmaF61 < dSff1 && dSigmaF62 < dSff2)
+        {
+            ui->label_checksigmaF1F2->setText(tr("<span style=\" color:#ff0000;\">Условие выносливости на изгиб выполняется.</span>"));
+        }
+        else
+        {
+            ui->label_checksigmaF1F2->setText(tr("<span style=\" color:#ff0000;\">Условие  выносливости на изгиб не выполняется, пожалуйста уточните!</span>"));
+            noErrors = false;
+        }
+
+        if (dSigmaFmax61 < dSigmaFFmax61 && dSigmaFmax62 < dSigmaFFmax62)
+        {
+            ui->label_checkSigmaFmax12->setText(tr("<span style=\" color:#ff0000;\">Условие контактной выносливости выполняется.</span>"));
+        }
+        else
+        {
+            ui->label_checkSigmaFmax12->setText(tr("<span style=\" color:#ff0000;\">Условие контактной выносливости не выполняется, пожалуйста уточните!</span>"));
+            noErrors = false;
+        }
+
+        if (dSigmaHmax61 < dSigmaHHmax61)
+        {
+            ui->label_checkSigmaHmax->setText(tr("<span style=\" color:#ff0000;\">Условие контактной выносливости выполняется.</span>"));
+        }
+        else
+        {
+            ui->label_checkSigmaHmax->setText(tr("<span style=\" color:#ff0000;\">Условие контактной выносливости не выполняется, пожалуйста уточните!</span>"));
+            noErrors = false;
         }
     }
-    else dTempVal1 = -1.0;
+    else if (CurrentPeredacha == Peredacha::CEPNAYA)
+    {
 
-    if (dKFV61 != iTempVal1)
-    {
-        ui->label_checkKfv->setVisible(true);
-        noErrors = false;
     }
-    else ui->label_checkKfv->setVisible(false);
-
-    if (dSigmaF61 < dSff1 && dSigmaF62 < dSff2)
-    {
-        ui->label_checksigmaF1F2->setText(tr("<span style=\" color:#ff0000;\">Условие выносливости на изгиб выполняется.</span>"));
-    }
-    else
-    {
-        ui->label_checksigmaF1F2->setText(tr("<span style=\" color:#ff0000;\">Условие  выносливости на изгиб не выполняется, пожалуйста уточните!</span>"));
-        noErrors = false;
-    }
-
-    if (dSigmaFmax61 < dSigmaFFmax61 && dSigmaFmax62 < dSigmaFFmax62)
-    {
-        ui->label_checkSigmaFmax12->setText(tr("<span style=\" color:#ff0000;\">Условие контактной выносливости выполняется.</span>"));
-    }
-    else
-    {
-        ui->label_checkSigmaFmax12->setText(tr("<span style=\" color:#ff0000;\">Условие контактной выносливости не выполняется, пожалуйста уточните!</span>"));
-        noErrors = false;
-    }
-
-    if (dSigmaHmax61 < dSigmaHHmax61)
-    {
-        ui->label_checkSigmaHmax->setText(tr("<span style=\" color:#ff0000;\">Условие контактной выносливости выполняется.</span>"));
-    }
-    else
-    {
-        ui->label_checkSigmaHmax->setText(tr("<span style=\" color:#ff0000;\">Условие контактной выносливости не выполняется, пожалуйста уточните!</span>"));
-        noErrors = false;
-    }
-
     return noErrors;
 }
