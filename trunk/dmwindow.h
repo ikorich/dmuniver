@@ -236,6 +236,7 @@ private:
     double  dValP1, dValP2, dValP3, dValP4;
     double  dValT1, dValT2, dValT3, dValT4;
     double  dTmaxTnom1, dTmaxTnom2;
+    double  dPnom;
 
     //Tab 3
     double dValXi;
@@ -342,7 +343,6 @@ private:
     double dBeta1, dBeta2;
     double dFt12_5;
     double dFr1_5, dFa2_5, dFa1_5, dFr2_5;
-    int    iStepenTochnostiPeredachi2;
     double dZV1, dZV2;
     double dSigmaFmax1, dSigmaFmax2;
     double dSigmaFFmax1, dSigmaFFmax2;

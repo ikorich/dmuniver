@@ -13,7 +13,7 @@ DmWindow::DmWindow(QWidget *parent) :
     //Tab2
     dValPiv = dValV = dValOmega = dValOmega1 = dValOmega2 = dValOmega3 = dValOmega4 = dValD = dValP = dValZ = dTmaxTnom1 = dTmaxTnom2 = 0.0;
     iValN = iValLh = iValLh = iValFt = 0;
-    dValEta = dValEta1 = dValEta2 = dValEta3 = dValNiv = dValI = dValI1 = dValI2 = dValI3 = 0.0;
+    dValEta = dValEta1 = dValEta2 = dValEta3 = dValNiv = dValI = dValI1 = dValI2 = dValI3 = dPnom = 0.0;
     dValN1 = dValN2 = dValN3 = dValN4 = dValP1 = dValP2 = dValP3 = dValP4 = dValT1 = dValT2 = dValT3 = dValT4 = 0.0;
     //Tab3
     dValXi = dVald11 = dVald12 = dVald21 = dVald22 = dValU = dValU1 = dValU2 = dValaa1 = dValaa2 = dVala1 = dVala2 = dVala12 = dVala22 = 0.0;
@@ -36,7 +36,7 @@ DmWindow::DmWindow(QWidget *parent) :
     dFt = dFr = dFa = dKFBeta = dKFV = dKFa = dYF1 = dYF2 = dYb = dSigmaF51 = dSigmaF52 = dDzag = dCzag = 0.0;
     ib1 = ib2 = iZsum = iZ1 = iZ2 = iNaznachenie = iZm = iZV1 = iZV2 = iDrped = iSrped = iSzag1 = iSzag2 = 0;
     dKbe = dKbeu = dddl = dmll = dml = dRl = db = ddm1 = ddm2 = dBeta1 = dBeta2 = dFt12_5 = dFr1_5 = dFa2_5 = dFa1_5 = dFr2_5 = 0.0;
-    iPodshipnikTupe = idl1 = idl2 = iStepenTochnostiPeredachi2 = 0;
+    iPodshipnikTupe = idl1 = idl2 = 0;
     dZV1 = dZV2 = dSigmaFmax1 = dSigmaFmax2 = dSigmaFFmax1 = dSigmaFFmax2 = 0.0;
     //Tab6
     dT3 = dn3 = du3 = dSf1 = dSf2 = dSF = dSff1 = dSff2 = dPsibd3 = dYF61 = dYF62 = dYF1SF1 = dYF2SF2 = dmm3 = dm = dd61 = dd62 = 0.0;
@@ -192,7 +192,7 @@ void DmWindow::on_tabWidget_currentChanged(int index)
         dValPiv = ui->doubleSpinBox_P->value();
         iValN = ui->spinBox_N->value();
         iValLh = ui->spinBox_LH->value();
-        iValFt = ui->spinBox_Ft->value();
+        iValFt = ui->doubleSpinBox_Ft->value();
         dValV = ui->doubleSpinBox_V->value();
         dValOmega = ui->doubleSpinBox_Omega->value();
         dValD = ui->doubleSpinBox_D->value();

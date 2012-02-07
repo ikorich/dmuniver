@@ -603,7 +603,7 @@ void DmWindow::OkrujnayaSkorostStepenTochnostiPeredach(void)
 
     ui->label_V_3->setText("3.14*" + QString::number(dn2) + "*" + QString::number(ddm1) + "/(60*1000) = " + QString::number(dV));
 
-    iStepenTochnostiPeredachi2 = ui->spinBox_StepenTochnostiPeredachi_2->value();
+    iNaznachenie = ui->spinBox_StepenTochnostiPeredachi_2->value();
 
     ProverochnijRaschetNaKontaktnujuVinoslivost();
 }
@@ -638,7 +638,7 @@ void DmWindow::ProverochnijRaschetNaKontaktnujuVinoslivost(void)
     }
     else ui->label_OtnoshenieSigmaH->setText(">");
 
-    ui->label_StepenTochnosti->setText(QString::number(iStepenTochnostiPeredachi2));
+    ui->label_StepenTochnosti->setText(QString::number(iNaznachenie));
 
     dSigmaHmax = dSigmaH3 * sqrt(dTmaxTnom2);
     dSigmaHmax = ROUND1(dSigmaHmax);
@@ -1051,17 +1051,11 @@ bool DmWindow::checkTab5(void)
             noErrors = false;
         } else ui->label_checkml->setVisible(false);
 
-        if ( dml > db )
+        if ( db > (dml*10) )
         {
-            ui->label_checkb->setText(tr("<span style=\" color:#ff0000;\"> < 10</span>"));
+            ui->label_checkb->setText(tr("<span style=\" color:#ff0000;\"> > 10m, Уточните!</span>"));
             noErrors = false;
-        } else ui->label_checkb->setText(tr("<span style=\" color:#ff0000;\"> > 10m, Уточните!</span>"));
-
-        if ( dml > db )
-        {
-            ui->label_checkb->setText(tr("<span style=\" color:#ff0000;\"> < 10</span>"));
-            noErrors = false;
-        } else ui->label_checkb->setText(tr("<span style=\" color:#ff0000;\"> > 10m, Уточните!</span>"));
+        } else ui->label_checkb->setText(tr("<span style=\" color:#ff0000;\"> < 10m</span>"));
 
         if (dV <= 2.0)
             tempValI = 9;
@@ -1074,13 +1068,13 @@ bool DmWindow::checkTab5(void)
         else
             tempValI = 5;
 
-        if(iStepenTochnostiPeredachi2 != tempValI)
+        if(iNaznachenie != tempValI)
         {
             ui->label_checkStepenTochnostiPeredachi->setVisible(true);
             noErrors = false;
         } else ui->label_checkStepenTochnostiPeredachi->setVisible(false);
 
-        if((iStepenTochnostiPeredachi2 >=6 && iStepenTochnostiPeredachi2 <= 9) || CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
+        if((iNaznachenie >=6 && iNaznachenie <= 9) || CurrentPeredacha == Peredacha::CILINDRICHESKAYA)
         {
             if (dV < 1)
             {
@@ -1113,7 +1107,7 @@ bool DmWindow::checkTab5(void)
                     tempValI = 5;
                 }
 
-                tempValD = KoeficientKHV[iStepenTochnostiPeredachi2-6][static_cast<int>(tempValI)];
+                tempValD = KoeficientKHV[iNaznachenie-6][static_cast<int>(tempValI)];
             }
 
         }
@@ -1150,7 +1144,7 @@ bool DmWindow::checkTab5(void)
             noErrors = false;
         } else ui->label_checkKFBeta->setVisible(false);
 
-        if(iStepenTochnostiPeredachi2 >=6 && iStepenTochnostiPeredachi2 <= 9)
+        if(iNaznachenie >=6 && iNaznachenie <= 9)
         {
             tempValI = ROUND(dV) - 1;
 
@@ -1163,7 +1157,7 @@ bool DmWindow::checkTab5(void)
                 tempValI = 5;
             }
 
-            tempValD = KoeficientKFV[iStepenTochnostiPeredachi2-6][tempValI];
+            tempValD = KoeficientKFV[iNaznachenie-6][tempValI];
 
         }
         else tempValD = -1.0;
