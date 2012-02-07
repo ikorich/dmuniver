@@ -90,7 +90,7 @@ void DmWindow::updatePredMejosevoeRastoyanie(void)
     uint i;
 
     for (i = 0 ; i < LENGTH(rastoyanieKlinovoyPeredachi); ++i)
-        if (dValU <= rastoyanieKlinovoyPeredachi[i][0])
+        if (dValU <= (rastoyanieKlinovoyPeredachi[i][0] + 0.5))
         {
             break;
         }
@@ -106,16 +106,16 @@ void DmWindow::updatePredMejosevoeRastoyanie(void)
 
 void DmWindow::updateDlinaRemnya(void)
 {
-    dValll1 = (2 * dValaa1) + (PI * (dVald11 + dVald21) / 2) + (((dVald21 - dVald11) * (dVald21 - dVald11)) / (4 * dValaa1));
+    dValll1 = (2 * dValaa1) + (0.5* PI * (dVald11 + dVald21)) + (((dVald21 - dVald11) * (dVald21 - dVald11)) / (4.0 * dValaa1));
     dValll1 = ROUND1(dValll1);
-    dValll2 = (2 * dValaa2) + (PI * (dVald12 + dVald22) / 2) + (((dVald22 - dVald12) * (dVald22 - dVald12)) / (4 * dValaa2));
+    dValll2 = (2 * dValaa2) + (0.5* PI * (dVald12 + dVald22)) + (((dVald22 - dVald12) * (dVald22 - dVald12)) / (4.0 * dValaa2));
     dValll2 = ROUND1(dValll2);
 
-    ui->label_ll1->setText(tr("2*") + QString::number(dValaa1) + tr("+3.14*(") + QString::number(dVald11) + tr("+") + QString::number(dVald21) + tr(")/2+(")
+    ui->label_ll1->setText(tr("2*") + QString::number(dValaa1) + tr("+0.5*3.14*(") + QString::number(dVald11) + tr("+") + QString::number(dVald21) + tr(")+(")
                            + QString::number(dVald21) + tr("-") + QString::number(dVald11) + tr(")<span style=\" vertical-align:super;\">2</span>/4*") + QString::number(dValaa1)
                            + tr("=") + QString::number(dValll1));
 
-    ui->label_ll2->setText(tr("2*") + QString::number(dValaa2) + tr("+3.14*(") + QString::number(dVald12) + tr("+") + QString::number(dVald22) + tr(")/2+(")
+    ui->label_ll2->setText(tr("2*") + QString::number(dValaa2) + tr("+0.5*3.14*(") + QString::number(dVald12) + tr("+") + QString::number(dVald22) + tr(")+(")
                            + QString::number(dVald22) + tr("-") + QString::number(dVald12) + tr(")<span style=\" vertical-align:super;\">2</span>/4*") + QString::number(dValaa2)
                            + tr("=") + QString::number(dValll2));
 
@@ -132,8 +132,8 @@ void DmWindow::updateStandartDlinaRemnya(void)
 
 void DmWindow::updateMejosevoeRastoyanie(void)
 {
-    dVala1 = ROUND1(dValaa1 + (abs(dVall1 - dValll1))/2);
-    dVala2 = ROUND1(dValaa2 + (abs(dVall2 - dValll2))/2);
+    dVala1 = ROUND1(dValaa1 + (abs(dVall1 - dValll1))/2.0);
+    dVala2 = ROUND1(dValaa2 + (abs(dVall2 - dValll2))/2.0);
 
     ui->label_a1->setText(QString::number(dValaa1) + tr("+|") + QString::number(dVall1) + tr("-") + QString::number(dValll1) + tr("|/2=") + QString::number(dVala1));
     ui->label_a2->setText(QString::number(dValaa2) + tr("+|") + QString::number(dVall2) + tr("-") + QString::number(dValll2) + tr("|/2=") + QString::number(dVala2));

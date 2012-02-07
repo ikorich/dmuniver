@@ -37,6 +37,8 @@ void DmWindow::updatePValues(void)
 void DmWindow::updatePnomTable(void)
 {
     int index = ui->comboBox_Pnom->currentIndex();
+    dPnom = ui->comboBox_Pnom->currentText().toDouble();
+
     for (int i = 0 ; i < ui->tableWidgetPnom->columnCount() ; i ++)
     {
         ui->tableWidgetPnom->setItem(0, i , new QTableWidgetItem(tr(sincOfRotationHertz750[index][i])));
@@ -274,17 +276,21 @@ bool DmWindow::checkTab2(void)
 
     for (uint i = 0 ; i < LENGTH(powerTable); i++)
     if (tempVal <= powerTable[i])
-        {
-            tempVal = powerTable[i];
-            break;
-        }
+    {
+        tempVal = powerTable[i];
+        break;
+    }
+    tempVal = tempVal - tempVal*0.05;
 
-    double p = ui->comboBox_Pnom->currentText().toDouble();
-    if (p != tempVal)
+    if (dPnom >= tempVal && dPnom <= (tempVal + 1.0))
+    {
+        ui->label_CheckPnom->setVisible(false);
+    }
+    else
     {
         ui->label_CheckPnom->setVisible(true);
         noErrors = false;
-    } else ui->label_CheckPnom->setVisible(false);
+    }
 
     tempVal = ROUND2(ui->doubleSpinBox_i1->value());
     if(tempVal < predelI[0][0] || tempVal > predelI[0][1])
