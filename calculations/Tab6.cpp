@@ -362,6 +362,8 @@ void DmWindow::ShagCepiIzRaschetaIznostoikostiEeSharniriv(void)
 void DmWindow::TypCepi(void)
 {
     iTypCepi = ui->comboBox_Cep->currentIndex();
+    dp = ui->comboBox_p->currentText().toDouble();
+
 #ifdef TAB_CONTROL
     if (checkTab6())
         ui->tabWidget->setTabEnabled(5, true);
