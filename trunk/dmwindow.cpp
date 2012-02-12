@@ -142,11 +142,12 @@ DmWindow::DmWindow(QWidget *parent) :
     connect(ui->comboBox_K4,                           SIGNAL(currentIndexChanged(int)),   this, SLOT(KoefficientEkspluatacii()));
     connect(ui->comboBox_K5,                           SIGNAL(currentIndexChanged(int)),   this, SLOT(KoefficientEkspluatacii()));
     connect(ui->comboBox_K6,                           SIGNAL(currentIndexChanged(int)),   this, SLOT(KoefficientEkspluatacii()));
-
-
-
-
-
+    connect(ui->doubleSpinBox_Kt,                      SIGNAL(valueChanged(double)),       this, SLOT(ShagCepiIzRaschetaIznostoikostiEeSharniriv()));
+    connect(ui->comboBox_Cep,                          SIGNAL(currentIndexChanged(int)),   this, SLOT(TypCepi()));
+    connect(ui->comboBox_p,                            SIGNAL(currentIndexChanged(int)),   this, SLOT(TypCepi()));
+    connect(ui->spinBox_Fp,                            SIGNAL(valueChanged(int)),          this, SLOT(TypCepi()));
+    connect(ui->doubleSpinBox_m,                       SIGNAL(valueChanged(double)),       this, SLOT(TypCepi()));
+    connect(ui->spinBox_A,                             SIGNAL(valueChanged(int)),          this, SLOT(TypCepi()));
 
 
     on_spinBox_Variant_valueChanged(1);

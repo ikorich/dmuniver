@@ -364,6 +364,98 @@ void DmWindow::TypCepi(void)
     iTypCepi = ui->comboBox_Cep->currentIndex();
     dp = ui->comboBox_p->currentText().toDouble();
 
+    int shift = iTypCepi == 0 ? ui->comboBox_p->currentIndex() : 2*ui->comboBox_p->currentIndex();
+    ui->label_oboznachenie->setText(tr(ParametriRolikovihCepey[shift][4]));
+
+    iFp = ui->spinBox_Fp->value();
+    dm = ui->doubleSpinBox_m->value();
+    iA = ui->spinBox_A->value();
+
+    DiametriZvezdochki();
+}
+
+void DmWindow::DiametriZvezdochki(void)
+{
+    dd61 = dp / sin((180.0/iz1)*(PI/180.0));
+    dd61 = ROUND1(dd61);
+    ui->label_d1_3->setText(QString::number(dd61));
+
+    dd62 = dp / sin((180.0/iz2)*(PI/180.0));
+    dd62 = ROUND1(dd62);
+    ui->label_d2_3->setText(QString::number(dd62));
+
+    dKz1 = atan(180.0/iz1) * (180 / PI);
+    dKz1 = ROUND3(dKz1);
+    ui->label_KZ1->setText(QString::number(dKz1));
+
+    dKz2 = atan(180.0/iz2) * (180 / PI);
+    dKz2 = ROUND3(dKz2);
+    ui->label_KZ2->setText(QString::number(dKz2));
+
+    int shift = iTypCepi == 0 ? ui->comboBox_p->currentIndex() : 2*ui->comboBox_p->currentIndex();
+    QString dr = ParametriRolikovihCepey[shift][5];
+    ddr = dr.toDouble();
+    ui->label_oboznachenie->setText(QString::number(ddr));
+
+    dLambda = dp / ddr;
+    dLambda = ROUND1(dLambda);
+
+    dDe1 = dp * (0.6 + dKz1 - 0.31/dLambda);
+    dDe1 = ROUND1(dDe1);
+    ui->label_De1->setText(QString::number(dDe1));
+
+    dDe2 = dp * (0.6 + dKz2 - 0.31/dLambda);
+    dDe2 = ROUND1(dDe2);
+    ui->label_De2->setText(QString::number(dDe2));
+
+    dDi1 = dd61 - (ddr - 0.175 * sqrt(dd61));
+    dDi1 = ROUND1(dDi1);
+    ui->label_Di1->setText(QString::number(dDi1));
+
+    dDi2 = dd62 - (ddr - 0.175 * sqrt(dd62));
+    dDi1 = ROUND1(dDi1);
+    ui->label_Di2->setText(QString::number(dDi2));
+
+    ShirinaZuba();
+}
+
+void DmWindow::ShirinaZuba(void)
+{
+    int shift = iTypCepi == 0 ? ui->comboBox_p->currentIndex() : 2*ui->comboBox_p->currentIndex();
+    QString b3 = ParametriRolikovihCepey[shift][6];
+    db3 = b3.toDouble();
+    ui->label_b3->setText(QString::number(db3));
+
+    dbc = 0.93 * db3 - 0.15;
+    dbc = ROUND1(dbc);
+
+    ui->label_bc->setText(QString::number(dbc));
+
+    SkoroctCepi();
+}
+
+void DmWindow::SkoroctCepi(void)
+{
+    dVc = dp * iz1 * dn3 / 60000.0;
+    dVc = ROUND1(dVc);
+
+    ui->label_Vc->setText(QString::number(dp) + "*" + QString::number(iz1) + "*" + QString::number(dn3) + "/(60*1000) = " + QString::number(dVc));
+
+    MejosevoeRastoyanie();
+}
+
+void DmWindow::MejosevoeRastoyanie(void)
+{
+    double da;
+
+    da = 35.0 * dp;
+    da = ROUND(da);
+    da = da / 10;
+    da = ROUND(da);
+    ia = da * 10;
+
+    ui->label_a->setText(QString::number(ia));
+
 #ifdef TAB_CONTROL
     if (checkTab6())
         ui->tabWidget->setTabEnabled(5, true);
