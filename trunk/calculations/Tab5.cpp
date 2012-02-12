@@ -29,7 +29,7 @@ void DmWindow::updateMejOsevoeRastoyanie(void)
     dKa = GetVspomogatelniyKoeficient();
     ui->label_Ka->setText(QString::number(dKa));
 
-    daw = dKa * (du2 + 1) * pow((dT2 * dKHBeta * 1000.0 / (dSigmaH1 * dSigmaH1 * du2 * dPsiba)) , 0.333333333);
+    daw = dKa * (du2 + 1) * pow((dT2 * dKHBeta / (dSigmaH1 * dSigmaH1 * du2 * dPsiba)) , 0.333333333);
     daw = ROUND1(daw);
 
     ui->label_Aw->setText(QString::number(daw));
@@ -1053,9 +1053,9 @@ bool DmWindow::checkTab5(void)
 
         if ( db > (dml*10) )
         {
-            ui->label_checkb->setText(tr("<span style=\" color:#ff0000;\"> > 10m, Уточните!</span>"));
+            ui->label_checkb->setText(tr("<span style=\" color:#ff0000;\"> > 10m<span style=\"vertical-align:sub;\">e</span>, Уточните!</span>"));
             noErrors = false;
-        } else ui->label_checkb->setText(tr("<span style=\" color:#ff0000;\"> < 10m</span>"));
+        } else ui->label_checkb->setText(tr("<span style=\" color:#ff0000;\"> < 10m<span style=\"vertical-align:sub;\">e</span></span>"));
 
         if (dV <= 2.0)
             tempValI = 9;

@@ -132,11 +132,15 @@ void DmWindow::updateStandartDlinaRemnya(void)
 
 void DmWindow::updateMejosevoeRastoyanie(void)
 {
-    dVala1 = ROUND1(dValaa1 + (abs(dVall1 - dValll1))/2.0);
-    dVala2 = ROUND1(dValaa2 + (abs(dVall2 - dValll2))/2.0);
+    //dVala1 = ROUND1(dValaa1 + (abs(dVall1 - dValll1))/2.0);
+    dVala1 = 1.0/8*(2.0*dVall1 - PI * (dVald21 + dVald11) + sqrt(pow((2.0*dVall1 - PI * (dVald21 + dVald11)), 2.0) - 8.0*pow((dVald21 - dVald11), 2.0)));
+    dVala1 = ROUND1(dVala1);
+    //dVala2 = ROUND1(dValaa2 + (abs(dVall2 - dValll2))/2.0);
+    dVala2 = 1.0/8*(2.0*dVall2 - PI * (dVald22 + dVald12) + sqrt(pow((2.0*dVall2 - PI * (dVald22 + dVald12)), 2.0) - 8.0*pow((dVald22 - dVald12), 2.0)));
+    dVala2 = ROUND1(dVala2);
 
-    ui->label_a1->setText(QString::number(dValaa1) + tr("+|") + QString::number(dVall1) + tr("-") + QString::number(dValll1) + tr("|/2=") + QString::number(dVala1));
-    ui->label_a2->setText(QString::number(dValaa2) + tr("+|") + QString::number(dVall2) + tr("-") + QString::number(dValll2) + tr("|/2=") + QString::number(dVala2));
+    ui->label_a1->setText(QString::number(dVala1));
+    ui->label_a2->setText(QString::number(dVala2));
 
     updateSkorostRemney();
 }
@@ -404,11 +408,28 @@ void DmWindow::updateNagruzkaVala(void)
 
 void DmWindow::updateOsnovnieRazmeriShkivov(void)
 {
-    dValde1 = ROUND1(dVald11 + 2.0 * jolobStandart[ui->comboBox_sechenieRemnya1->currentIndex()][0]);
-    dValde2 = ROUND1(dVald12 + 2.0 * jolobStandart[ui->comboBox_sechenieRemnya2->currentIndex()][0]);
+    double tempD1, tempD2;
 
-    ui->label_de1->setText(QString::number(dVald11) + tr("+2*") + QString::number(jolobStandart[ui->comboBox_sechenieRemnya1->currentIndex()][0]) + tr("=") + QString::number(dValde1));
-    ui->label_de2->setText(QString::number(dVald12) + tr("+2*") + QString::number(jolobStandart[ui->comboBox_sechenieRemnya2->currentIndex()][0]) + tr("=") + QString::number(dValde2));
+    if (ui->comboBox_sechenieRemnya3->currentIndex() == ui->comboBox_sechenieRemnya1->currentIndex())
+    {
+        tempD1 = dVald11;
+        tempD2 = dVald21;
+    }
+    else if (ui->comboBox_sechenieRemnya3->currentIndex() == ui->comboBox_sechenieRemnya2->currentIndex())
+    {
+        tempD1 = dVald12;
+        tempD2 = dVald22;
+    }
+    else
+    {
+        tempD1 = 0.0;
+        tempD2 = 0.0;
+    }
+    dValde1 = ROUND1(tempD1 + 2.0 * jolobStandart[ui->comboBox_sechenieRemnya1->currentIndex()][0]);
+    dValde2 = ROUND1(tempD2 + 2.0 * jolobStandart[ui->comboBox_sechenieRemnya2->currentIndex()][0]);
+
+    ui->label_de1->setText(QString::number(tempD1) + tr("+2*") + QString::number(jolobStandart[ui->comboBox_sechenieRemnya1->currentIndex()][0]) + tr("=") + QString::number(dValde1));
+    ui->label_de2->setText(QString::number(tempD2) + tr("+2*") + QString::number(jolobStandart[ui->comboBox_sechenieRemnya2->currentIndex()][0]) + tr("=") + QString::number(dValde2));
 
     double z = 0;
 
