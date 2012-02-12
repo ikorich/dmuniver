@@ -1053,9 +1053,9 @@ bool DmWindow::checkTab5(void)
 
         if ( db > (dml*10) )
         {
-            ui->label_checkb->setText(tr("<span style=\" color:#ff0000;\"> > 10m<span style=\"vertical-align:sub;\">e</span>, Уточните!</span>"));
+            ui->label_checkb->setText(tr("<span style=\" font-size:14pt; color:#ff0000;\">&gt; 10 m</span><span style=\" font-size:14pt; color:#ff0000; vertical-align:sub;\">e</span><span style=\" font-size:14pt; color:#ff0000;\">&gt; 10 m</span> Уточните!</span>"));
             noErrors = false;
-        } else ui->label_checkb->setText(tr("<span style=\" color:#ff0000;\"> < 10m<span style=\"vertical-align:sub;\">e</span></span>"));
+        } else ui->label_checkb->setText(tr("<span style=\" font-size:14pt; color:#ff0000;\">&lt; 10 m</span><span style=\" font-size:14pt; color:#ff0000; vertical-align:sub;\">e</span>"));
 
         if (dV <= 2.0)
             tempValI = 9;

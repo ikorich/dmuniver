@@ -201,6 +201,11 @@ private slots:
     void KoefficientEkspluatacii(void);
     void ShagCepiIzRaschetaIznostoikostiEeSharniriv(void);
     void TypCepi(void);
+    void DiametriZvezdochki(void);
+    void ShirinaZuba(void);
+    void SkoroctCepi(void);
+    void MejosevoeRastoyanie(void);
+
 
     //Global
     void on_spinBox_Variant_valueChanged(int index);
@@ -389,6 +394,17 @@ private:
     double dKt;
     double dp;
     int    iTypCepi;
+    int    iFp;
+    int    iA;
+    double dDe1, dDe2;
+    double dKz1, dKz2;
+    double ddr;
+    double dLambda;
+    double dDi1, dDi2;
+    double db3;
+    double dbc;
+    double dVc;
+    double ia;
 };
 
 #endif // DMWINDOW_H
