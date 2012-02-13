@@ -456,6 +456,51 @@ void DmWindow::MejosevoeRastoyanie(void)
 
     ui->label_a->setText(QString::number(ia));
 
+    RasstoyanieDliniCepiVShagah();
+}
+
+void DmWindow::RasstoyanieDliniCepiVShagah(void)
+{
+    FacticheskoeMejosevoeRastoyanie();
+}
+
+void DmWindow::FacticheskoeMejosevoeRastoyanie(void)
+{
+    OkrujnoeUslovie();
+}
+
+void DmWindow::OkrujnoeUslovie(void)
+{
+    RaschetnayaStreleRasstoyaniya();
+}
+
+void DmWindow::RaschetnayaStreleRasstoyaniya(void)
+{
+    NashalnoeNapryajenie();
+}
+
+void DmWindow::NashalnoeNapryajenie(void)
+{
+    NatyajenieCepiOtDejstviyaCentorbejnojSili();
+}
+
+void DmWindow::NatyajenieCepiOtDejstviyaCentorbejnojSili(void)
+{
+    ProverochnijRaschetPeredachiNaVinoslivost();
+}
+
+void DmWindow::ProverochnijRaschetPeredachiNaVinoslivost(void)
+{
+    ProverochnijRaschetCepiNaStaticheskuyuProchnost();
+}
+
+void DmWindow::ProverochnijRaschetCepiNaStaticheskuyuProchnost(void)
+{
+    RaschetnayaNAgruzkaNAValiPeredachi();
+}
+
+void DmWindow::RaschetnayaNAgruzkaNAValiPeredachi(void)
+{
 #ifdef TAB_CONTROL
     if (checkTab6())
         ui->tabWidget->setTabEnabled(5, true);

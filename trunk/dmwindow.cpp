@@ -148,6 +148,8 @@ DmWindow::DmWindow(QWidget *parent) :
     connect(ui->spinBox_Fp,                            SIGNAL(valueChanged(int)),          this, SLOT(TypCepi()));
     connect(ui->doubleSpinBox_m,                       SIGNAL(valueChanged(double)),       this, SLOT(TypCepi()));
     connect(ui->spinBox_A,                             SIGNAL(valueChanged(int)),          this, SLOT(TypCepi()));
+    connect(ui->comboBox_Kf,                           SIGNAL(currentIndexChanged(int)),   this, SLOT(NashalnoeNapryajenie()));
+    connect(ui->spinBox_S,                             SIGNAL(valueChanged(int)),          this, SLOT(ProverochnijRaschetCepiNaStaticheskuyuProchnost()));
 
 
     on_spinBox_Variant_valueChanged(1);

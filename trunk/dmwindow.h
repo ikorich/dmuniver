@@ -205,7 +205,15 @@ private slots:
     void ShirinaZuba(void);
     void SkoroctCepi(void);
     void MejosevoeRastoyanie(void);
-
+    void RasstoyanieDliniCepiVShagah(void);
+    void FacticheskoeMejosevoeRastoyanie(void);
+    void OkrujnoeUslovie(void);
+    void RaschetnayaStreleRasstoyaniya(void);
+    void NashalnoeNapryajenie(void);
+    void NatyajenieCepiOtDejstviyaCentorbejnojSili(void);
+    void ProverochnijRaschetPeredachiNaVinoslivost(void);
+    void ProverochnijRaschetCepiNaStaticheskuyuProchnost(void);
+    void RaschetnayaNAgruzkaNAValiPeredachi(void);
 
     //Global
     void on_spinBox_Variant_valueChanged(int index);
