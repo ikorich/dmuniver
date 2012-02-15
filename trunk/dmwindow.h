@@ -396,7 +396,7 @@ private:
     double dSigmaHmax61;
     double dSigmaHHmax61;
 
-    double dq;
+    double dqq;
     double dK1, dK2, dK3, dK4, dK5, dK6;
     double dKe;
     double dKt;
@@ -412,7 +412,17 @@ private:
     double db3;
     double dbc;
     double dVc;
-    double ia;
+    int    ia;
+    double dlcc;
+    int    ilc;
+    double da;
+    double dy;
+    double dFo;
+    int    iKf;
+    double dFv;
+    double dq;
+    double dS, dSS;
+    double dR;
 };
 
 #endif // DMWINDOW_H

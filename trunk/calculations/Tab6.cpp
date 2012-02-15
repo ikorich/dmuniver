@@ -326,7 +326,7 @@ void DmWindow::ChisloZubjevZvezdochki(void)
 
 void DmWindow::OrientirovochnoeZnachenieDopustimogoDavleniyaVSharnirahCepi(void)
 {
-    dq = ui->comboBox_q_2->currentText().toDouble();
+    dqq = ui->comboBox_q_2->currentText().toDouble();
 
     KoefficientEkspluatacii();
 }
@@ -351,7 +351,7 @@ void DmWindow::ShagCepiIzRaschetaIznostoikostiEeSharniriv(void)
 {
     dKt = ui->doubleSpinBox_Kt->value();
 
-    dp = 28.0 * pow((dT3 * dKe / (dq * iz1 * dKt)) , 0.333333333);
+    dp = 28.0 * pow((dT3 * dKe / (dqq * iz1 * dKt)) , 0.333333333);
     dp = ROUND1(dp);
 
     ui->label_p->setText(QString::number(dp));
@@ -364,7 +364,7 @@ void DmWindow::TypCepi(void)
     iTypCepi = ui->comboBox_Cep->currentIndex();
     dp = ui->comboBox_p->currentText().toDouble();
 
-    int shift = iTypCepi == 0 ? ui->comboBox_p->currentIndex() : 2*ui->comboBox_p->currentIndex();
+    int shift = iTypCepi == TypCepi::ODNORYADNAYA ? ui->comboBox_p->currentIndex() : 2*ui->comboBox_p->currentIndex();
     ui->label_oboznachenie->setText(tr(ParametriRolikovihCepey[shift][4]));
 
     iFp = ui->spinBox_Fp->value();
@@ -392,7 +392,7 @@ void DmWindow::DiametriZvezdochki(void)
     dKz2 = ROUND3(dKz2);
     ui->label_KZ2->setText(QString::number(dKz2));
 
-    int shift = iTypCepi == 0 ? ui->comboBox_p->currentIndex() : 2*ui->comboBox_p->currentIndex();
+    int shift = iTypCepi == TypCepi::ODNORYADNAYA ? ui->comboBox_p->currentIndex() : 2*ui->comboBox_p->currentIndex();
     QString dr = ParametriRolikovihCepey[shift][5];
     ddr = dr.toDouble();
     ui->label_oboznachenie->setText(QString::number(ddr));
@@ -421,7 +421,7 @@ void DmWindow::DiametriZvezdochki(void)
 
 void DmWindow::ShirinaZuba(void)
 {
-    int shift = iTypCepi == 0 ? ui->comboBox_p->currentIndex() : 2*ui->comboBox_p->currentIndex();
+    int shift = iTypCepi == TypCepi::ODNORYADNAYA ? ui->comboBox_p->currentIndex() : 2*ui->comboBox_p->currentIndex();
     QString b3 = ParametriRolikovihCepey[shift][6];
     db3 = b3.toDouble();
     ui->label_b3->setText(QString::number(db3));
@@ -461,46 +461,115 @@ void DmWindow::MejosevoeRastoyanie(void)
 
 void DmWindow::RasstoyanieDliniCepiVShagah(void)
 {
+    //lc = 2*a/р+(z1+z2)/2+((z2-z1)/2p)2(р/a) =
+    dlcc = 2.0 * ia / dp + (1.0*(iz1+iz2))/2 + pow(((1.0*(iz2-iz1))/2*dp), 2.0) * (dp/ia);
+    dlcc = ROUND1(dlcc);
+
+    ui->label_lcc->setText("2*" + QString::number(ia) + "/" + QString::number(dp) + "+(" + QString::number(iz1) + "+" + QString::number(iz2) + ")/2+(("
+                          + QString::number(iz2) + "-" + QString::number(iz1) + ")/2*" + QString::number(dp) + "^2*("
+                          + QString::number(dp) + "/" + QString::number(ia) + ")=" + QString::number(dlcc));
+
+    ilc = ROUND(dlcc);
+    ui->label_lc->setText(QString::number(ilc));
+
     FacticheskoeMejosevoeRastoyanie();
 }
 
 void DmWindow::FacticheskoeMejosevoeRastoyanie(void)
 {
+    da = (dp/4)*(1.0*ilc - 0.5*(iz1+iz2)+sqrt(pow((1.0*ilc - 0.5*(iz1+iz2)), 2.0)-8.0*pow((iz1+iz2),2.0)/pow((2.0*PI),2.0)));
+    da = ROUND1(da);
+    ui->label_a_2->setText(QString::number(da));
+
     OkrujnoeUslovie();
 }
 
 void DmWindow::OkrujnoeUslovie(void)
 {
+    dFt12 = (2.0*dT3*1000)/dd61;
+    dFt12 = ROUND1(dFt12);
+    ui->label_Ft_2->setText(QString::number(dFt12));
+
     RaschetnayaStreleRasstoyaniya();
 }
 
 void DmWindow::RaschetnayaStreleRasstoyaniya(void)
 {
+    dy = 0.02 * da;
+    ui->label_y->setText("0.02*" + QString::number(da) + "=" + QString::number(dy));
+
     NashalnoeNapryajenie();
 }
 
 void DmWindow::NashalnoeNapryajenie(void)
 {
+    iKf = ui->comboBox_Kf->currentText().toDouble();
+
+    int shift = iTypCepi == TypCepi::ODNORYADNAYA ? ui->comboBox_p->currentIndex() : 2*ui->comboBox_p->currentIndex();
+    QString m = ParametriRolikovihCepey[shift][2];
+    dm = m.toDouble();
+
+    dFo = 9.81 * iKf * dm * da / 1000;
+    ui->label_FO->setText("9.81*" + QString::number(iKf)+ "*" + QString::number(dm) + "*" + QString::number(da) + "/1000=" + QString::number(dFo));
+
     NatyajenieCepiOtDejstviyaCentorbejnojSili();
 }
 
 void DmWindow::NatyajenieCepiOtDejstviyaCentorbejnojSili(void)
 {
+    dFv = dm * dVc * dVc;
+    dFv = ROUND1(dFv);
+    ui->label_Fv->setText(QString::number(dFv));
+
     ProverochnijRaschetPeredachiNaVinoslivost();
 }
 
 void DmWindow::ProverochnijRaschetPeredachiNaVinoslivost(void)
 {
+    dq = dFt12 * dKe / (dKt*iA);
+    dq = ROUND1(dq);
+    ui->label_q->setText(QString::number(dq));
+
+    ui->label_qq->setText(QString::number(dqq));
+
+    if (dq > dqq)
+    {
+        ui->label_Otnoshenieq->setText(">");
+    }
+    else
+    {
+        ui->label_Otnoshenieq->setText("<");
+    }
+
     ProverochnijRaschetCepiNaStaticheskuyuProchnost();
 }
 
 void DmWindow::ProverochnijRaschetCepiNaStaticheskuyuProchnost(void)
 {
+    dS = iFp / (dFt12 + dFv + dFo);
+    dS = ROUND1(dS);
+    ui->label_S->setText(QString::number(dS));
+
+    dS = ui->spinBox_S->value();
+
+    if (dS > dSS)
+    {
+        ui->label_OtnoshenieS->setText(">");
+    }
+    else
+    {
+        ui->label_OtnoshenieS->setText("<");
+    }
+
     RaschetnayaNAgruzkaNAValiPeredachi();
 }
 
 void DmWindow::RaschetnayaNAgruzkaNAValiPeredachi(void)
 {
+    dR = 1.15 * dFt12;
+    dR = ROUND1(dR);
+    ui->label_R->setText(QString::number(dR));
+
 #ifdef TAB_CONTROL
     if (checkTab6())
         ui->tabWidget->setTabEnabled(5, true);
