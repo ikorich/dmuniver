@@ -43,6 +43,10 @@ DmWindow::DmWindow(QWidget *parent) :
     dda61 = dda62 = ddf61 = ddf62 = dV61 = dFt12 = dFa1 = dKFV61 = dSigmaF61 = dSigmaF62 = dSigmaFmax61 = dSigmaFmax62 = 0.0;
     dSigmaFFmax61 = dSigmaFFmax62 = dSigmaH = dKHV61 = dSigmaHmax61 = dSigmaHHmax61 = 0.0;
     iLitje = iHB1 = iHB2 = iSb2 = iSt2 = iN1FE = iN2FE = iz1 = iz2 = iu = izv1 = izv2 = ib61 = ib62 = iStepenTochnostiPeredachi = 0;
+    //Peredacha Cepnayav
+    dqq = dK1 = dK2 = dK3 = dK4 = dK5 = dK6 = dKe = dKt = dp = dDe1 = dDe2 = dKz1 = dKz2 = ddr = dLambda = dDi1 = dDi2 = db3 = dbc = 0.0;
+    iTypCepi = iFp = iA = ilc = iKf = ia = 0;
+    dVc = dlcc = da = dy = dFo = dFv = dq = dS = dSS = dR = 0.0;
 
     //Tab 2
     connect(ui->doubleSpinBox_nu1,                      SIGNAL(valueChanged(double)),       this, SLOT(updateKPDText()));
