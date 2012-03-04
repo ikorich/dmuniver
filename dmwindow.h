@@ -396,11 +396,11 @@ private:
     double dSigmaHmax61;
     double dSigmaHHmax61;
 
-    double dqq;
+    double dqq, dqqq;
     double dK1, dK2, dK3, dK4, dK5, dK6;
     double dKe;
     double dKt;
-    double dp;
+    double dpp, dp;
     int    iTypCepi;
     int    iFp;
     int    iA;
