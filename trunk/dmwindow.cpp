@@ -140,6 +140,7 @@ DmWindow::DmWindow(QWidget *parent) :
     connect(ui->doubleSpinBox_T3_2,                    SIGNAL(valueChanged(double)),       this, SLOT(ChisloZubjevZvezdochki()));
     connect(ui->doubleSpinBox_n3_2,                    SIGNAL(valueChanged(double)),       this, SLOT(ChisloZubjevZvezdochki()));
     connect(ui->doubleSpinBox_u3_2,                    SIGNAL(valueChanged(double)),       this, SLOT(ChisloZubjevZvezdochki()));
+    connect(ui->doubleSpinBox_q,                       SIGNAL(valueChanged(double)),       this, SLOT(OrientirovochnoeZnachenieDopustimogoDavleniyaVSharnirahCepi()));
     connect(ui->comboBox_K1,                           SIGNAL(currentIndexChanged(int)),   this, SLOT(KoefficientEkspluatacii()));
     connect(ui->comboBox_K2,                           SIGNAL(currentIndexChanged(int)),   this, SLOT(KoefficientEkspluatacii()));
     connect(ui->comboBox_K3,                           SIGNAL(currentIndexChanged(int)),   this, SLOT(KoefficientEkspluatacii()));
@@ -154,11 +155,12 @@ DmWindow::DmWindow(QWidget *parent) :
     connect(ui->spinBox_A,                             SIGNAL(valueChanged(int)),          this, SLOT(TypCepi()));
     connect(ui->comboBox_Kf,                           SIGNAL(currentIndexChanged(int)),   this, SLOT(NashalnoeNapryajenie()));
     connect(ui->spinBox_S,                             SIGNAL(valueChanged(int)),          this, SLOT(ProverochnijRaschetCepiNaStaticheskuyuProchnost()));
+    connect(ui->doubleSpinBox_q_2,                     SIGNAL(valueChanged(double)),       this, SLOT(ProverochnijRaschetPeredachiNaVinoslivost()));
 
 
     on_spinBox_Variant_valueChanged(1);
     setPicture(ui->graphicsView_2 , ":/resources/shkiv.jpg");
-    on_comboBoxPrivodType_currentIndexChanged(0);
+    on_comboBoxPrivodType_currentIndexChanged(1);
     on_comboBoxPeredacha1Type1_currentIndexChanged(0);
     on_comboBoxPeredacha3Type1_currentIndexChanged(0);
 #ifdef TAB_CONTROL
@@ -242,13 +244,25 @@ void DmWindow::on_tabWidget_currentChanged(int index)
             KoefficientShirini();
 
             ui->scrollArea_Conisheskiy->setVisible(false);
+            ui->scrollArea_Chervyashnaya->setVisible(false);
+
             ui->scrollArea_Cilindricheskiy->setVisible(true);
         }
         else if (CurrentReductor == Reductor::KONICHESKAYA) {
-            ui->scrollArea_Conisheskiy->setVisible(true);
+
+            ui->scrollArea_Chervyashnaya->setVisible(false);
             ui->scrollArea_Cilindricheskiy->setVisible(false);
 
+            ui->scrollArea_Conisheskiy->setVisible(true);
+
             KoefficientShiriniZubchastihVencov();
+        }
+        else if (CurrentReductor == Reductor::CHERVYACHNAYA) {
+
+            ui->scrollArea_Cilindricheskiy->setVisible(false);
+            ui->scrollArea_Conisheskiy->setVisible(false);
+
+            ui->scrollArea_Chervyashnaya->setVisible(true);
         }
 
     }

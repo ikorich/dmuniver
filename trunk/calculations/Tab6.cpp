@@ -326,7 +326,7 @@ void DmWindow::ChisloZubjevZvezdochki(void)
 
 void DmWindow::OrientirovochnoeZnachenieDopustimogoDavleniyaVSharnirahCepi(void)
 {
-    dqq = ui->comboBox_q_2->currentText().toDouble();
+    dqq = ui->doubleSpinBox_q->value();
 
     KoefficientEkspluatacii();
 }
@@ -351,10 +351,10 @@ void DmWindow::ShagCepiIzRaschetaIznostoikostiEeSharniriv(void)
 {
     dKt = ui->doubleSpinBox_Kt->value();
 
-    dp = 28.0 * pow((dT3 * dKe / (dqq * iz1 * dKt)) , 0.333333333);
-    dp = ROUND1(dp);
+    dpp = 28.0 * pow((dT3 * dKe / (dqq * iz1 * dKt)) , 0.333333333);
+    dpp = ROUND1(dpp);
 
-    ui->label_p->setText(QString::number(dp));
+    ui->label_p->setText(QString::number(dpp));
 
     TypCepi();
 }
@@ -395,10 +395,12 @@ void DmWindow::DiametriZvezdochki(void)
     int shift = iTypCepi == TypCepi::ODNORYADNAYA ? ui->comboBox_p->currentIndex() : 2*ui->comboBox_p->currentIndex();
     QString dr = ParametriRolikovihCepey[shift][5];
     ddr = dr.toDouble();
-    ui->label_oboznachenie->setText(QString::number(ddr));
+    ui->label_dr->setText(QString::number(ddr));
 
     dLambda = dp / ddr;
     dLambda = ROUND1(dLambda);
+
+    ui->label_Lyambda->setText(QString::number(dLambda));
 
     dDe1 = dp * (0.6 + dKz1 - 0.31/dLambda);
     dDe1 = ROUND1(dDe1);
@@ -462,11 +464,11 @@ void DmWindow::MejosevoeRastoyanie(void)
 void DmWindow::RasstoyanieDliniCepiVShagah(void)
 {
     //lc = 2*a/р+(z1+z2)/2+((z2-z1)/2p)2(р/a) =
-    dlcc = 2.0 * ia / dp + (1.0*(iz1+iz2))/2 + pow(((1.0*(iz2-iz1))/2*dp), 2.0) * (dp/ia);
+    dlcc = 2.0 * ia / dp + (1.0*(iz1+iz2))/2 + pow(((1.0*(iz2-iz1))/(2.0*PI)), 2.0) * (dp/ia);
     dlcc = ROUND1(dlcc);
 
     ui->label_lcc->setText("2*" + QString::number(ia) + "/" + QString::number(dp) + "+(" + QString::number(iz1) + "+" + QString::number(iz2) + ")/2+(("
-                          + QString::number(iz2) + "-" + QString::number(iz1) + ")/2*" + QString::number(dp) + "^2*("
+                          + QString::number(iz2) + "-" + QString::number(iz1) + tr(")/2*π)<span style=\" font-size:14pt; vertical-align:super;\">2</span>*(")
                           + QString::number(dp) + "/" + QString::number(ia) + ")=" + QString::number(dlcc));
 
     ilc = ROUND(dlcc);
@@ -530,9 +532,9 @@ void DmWindow::ProverochnijRaschetPeredachiNaVinoslivost(void)
     dq = ROUND1(dq);
     ui->label_q->setText(QString::number(dq));
 
-    ui->label_qq->setText(QString::number(dqq));
+    dqqq = ui->doubleSpinBox_q_2->value();
 
-    if (dq > dqq)
+    if (dq > dqqq)
     {
         ui->label_Otnoshenieq->setText(">");
     }
@@ -558,7 +560,7 @@ void DmWindow::ProverochnijRaschetCepiNaStaticheskuyuProchnost(void)
     }
     else
     {
-        ui->label_OtnoshenieS->setText("<");
+        ui->label_OtnoshenieS->setText("≤");
     }
 
     RaschetnayaNAgruzkaNAValiPeredachi();
@@ -779,7 +781,68 @@ bool DmWindow::checkTab6(void)
     }
     else if (CurrentPeredacha == Peredacha::CEPNAYA)
     {
+        if (dT3 != dValT3 || dn3 != dValN3 || du3 != dValI3)
+        {
+            ui->label_CheckVvod5_2->setVisible(true);
+            noErrors = false;
+        } else ui->label_CheckVvod5_2->setVisible(false);
 
+        if ((dKt == 1.0 && ui->comboBox_Cep->currentIndex() != 0) || (dKt == 1.7 && ui->comboBox_Cep->currentIndex() != 1))
+        {
+            ui->label_checkCep->setVisible(true);
+            noErrors = false;
+        } else ui->label_checkCep->setVisible(false);
+
+        if (dp > dpp*0.8 && dp < dpp*1.4)
+        {
+            ui->label_checkp->setVisible(false);
+        } else {
+            ui->label_checkp->setVisible(true);
+            noErrors = false;
+        }
+
+        if ((dKt == 1.0 && ui->comboBox_Cep->currentIndex() != TypCepi::ODNORYADNAYA) || (dKt == 1.7 && ui->comboBox_Cep->currentIndex() != TypCepi::DVUHRYADNAYA))
+        {
+            ui->label_checkTipCepi->setVisible(true);
+            noErrors = false;
+        } else ui->label_checkTipCepi->setVisible(false);
+
+        int shift = iTypCepi == TypCepi::ODNORYADNAYA ? ui->comboBox_p->currentIndex() : 2*ui->comboBox_p->currentIndex();
+        QString __iFp = ParametriRolikovihCepey[shift][3];
+        int _iFp = __iFp.toInt();
+
+        QString __dm = ParametriRolikovihCepey[shift][2];
+        double _dm = __dm.toDouble();
+
+        QString __iA = ParametriRolikovihCepey[shift][1];
+        int _iA = __iA.toInt();
+
+        if (_iFp != iFp || _dm != dm || _iA != iA)
+        {
+            ui->label_checkTipCepi->setVisible(true);
+            noErrors = false;
+        } else ui->label_checkTipCepi->setVisible(false);
+
+        if (dq > dqqq)
+        {
+            ui->label_checkq->setText(tr("<span style=\" color:#ff0000;\">Условие не выполняется!</span>"));
+            noErrors = false;
+        }
+        else
+        {
+            ui->label_checkq->setText(tr("<span style=\" color:#ff0000;\">Условие выполняется</span>"));
+        }
+
+        if (dS < dSS)
+        {
+            ui->label_checkS->setText(tr("<span style=\" color:#ff0000;\">Прочность не обеспечивается, пожалуйста проверте!</span>"));
+            noErrors = false;
+        }
+        else
+        {
+            ui->label_checkS->setText(tr("<span style=\" color:#ff0000;\">Прочность обеспечивается</span>"));
+        }
     }
+
     return noErrors;
 }
