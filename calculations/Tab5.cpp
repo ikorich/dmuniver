@@ -758,6 +758,292 @@ void DmWindow::ProverkaNaVinoslivostPoNapryjeniyuIzgiba(void)
 #endif
 }
 
+#pragma mark ============ Reductor Chervyachnij ==================
+
+void DmWindow::ChisloVitkovChervyaka(void)
+{
+    dT2 = ROUND2(ui->doubleSpinBox_T2_3->value());
+    dn2 = ROUND1(ui->doubleSpinBox_n2_3->value());
+    du2 = ROUND2(ui->doubleSpinBox_u2_3->value());
+    dTmaxTnom2 = ROUND2(ui->doubleSpinBox_TmaxTnom_3->value());
+    dP2 = ROUND2(ui->doubleSpinBox_P2->value());
+
+    iZ1 = ui->comboBox_z1_2->currentText().toInt();
+
+    iZ2 = ROUND(du2*iZ1);
+
+    ui->label_z2_6->setText(QString::number(iZ2));
+
+    KoeficientDiametraChervya();
+}
+
+void DmWindow::KoeficientDiametraChervya(void)
+{
+    dqq5 = ROUND1(0.25 * iZ2);
+    ui->label_q_2->setText(QString::number(dqq5));
+
+    dq5 = ui->comboBox_q_2->currentText().toDouble();
+
+    RaschetnoeZnachenieMejocevogoRasstoyaniya();
+}
+
+void DmWindow::RaschetnoeZnachenieMejocevogoRasstoyaniya(void)
+{
+    dKH = ui->comboBox_KH->currentText().toDouble();
+
+    double z2 = (double)iZ2;
+
+    daw2 = (z2/dq5+1) * pow((pow((5400.0*dq5)/(dSigmaH2 * iZ2) , 2) * dT2 * dKH), 0.333333333);
+    daw2 = ROUND2(daw2);
+
+    ui->label_aaw->setText(QString::number(daw2));
+
+    ModulZacepleniyaChervyaka();
+}
+
+void DmWindow::ModulZacepleniyaChervyaka(void)
+{
+    dmm1 = 2.0 * daw2 / (dq5 + iZ2);
+    dmm1 = ROUND2(dmm1);
+
+    ui->label_mm_4->setText(QString::number(dmm1));
+
+    dmm = ui->comboBox_m_3->currentText().toDouble();
+
+    daw = 0.5 * dmm * (iZ2 + dq5);
+    daw = ROUND1(daw);
+
+    ui->label_aw->setText(QString::number(daw));
+
+    RazmerChervyaka();
+}
+
+void DmWindow::RazmerChervyaka(void)
+{
+    dd1 = dmm * dq5;
+    dd1 = ROUND1(dd1);
+
+    ui->label_d1_4->setText(QString::number(dmm) + " * " + QString::number(dq5) + " = " + QString::number(dd1));
+
+    dda1 = dd1 + 2.0 * dmm;
+    dda1 = ROUND1(dda1);
+
+    ui->label_da1_3->setText(QString::number(dd1) + tr(" + 2 * ") + QString::number(dmm) + tr(" = ") + QString::number(dda1));
+
+    ddf1 = dd1 - 2.4 * dmm;
+    ddf1 = ROUND1(ddf1);
+
+    ui->label_df1_3->setText(QString::number(dd1) + tr(" - 2.4 * ") + QString::number(dmm) + tr(" = ") + QString::number(ddf1));
+
+    db1 = (11.0 + 0.06 * iZ2) * dmm;
+    db1 = ROUND(db1);
+
+    ui->label_b1_3->setText(tr("( 11 + 0.06 * ") + QString::number(iZ2) + tr(") * ") + QString::number(dmm) + " = " + QString::number(db1));
+
+    dGamma = atan((double)iZ1/dq5) * (180 / PI);
+    dGamma = ROUND1(dGamma);
+    ui->label_gamma->setText(QString::number(dGamma));
+
+    RazmerChervyachnogoKolesa();
+}
+
+void DmWindow::RazmerChervyachnogoKolesa(void)
+{
+    dd2 = dmm * iZ2;
+    dd2 = ROUND1(dd2);
+
+    ui->label_d2_4->setText(QString::number(dmm) + " * " + QString::number(iZ2) + " = " + QString::number(dd2));
+
+    dda2 = dd2 + 2.0 * dmm;
+    dda2 = ROUND1(dda2);
+
+    ui->label_da2_3->setText(QString::number(dd2) + tr(" + 2 * ") + QString::number(dmm) + tr(" = ") + QString::number(dda2));
+
+    ddf2 = dd2 - 2.4 * dmm;
+    ddf2 = ROUND1(ddf2);
+
+    ui->label_df2_3->setText(QString::number(dd2) + tr(" - 2.4 * ") + QString::number(dmm) + tr(" = ") + QString::number(ddf2));
+
+    db2 = 0.75 * dda1;
+    db2 = ROUND(db2);
+
+    ui->label_b2_3->setText(tr(" 0.75 * ") + QString::number(dda1) + tr(" = ") + QString::number(db2));
+
+    OkrujnieSkorostiChervyakaIKolesa();
+}
+
+void DmWindow::OkrujnieSkorostiChervyakaIKolesa(void)
+{
+    dV1 = PI * dn2 * dd1 * du2 / 60000.0; //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    dV1 = ROUND2(dV1);
+
+    ui->label_V1_2->setText("3.14 * " + QString::number(dn2) + " * " + QString::number(dd1) + " / 60000 = " + QString::number(dV1) + tr(" м/с "));
+
+    dV2 = PI * dn2 * dd2 / 60000.0;
+    dV2 = ROUND2(dV2);;
+    ui->label_V2_2->setText("3.14 * " + QString::number(dn2) + " * " + QString::number(dd2) + " / 60000 = " + QString::number(dV2) + tr(" м/с "));
+
+    FakticheskayaSkorostSkoljeniya();
+}
+
+void DmWindow::FakticheskayaSkorostSkoljeniya(void)
+{
+    dVs2 = dV1 / cos(dGamma * (PI / 180));
+    dVs2 = ROUND2(dVs2);
+    ui->label_Vs_2->setText(QString::number(dVs2));
+
+    iNaznachenie = ui->spinBox_Naznachenie->value();
+
+    KoeficientPoleznogoDejstviyaChervyachnojPari();
+}
+
+void DmWindow::KoeficientPoleznogoDejstviyaChervyachnojPari(void)
+{
+    dPsi = ui->comboBox_Psi->currentText().toDouble();
+
+    dEta = tan(dGamma * (PI / 180))/tan((dGamma+dPsi) * (PI / 180));
+    dEta = ROUND2(dEta);
+
+    ui->label_eta->setText(QString::number(dEta));
+
+    SiliVZaceplenii();
+}
+
+void DmWindow::SiliVZaceplenii(void)
+{
+    dFt = 2.0 * dT2 * 1000.0 / dd2;
+    dFt = ROUND2(dFt);
+
+    ui->label_Ft2->setText(tr("2 * ") + QString::number(dT2) + tr(" * 1000 / ") + QString::number(dd2) + tr(" = ") + QString::number(dFt) + tr(" H"));
+
+    dFr = dFt * tan(20.0 * (PI / 180));
+    dFr = ROUND2(dFr);
+
+    ui->label_Fr1_2->setText(QString::number(dFt) + tr(" * tg(20°) = ") + QString::number(dFr) + tr(" H"));
+
+    dFa = 2.0 * dT2 * 1000.0 / (dd1 * dEta * du2);
+    dFa = ROUND2(dFa);
+
+    ui->label_Fa2->setText(tr("2 * ") + QString::number(dT2) + tr(" * 1000 / ") + QString::number(du2) + tr(" * ") + QString::number(dEta) + tr(" * ") + QString::number(dd1) + tr(" = ") + QString::number(dFa) + tr(" H"));
+
+    ProverochnijRaschetNaKontaktnuyuVinoslivost();
+}
+
+void DmWindow::ProverochnijRaschetNaKontaktnuyuVinoslivost(void)
+{
+    iTheta = ui->comboBox_Theta->currentText().toInt();
+    dKH2 = ui->doubleSpinBox_KH->value();
+    dKHV = ui->doubleSpinBox_KHV_2->value();
+
+    dKHBeta = 1.0 + pow(((double)iZ2/iTheta), 2) * (1.0 - dKH2);
+    dKHBeta = ROUND2(dKHBeta);
+    ui->label_KHBeta->setText(QString::number(dKHBeta));
+
+    //=ROUND((5400/(B166/D166))*SQRT((((B166/D166+1)/H166)^3)*C163*Q166*O166);2)
+    double temp = ((double)iZ2 / dq5);
+    dSigmaH51 = (5400.0 / temp) * sqrt(pow(((temp + 1) / daw), 3) * dT2 * dKHBeta * dKHV);
+    dSigmaH51 = ROUND2(dSigmaH51);
+    ui->label_sigmaH_2->setText(QString::number(dSigmaH51));
+
+    ui->label_stepentochnosti->setText(QString::number(iNaznachenie));
+
+    ui->label_SigmaH_5->setText(QString::number(dSigmaH51));
+
+    ui->label_SigmaH_6->setText(QString::number(dSigmaH2));
+
+    if (dSigmaH51 < dSigmaH2)
+    {
+        ui->label_OtnoshenieSigmaH->setText("<");
+    }
+    else
+    {
+        ui->label_OtnoshenieSigmaH->setText(">");
+    }
+
+    dSigmaHmax = dSigmaH51 * sqrt(dTmaxTnom2);
+    dSigmaHmax = ROUND2(dSigmaHmax);
+    ui->label_sigmaHmax->setText(QString::number(dSigmaHmax));
+
+    dSigmaHHmax = 4.0 * iSigmat;
+    dSigmaHHmax = ROUND1(dSigmaHHmax);
+    ui->label_sigmaHHmax->setText(QString::number(dSigmaHHmax));
+
+    if (dSigmaHmax < dSigmaHHmax)
+    {
+        ui->label_otnoshenieSigmaHmax->setText("<");
+    }
+    else
+    {
+        ui->label_otnoshenieSigmaHmax->setText(">");
+    }
+
+    ProverkaNaVinoslivostPoNapryajeniyuIzgibaChervyaka();
+}
+
+void DmWindow::ProverkaNaVinoslivostPoNapryajeniyuIzgibaChervyaka()
+{
+    ui->label_KFBeta->setText(QString::number(dKHBeta));
+    ui->label_KFV->setText(QString::number(dKHV));
+
+    double dzv2 = 0.0;
+    double coss = cos(dGamma * (PI / 180));
+    dzv2 = (double)iZ2 / pow( coss , 3);
+    iZV2 = ROUND(dzv2);
+    ui->label_zv2_3->setText(QString::number(iZV2));
+
+    int tempVal1 = iZV2;
+    if (tempVal1 < 17)
+        tempVal1 = 17;
+
+    dYF2 = 0;
+    for (int i = 0; i < LENGTH(KoeficientYf3); ++i)
+    {
+        if (tempVal1 <= KoeficientYf3[i][0] && dYF2 == 0)
+        {
+            dYF2 = KoeficientYf3[i][1];
+        }
+    }
+
+    ui->label_YF2_4->setText(QString::number(dYF2));
+
+    dSigmaF52 = 0.7 * dYF2 * dFt * dKHBeta * dKHV / (db2 * dmm);
+    dSigmaF52 = ROUND2(dSigmaF52);
+
+    ui->label_sigmaF2_3->setText(QString::number(dSigmaF52));
+    ui->label_sigmaF2_4->setText(QString::number(dSigmaF52));
+
+    ui->label_sigmaFF2_2->setText(QString::number(dSigmaF2));
+
+    if (dSigmaF52 < dSigmaF2)
+    {
+        ui->label_otnoshenieSigmaF2->setText("<");
+    }
+    else
+    {
+        ui->label_otnoshenieSigmaF2->setText(">");
+    }
+
+    iSigmaFmax2 = dSigmaF52 * dTmaxTnom2;
+    iSigmaFmax2 = ROUND1(iSigmaFmax2);
+
+    ui->label_sigmaFmax2->setText(QString::number(iSigmaFmax2));
+
+    iSigmaFFmax2 = 0.8 * iSigmat;
+    iSigmaFFmax2 = ROUND1(iSigmaFFmax2);
+
+    ui->label_sigmaFFmax2->setText(QString::number(iSigmaFFmax2));
+
+    if (iSigmaFmax2 < iSigmaFFmax2)
+    {
+        ui->label_otnoshenieSigmaFmax2->setText("<");
+    }
+    else
+    {
+        ui->label_otnoshenieSigmaFmax2->setText(">");
+    }
+
+    checkTab5();
+}
 
 #pragma mark =================== check ==========================
 
@@ -1180,7 +1466,17 @@ bool DmWindow::checkTab5(void)
             noErrors = false;
         } else ui->label_checkSigmaFmax1->setText(tr("<span style=\" color:#ff0000;\">Условие выносливости выполняется.</span>"));
     }
+    else if (CurrentReductor == Reductor::CHERVYACHNAYA)
+    {
+        double tempValD = 0.0;
+        int    tempValI = 0;
 
+        if (dT2 != dValT3 || dn2 != dValN3 || du2 != dValI2 || dTmaxTnom1 != dTmaxTnom2 || dP2 != dValP2)
+        {
+            ui->label_CheckT2_3->setVisible(true);
+            noErrors = false;
+        } else ui->label_CheckT2_3->setVisible(false);
+    }
     return noErrors;
 }
 

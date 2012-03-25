@@ -91,9 +91,9 @@ void DmWindow::updateFactChisloCiclov(void)
 
 void DmWindow::updateViborMateriala(void)
 {
-    dVs = 4.5*0.0001*dValN3*dValI2*pow(dValT2, (1.0/3));
+    dVs = 4.5*0.0001 * dValN3 * dValI2 * pow(dValT3, (1.0/3));
     dVs = ROUND2(dVs);
-    ui->label_Vs->setText(QString::number(dVs) + tr("–º/—Å"));
+    ui->label_Vs->setText(QString::number(dVs) + tr("м/с"));
 
     updateKontaktnieNapryajenia();
 }
@@ -170,13 +170,13 @@ void DmWindow::updateNapryajenieIzgiba(void)
     }
     else
     {
-        iSb = ui->comboBox_Sb->currentText().toInt();
-        iSt = ui->comboBox_St->currentText().toInt();
+        iSigmab = ui->comboBox_Sb->currentText().toInt();
+        iSigmat = ui->comboBox_St->currentText().toInt();
 
         iN2fe = ROUND(60 * iValLh * dValN3);
         dKFL1 = pow((1000000.0/iN2fe), (1.0/9));
         dKFL1 = ROUND2(dKFL1);
-        dSigmaF2 = (0.25 * iSt - 0.08 * iSb) * dKFL1;
+        dSigmaF2 = (0.25 * iSigmat + 0.08 * iSigmab) * dKFL1;
         dSigmaF2 = ROUND2(dSigmaF2);
 
         ui->label_N2fe->setText(QString::number(iN2fe));
@@ -230,18 +230,20 @@ bool DmWindow::checkTab4(void)
             } else ui->label_checkVenec->setVisible(false);
         }
 
-        if (iSb < svojstvaStali[ui->comboBox_Venec->currentIndex()][0] || iSb > svojstvaStali[ui->comboBox_Venec->currentIndex()][1])
+        if (iSigmab >= svojstvaStali[ui->comboBox_Venec->currentIndex()][0] && iSigmab <= svojstvaStali[ui->comboBox_Venec->currentIndex()][1])
         {
+            ui->label_checkSb->setVisible(false);
+        } else {
+            noErrors = false;
             ui->label_checkSb->setVisible(true);
-            noErrors = false;
-        } else ui->label_checkSb->setVisible(false);
-
-        if (iSt < svojstvaStali[ui->comboBox_Venec->currentIndex()][2] || iSt > svojstvaStali[ui->comboBox_Venec->currentIndex()][3])
+        }
+        if (iSigmat >= svojstvaStali[ui->comboBox_Venec->currentIndex()][2] && iSigmat <= svojstvaStali[ui->comboBox_Venec->currentIndex()][3])
         {
-            ui->label_checkSt->setVisible(true);
+            ui->label_checkSt->setVisible(false);
+        } else {
             noErrors = false;
-        } else ui->label_checkSt->setVisible(false);
-
+            ui->label_checkSt->setVisible(true);
+        }
     }
 
     return noErrors;

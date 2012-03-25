@@ -25,8 +25,8 @@ DmWindow::DmWindow(QWidget *parent) :
     //Tab4
     iShesternya4Index = iKoleso4Index = iN1 = iN2 = iN2fe = 0;
     dNH01 = dNH02 = dKHL1 = dKHL2 = dSigmaH1 = dSigmaH2 = dSigmaH3 = dSigmaF1 = dSigmaF2 = dKFL1 = dKFL2 = dVs = 0.0;
-    iSb = 230;
-    iSt = 140;
+    iSigmab = 230;
+    iSigmat = 140;
     iSigmaT = 650;
     iHBcp1 = iHBcp2 = 250;
     iC = 1;
@@ -87,6 +87,7 @@ DmWindow::DmWindow(QWidget *parent) :
     connect(ui->doubleSpinBox_SF,                      SIGNAL(valueChanged(double)),       this, SLOT(updateNapryajenieIzgiba()));
     connect(ui->comboBox_Sb,                           SIGNAL(currentIndexChanged(int)),   this, SLOT(updateNapryajenieIzgiba()));
     connect(ui->comboBox_St,                           SIGNAL(currentIndexChanged(int)),   this, SLOT(updateNapryajenieIzgiba()));
+    connect(ui->comboBox_Stal,                         SIGNAL(currentIndexChanged(int)),   this, SLOT(updateNapryajenieIzgiba()));
     connect(ui->comboBox_Venec,                        SIGNAL(currentIndexChanged(int)),   this, SLOT(updateNapryajenieIzgiba()));
 
     //Tab 5
@@ -105,11 +106,11 @@ DmWindow::DmWindow(QWidget *parent) :
     connect(ui->comboBox_Kfbeta,                       SIGNAL(currentIndexChanged(int)),   this, SLOT(ProverkaNaVinoslivostPoNapryajeniyuIzgiba()));
     connect(ui->doubleSpinBox_Kfv,                     SIGNAL(valueChanged(double)),       this, SLOT(ProverkaNaVinoslivostPoNapryajeniyuIzgiba()));
 
+    //KONICHESKAYA
     connect(ui->doubleSpinBox_T2_2,                    SIGNAL(valueChanged(double)),       this, SLOT(KoefficientShiriniZubchastihVencov()));
     connect(ui->doubleSpinBox_n2_2,                    SIGNAL(valueChanged(double)),       this, SLOT(KoefficientShiriniZubchastihVencov()));
     connect(ui->doubleSpinBox_u2_2,                    SIGNAL(valueChanged(double)),       this, SLOT(KoefficientShiriniZubchastihVencov()));
     connect(ui->doubleSpinBox_TmaxTnom_2,              SIGNAL(valueChanged(double)),       this, SLOT(KoefficientShiriniZubchastihVencov()));
-
     connect(ui->doubleSpinBox_Kbe,                     SIGNAL(valueChanged(double)),       this, SLOT(KoefficientShiriniZubchastihVencov()));
     connect(ui->comboBox_Podshipnik,                   SIGNAL(currentIndexChanged(int)),   this, SLOT(KoefficientNeravnomernosti()));
     connect(ui->comboBox_Khb,                          SIGNAL(currentIndexChanged(int)),   this, SLOT(KoefficientNeravnomernosti()));
@@ -120,6 +121,22 @@ DmWindow::DmWindow(QWidget *parent) :
     connect(ui->doubleSpinBox_KHV,                     SIGNAL(valueChanged(double)),       this, SLOT(ProverochnijRaschetNaKontaktnujuVinoslivost()));
     connect(ui->comboBox_KFBeta,                       SIGNAL(currentIndexChanged(int)),   this, SLOT(ProverkaNaVinoslivostPoNapryjeniyuIzgiba()));
     connect(ui->doubleSpinBox_KFv,                     SIGNAL(valueChanged(double)),       this, SLOT(ProverkaNaVinoslivostPoNapryjeniyuIzgiba()));
+
+    //CHERVYACHNAYA
+    connect(ui->doubleSpinBox_T2_3,                    SIGNAL(valueChanged(double)),       this, SLOT(ChisloVitkovChervyaka()));
+    connect(ui->doubleSpinBox_n2_3,                    SIGNAL(valueChanged(double)),       this, SLOT(ChisloVitkovChervyaka()));
+    connect(ui->doubleSpinBox_u2_3,                    SIGNAL(valueChanged(double)),       this, SLOT(ChisloVitkovChervyaka()));
+    connect(ui->doubleSpinBox_TmaxTnom_3,              SIGNAL(valueChanged(double)),       this, SLOT(ChisloVitkovChervyaka()));
+    connect(ui->doubleSpinBox_P2,                      SIGNAL(valueChanged(double)),       this, SLOT(ChisloVitkovChervyaka()));
+    connect(ui->comboBox_z1_2,                         SIGNAL(currentIndexChanged(int)),   this, SLOT(ChisloVitkovChervyaka()));
+    connect(ui->comboBox_q_2,                          SIGNAL(currentIndexChanged(int)),   this, SLOT(KoeficientDiametraChervya()));
+    connect(ui->comboBox_KH,                           SIGNAL(currentIndexChanged(int)),   this, SLOT(RaschetnoeZnachenieMejocevogoRasstoyaniya()));
+    connect(ui->comboBox_m_3,                          SIGNAL(currentIndexChanged(int)),   this, SLOT(ModulZacepleniyaChervyaka()));
+    connect(ui->spinBox_Naznachenie,                   SIGNAL(valueChanged(int)),          this, SLOT(FakticheskayaSkorostSkoljeniya()));
+    connect(ui->comboBox_Psi,                          SIGNAL(currentIndexChanged(int)),   this, SLOT(KoeficientPoleznogoDejstviyaChervyachnojPari()));
+    connect(ui->comboBox_Theta,                        SIGNAL(currentIndexChanged(int)),   this, SLOT(ProverochnijRaschetNaKontaktnuyuVinoslivost()));
+    connect(ui->doubleSpinBox_KH,                      SIGNAL(valueChanged(double)),       this, SLOT(ProverochnijRaschetNaKontaktnuyuVinoslivost()));
+    connect(ui->doubleSpinBox_KHV_2,                   SIGNAL(valueChanged(double)),       this, SLOT(ProverochnijRaschetNaKontaktnuyuVinoslivost()));
 
     //Tab 6
     connect(ui->doubleSpinBox_T3,                      SIGNAL(valueChanged(double)),       this, SLOT(viborMaterialaZubchatihKoles()));
@@ -263,6 +280,8 @@ void DmWindow::on_tabWidget_currentChanged(int index)
             ui->scrollArea_Conisheskiy->setVisible(false);
 
             ui->scrollArea_Chervyashnaya->setVisible(true);
+
+            ChisloVitkovChervyaka();
         }
 
     }

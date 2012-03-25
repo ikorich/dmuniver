@@ -179,6 +179,20 @@ private slots:
     void ProverochnijRaschetNaKontaktnujuVinoslivost(void);
     void ProverkaNaVinoslivostPoNapryjeniyuIzgiba(void);
 
+    //CHERVYACHNAYA
+    void ChisloVitkovChervyaka(void);
+    void KoeficientDiametraChervya(void);
+    void RaschetnoeZnachenieMejocevogoRasstoyaniya(void);
+    void ModulZacepleniyaChervyaka(void);
+    void RazmerChervyaka(void);
+    void RazmerChervyachnogoKolesa(void);
+    void OkrujnieSkorostiChervyakaIKolesa(void);
+    void FakticheskayaSkorostSkoljeniya(void);
+    void KoeficientPoleznogoDejstviyaChervyachnojPari(void);
+    void SiliVZaceplenii(void);
+    void ProverochnijRaschetNaKontaktnuyuVinoslivost(void);
+    void ProverkaNaVinoslivostPoNapryajeniyuIzgibaChervyaka();
+
     //Tab 6
     void proverkaNaKontaktnujuProchnost(void);
     void proverkaNaProchnost(void);
@@ -289,7 +303,7 @@ private:
     double dSigmaF1, dSigmaF2;
     double dKFL1, dKFL2;
     double dVs;
-    int    iSb, iSt;
+    int    iSigmab, iSigmat;
     int    iN2fe;
     int    iSigmaT;
     int    iC;
@@ -342,6 +356,7 @@ private:
     double dCzag;
     int    iSzag1, iSzag2;
 
+    //KONICHESKAYA
     double dKbe;
     double dKbeu;
     int    iPodshipnikTupe;
@@ -359,6 +374,18 @@ private:
     double dZV1, dZV2;
     double dSigmaFmax1, dSigmaFmax2;
     double dSigmaFFmax1, dSigmaFFmax2;
+
+    //CHERVYACHNAYA
+    double dP2;
+    double dqq5, dq5;
+    double dKH, dKH2;
+    double db1, db2;
+    double dGamma;
+    double dV1, dV2;
+    double dVs2;
+    double dPsi;
+    double dEta;
+    int    iTheta;
 
     //Tab 6
     double dT3;
