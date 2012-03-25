@@ -939,7 +939,6 @@ void DmWindow::ProverochnijRaschetNaKontaktnuyuVinoslivost(void)
     dKHBeta = ROUND2(dKHBeta);
     ui->label_KHBeta->setText(QString::number(dKHBeta));
 
-    //=ROUND((5400/(B166/D166))*SQRT((((B166/D166+1)/H166)^3)*C163*Q166*O166);2)
     double temp = ((double)iZ2 / dq5);
     dSigmaH51 = (5400.0 / temp) * sqrt(pow(((temp + 1) / daw), 3) * dT2 * dKHBeta * dKHV);
     dSigmaH51 = ROUND2(dSigmaH51);
@@ -953,11 +952,11 @@ void DmWindow::ProverochnijRaschetNaKontaktnuyuVinoslivost(void)
 
     if (dSigmaH51 < dSigmaH2)
     {
-        ui->label_OtnoshenieSigmaH->setText("<");
+        ui->label_otnoshenieSigmaH->setText("<");
     }
     else
     {
-        ui->label_OtnoshenieSigmaH->setText(">");
+        ui->label_otnoshenieSigmaH->setText(">");
     }
 
     dSigmaHmax = dSigmaH51 * sqrt(dTmaxTnom2);
@@ -1476,6 +1475,76 @@ bool DmWindow::checkTab5(void)
             ui->label_CheckT2_3->setVisible(true);
             noErrors = false;
         } else ui->label_CheckT2_3->setVisible(false);
+
+        if(du2 >= 8 && du2 <= 14)
+            tempValI = 4;
+        else if(du2 > 14 && du2 < 30)
+            tempValI = 2;
+        else
+            tempValI = 1;
+
+        if(iZ1 != tempValI)
+        {
+            ui->label_check_z1->setVisible(true);
+            noErrors = false;
+        } else ui->label_check_z1->setVisible(false);
+
+        tempValD = dqq5*0.05;
+
+        if(dq5 < (dqq5-tempValD) || dq5 > (dqq5+tempValD))
+        {
+            ui->label_check_q->setVisible(true);
+            noErrors = false;
+        } else ui->label_check_q->setVisible(false);
+
+        tempValD = dmm1*0.05;
+        if(dmm < (dmm1-tempValD) || dmm > (dmm1+tempValD))
+        {
+            ui->label_check_m->setVisible(true);
+            noErrors = false;
+        } else ui->label_check_m->setVisible(false);
+
+        if (dVs2 <= 2.0)
+            tempValI = 9;
+        else if (dVs2 <= 6.0)
+            tempValI = 8;
+        else if (dVs2 <= 10.0)
+            tempValI = 7;
+        else if (dVs2 <= 15.0)
+            tempValI = 6;
+        else
+            tempValI = 5;
+
+        if(iNaznachenie != tempValI)
+        {
+            ui->label_check_naznachenie->setVisible(true);
+            noErrors = false;
+        } else ui->label_check_naznachenie->setVisible(false);
+
+        if (dSigmaH51 > dSigmaH2)
+        {
+            ui->label_check_sigmaH->setText(tr("<span style=\" color:#ff0000;\">Условие контактной выносливости не выполняется, пожалуйста уточните!</span>"));
+            noErrors = false;
+        } else ui->label_check_sigmaH->setText(tr("<span style=\" color:#ff0000;\">Условие контактной выносливости выполняется.</span>"));
+
+        if (dSigmaHmax > dSigmaHHmax)
+        {
+            ui->label_check_sigmaHmax->setText(tr("<span style=\" color:#ff0000;\">Условие  не выполняется, пожалуйста уточните!</span>"));
+            noErrors = false;
+        } else ui->label_check_sigmaHmax->setText(tr("<span style=\" color:#ff0000;\">Условие  выполняется.</span>"));
+
+        if (dSigmaF52 > dSigmaF2)
+        {
+            ui->label_check_sigmaF2->setText(tr("<span style=\" color:#ff0000;\">Условие  выносливости на изгиб не выполняется, пожалуйста уточните!</span>"));
+            noErrors = false;
+        } else ui->label_check_sigmaF2->setText(tr("<span style=\" color:#ff0000;\">Условие выносливости на изгиб выполняется.</span>"));
+
+        if (iSigmaFmax2 > iSigmaFFmax2)
+        {
+            ui->label_check_sigmaF2max->setText(tr("<span style=\" color:#ff0000;\">Условие  выносливости не выполняется, пожалуйста уточните!</span>"));
+            noErrors = false;
+        } else ui->label_check_sigmaF2max->setText(tr("<span style=\" color:#ff0000;\">Условие выносливости выполняется.</span>"));
+
     }
     return noErrors;
 }
