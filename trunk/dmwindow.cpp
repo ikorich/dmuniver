@@ -137,6 +137,8 @@ DmWindow::DmWindow(QWidget *parent) :
     connect(ui->comboBox_Theta,                        SIGNAL(currentIndexChanged(int)),   this, SLOT(ProverochnijRaschetNaKontaktnuyuVinoslivost()));
     connect(ui->doubleSpinBox_KH,                      SIGNAL(valueChanged(double)),       this, SLOT(ProverochnijRaschetNaKontaktnuyuVinoslivost()));
     connect(ui->doubleSpinBox_KHV_2,                   SIGNAL(valueChanged(double)),       this, SLOT(ProverochnijRaschetNaKontaktnuyuVinoslivost()));
+    connect(ui->spinBox_KT,                            SIGNAL(valueChanged(int)),          this, SLOT(TeplovojRaschetPeredachi()));
+
 
     //Tab 6
     connect(ui->doubleSpinBox_T3,                      SIGNAL(valueChanged(double)),       this, SLOT(viborMaterialaZubchatihKoles()));

@@ -874,10 +874,10 @@ void DmWindow::RazmerChervyachnogoKolesa(void)
 
 void DmWindow::OkrujnieSkorostiChervyakaIKolesa(void)
 {
-    dV1 = PI * dn2 * dd1 * du2 / 60000.0; //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    dV1 = PI * dn2 * dd1 * du2 / 60000.0;
     dV1 = ROUND2(dV1);
 
-    ui->label_V1_2->setText("3.14 * " + QString::number(dn2) + " * " + QString::number(dd1) + " / 60000 = " + QString::number(dV1) + tr(" м/с "));
+    ui->label_V1_2->setText("3.14 * " + QString::number(dn2) + " * "  + QString::number(du2) + " * " + QString::number(dd1) + " / 60000 = " + QString::number(dV1) + tr(" м/с "));
 
     dV2 = PI * dn2 * dd2 / 60000.0;
     dV2 = ROUND2(dV2);;
@@ -1040,6 +1040,23 @@ void DmWindow::ProverkaNaVinoslivostPoNapryajeniyuIzgibaChervyaka()
     {
         ui->label_otnoshenieSigmaFmax2->setText(">");
     }
+
+    TeplovojRaschetPeredachi();
+}
+
+void DmWindow::TeplovojRaschetPeredachi(void)
+{
+    iKT = ui->spinBox_KT->value();
+
+    dA = 20.0 * pow((daw * 0.001), 2);
+    dA = ROUND2(dA);
+    ui->label_A->setText(QString::number(dA));
+
+    double dtm = 0.0;
+    dtm = 20.0 + (dP2 * (1.0 - dEta) * 1000) / (dA * iKT);
+    itm = ROUND(dtm);
+
+    ui->label_tm->setText(QString::number(itm));
 
     checkTab5();
 }
@@ -1545,6 +1562,11 @@ bool DmWindow::checkTab5(void)
             noErrors = false;
         } else ui->label_check_sigmaF2max->setText(tr("<span style=\" color:#ff0000;\">Условие выносливости выполняется.</span>"));
 
+        if(itm >= 90)
+        {
+            ui->label_check_tm->setVisible(true);
+            noErrors = false;
+        } else ui->label_check_tm->setVisible(false);
     }
     return noErrors;
 }

@@ -192,6 +192,7 @@ private slots:
     void SiliVZaceplenii(void);
     void ProverochnijRaschetNaKontaktnuyuVinoslivost(void);
     void ProverkaNaVinoslivostPoNapryajeniyuIzgibaChervyaka();
+    void TeplovojRaschetPeredachi(void);
 
     //Tab 6
     void proverkaNaKontaktnujuProchnost(void);
@@ -386,6 +387,10 @@ private:
     double dPsi;
     double dEta;
     int    iTheta;
+    int    itm;
+    int    iKT;
+    double dA;
+
 
     //Tab 6
     double dT3;
